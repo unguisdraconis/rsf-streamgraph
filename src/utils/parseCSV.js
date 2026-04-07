@@ -2,15 +2,15 @@
  * Parses and normalizes RSF CSV data across all year formats (2002–2025).
  *
  * FORMAT A  (2002, 2003, 2005):
- *   Year (N);ISO;Rank N;Score N;Score N without the exactions;Score N with the exactions;
- *   Score exaction;...;FR_country;EN_country;ES_country;...;Zone
+ *   Year (N);ISO;Rank N;Score N;Score N without the exactions;Score N with
+ *   the exactions;Score exaction;...;FR_country;EN_country;ES_country;...;Zone
  *   • Many 2002 scores are blank
  *   • Spaces frequently replace semicolons in numeric fields
  *
  * FORMAT B  (2012–2021):
- *   Year (N);ISO;Rank N;Score N;Score N without the exactions;Score N with the exactions;
- *   Score exaction;...;Rank N-1;Score N-1;Rank evolution;FR_country;EN_country;
- *   ES_country;AR_country;FA_country;Zone
+ *   Year (N);ISO;Rank N;Score N;Score N without the exactions;Score N with
+ *   the exactions;Score exaction;...;Rank N-1;Score N-1;Rank evolution;
+ *   FR_country;EN_country;ES_country;AR_country;FA_country;Zone
  *   • 2012 file covers 2011–2012; year column may read "2011" → remap to 2012
  *   • Same space-for-semicolon corruption in numeric fields
  *
@@ -18,13 +18,15 @@
  *   ISO;Score;Rank;Political Context;Rank_Pol;Economic Context;Rank_Eco;
  *   Legal Context;Rank_Leg;Social Context;Rank_Soc;Safety;Rank_Saf;
  *   Situation;Zone;Country_FR;Country_EN;Country_ES;Country_PT;
- *   Country_AR;Country_FA;Year (N);Rank N-1;Rank evolution;Score N-1;Score evolution
+ *   Country_AR;Country_FA;Year (N);Rank N-1;Rank evolution;Score N-1;
+ *   Score evolution
  *   • No year in first column; year is near the end or inferred from filename
  *   • "Zone" column contains the geographic region
  *   • "Situation" column contains the press-freedom status label
  */
 
 // ─── Zone Normalization ────────────────────────────────────────────
+
 const ZONE_ALIASES = {
   "ue balkans": "Europe",
   "ue balkan": "Europe",
@@ -58,11 +60,9 @@ function normalizeZone(raw) {
   const trimmed = raw.trim();
   if (!trimmed) return null;
 
-  // Direct lookup
   const key = trimmed.toLowerCase();
   if (ZONE_ALIASES[key]) return ZONE_ALIASES[key];
 
-  // Prefix matching for truncated values
   for (const [alias, canonical] of Object.entries(ZONE_ALIASES)) {
     if (key.startsWith(alias) || alias.startsWith(key)) {
       return canonical;
@@ -74,41 +74,29 @@ function normalizeZone(raw) {
 
 /**
  * Parse a numeric value from a potentially dirty string.
- * Handles: European commas, embedded spaces, leading/trailing junk.
+ * Handles European commas, embedded spaces, leading/trailing junk.
  */
 function parseNum(val) {
   if (val == null) return NaN;
-  // Strip everything except digits, dots, commas, minus signs
   let cleaned = String(val).trim().replace(",", ".");
-  // Remove any stray letters
   cleaned = cleaned.replace(/[^0-9.\-]/g, "");
   const n = parseFloat(cleaned);
   return isFinite(n) ? n : NaN;
 }
 
 /**
- * Some rows have spaces where semicolons should be in the first few
- * numeric columns. E.g.:
- *   "2015;FIN;1 48;92"  should be  "2015;FIN;1;48;92"
- *   "2003;COM 5;3"      should be  "2003;COM;5;3"
- *
- * This function attempts to repair a raw CSV line before splitting.
+ * Repair a raw CSV line before splitting on semicolons.
+ * Fixes spaces that should be semicolons in the first few numeric columns.
+ *   "2015;FIN;1 48;92"  →  "2015;FIN;1;48;92"
+ *   "2003;COM 5;3"      →  "2003;COM;5;3"
  */
 function repairLine(line) {
-  // Phase 1: Fix "ISO DIGIT" patterns like "COM 5;" → "COM;5;"
-  // Match: after a semicolon, 2-3 uppercase letters, a space, then digits
   let repaired = line.replace(/;([A-Z]{2,3})\s+(\d)/g, ";$1;$2");
 
-  // Phase 2: Fix "DIGIT SPACE DIGIT" inside numeric fields
-  // But only in the first ~8 fields (the numeric zone).
-  // We split, repair early fields, rejoin.
   const parts = repaired.split(";");
-  // Fields 0..7 are typically: Year, ISO, Rank, Score, ScoreWithout, ScoreWith, ScoreExaction,...
   for (let i = 0; i < Math.min(parts.length, 8); i++) {
-    // If a field contains "digits space digits" and nothing else, split it
     const match = parts[i].trim().match(/^(\d+)\s+(\d[\d.]*)$/);
     if (match) {
-      // Replace this one field with two fields
       parts.splice(i, 1, match[1], match[2]);
     }
   }
@@ -123,7 +111,6 @@ function detectFormat(headerCells) {
   const joined = headerCells.join(";").toLowerCase();
 
   if (h0.startsWith("year") || h0.startsWith("année")) {
-    // Format A or B — differentiate by presence of "fr_country" or "rank n-1"
     if (
       joined.includes("fr_country") ||
       joined.includes("en_country") ||
@@ -138,7 +125,6 @@ function detectFormat(headerCells) {
     return "C";
   }
 
-  // Fallback: if first data cell looks like a year, treat as A
   return "unknown";
 }
 
@@ -149,9 +135,6 @@ function findCol(headers, ...needles) {
   });
 }
 
-/**
- * Scan a row's cells from the end to find a recognizable zone string.
- */
 function findZoneInRow(cells) {
   for (let j = cells.length - 1; j >= 0; j--) {
     const zone = normalizeZone(cells[j]);
@@ -162,11 +145,6 @@ function findZoneInRow(cells) {
 
 // ─── Year Remapping ────────────────────────────────────────────────
 
-/**
- * Maps of filename-year → actual chart year.
- * The 2012 file covers 2011–2012. If the year column reads 2011,
- * we remap to 2012 because RSF did not publish a standalone 2011 index.
- */
 const YEAR_REMAP = {
   2011: 2012,
 };
@@ -182,9 +160,8 @@ function normalizeYear(rawYear, fallbackYear) {
 
 /**
  * Parse a single RSF CSV string.
- * @param {string} csvText     Raw CSV content
- * @param {number} fallbackYear  Year to use when the file has no year column (Format C)
- *                                or when the year column is unparseable
+ * @param {string} csvText       Raw CSV content
+ * @param {number} fallbackYear  Year to use when the file has no year column
  */
 export function parseRSFCsv(csvText, fallbackYear) {
   const lines = csvText
@@ -213,7 +190,6 @@ export function parseRSFCsv(csvText, fallbackYear) {
       const rank = parseNum(cells[2]);
       const score = parseNum(cells[3]);
 
-      // Find zone
       let zone = null;
       if (iZone >= 0 && cells[iZone]) {
         zone = normalizeZone(cells[iZone]);
@@ -222,16 +198,13 @@ export function parseRSFCsv(csvText, fallbackYear) {
         zone = findZoneInRow(cells);
       }
 
-      // Find EN country name
       let country = "";
       if (iEN >= 0 && cells[iEN]) {
         country = cells[iEN].trim();
       }
 
-      // Skip rows with no ISO or no usable year
       if (!iso || isNaN(year)) continue;
 
-      // For 2002, scores are mostly missing — store rank as fallback
       records.push({
         year,
         iso,
@@ -242,9 +215,6 @@ export function parseRSFCsv(csvText, fallbackYear) {
       });
     }
   } else if (format === "C") {
-    // Format C: ISO;Score;Rank;PolCtx;Rank_Pol;EcoCtx;Rank_Eco;LegCtx;Rank_Leg;
-    //           SocCtx;Rank_Soc;Safety;Rank_Saf;Situation;Zone;Country_FR;Country_EN;...
-    //...;Year (N);Rank N-1;Rank evolution;Score N-1;Score evolution
     const iISO = findCol(rawHeader, "iso");
     const iScore = findCol(rawHeader, "score");
     const iRank = findCol(rawHeader, "rank");
@@ -262,7 +232,6 @@ export function parseRSFCsv(csvText, fallbackYear) {
       const score = parseNum(cells[iScore >= 0 ? iScore : 1]);
       const rank = parseNum(cells[iRank >= 0 ? iRank : 2]);
 
-      // Year: try the Year (N) column first, then fallback
       let year = fallbackYear;
       if (iYear >= 0 && cells[iYear]) {
         const parsed = parseInt(cells[iYear], 10);
@@ -271,7 +240,6 @@ export function parseRSFCsv(csvText, fallbackYear) {
         }
       }
 
-      // Zone
       let zone = null;
       if (iZone >= 0 && cells[iZone]) {
         zone = normalizeZone(cells[iZone]);
@@ -297,7 +265,6 @@ export function parseRSFCsv(csvText, fallbackYear) {
       });
     }
   } else {
-    // Unknown format — attempt best-effort parse as Format A
     for (let i = 1; i < lines.length; i++) {
       const repairedLine = repairLine(lines[i]);
       const cells = repairedLine.split(";");
@@ -328,19 +295,13 @@ export function parseRSFCsv(csvText, fallbackYear) {
 // ─── Score Normalization ───────────────────────────────────────────
 
 /**
- * RSF changed their scoring methodology in 2022:
- *   • 2002–2021: Lower score = more free (0 = best, ~105 = worst)
- *   • 2022–2025: Higher score = more free (100 = best, 0 = worst)
+ * RSF changed scoring methodology in 2022:
+ *   2002–2021: Lower score = more free (0 = best, ~105 = worst)
+ *   2022–2025: Higher score = more free (100 = best, 0 = worst)
  *
- * To make the streamgraph coherent, we invert 2022+ scores so that
- * ALL years use the "lower = better" convention. Alternatively, we
- * invert 2002–2021 so all use "higher = better". The latter is more
- * intuitive for viewers, so we do:
+ * This function aligns all years to a single direction.
  *
- *   For years <= 2021:  normalizedScore = maxOldScore - rawScore
- *   For years >= 2022:  normalizedScore = rawScore (already 0–100)
- *
- * We cap the old scores at 100 for normalization.
+ * @param {'higherIsBetter'|'lowerIsBetter'} direction
  */
 export function normalizeScores(records, direction = "higherIsBetter") {
   return records.map((r) => {
@@ -349,7 +310,6 @@ export function normalizeScores(records, direction = "higherIsBetter") {
     let normalized;
     if (r.year <= 2021) {
       if (direction === "higherIsBetter") {
-        // Invert old scores: 0 → 100, 100 → 0
         normalized = Math.max(0, 100 - r.score);
       } else {
         normalized = r.score;
@@ -358,7 +318,6 @@ export function normalizeScores(records, direction = "higherIsBetter") {
       if (direction === "higherIsBetter") {
         normalized = r.score;
       } else {
-        // Invert new scores: 100 → 0, 0 → 100
         normalized = Math.max(0, 100 - r.score);
       }
     }
@@ -380,12 +339,11 @@ export const ZONE_KEYS = [
 
 /**
  * Aggregate records into the shape needed for D3 stacking:
- *   [ { year, Europe, Africa, Americas, 'Asia-Pacific', MENA, EEAC },... ]
+ *   [ { year, Europe, Africa, Americas, 'Asia-Pacific', MENA, EEAC }, ... ]
  *
  * @param {'avgScore'|'count'} metric
  */
 export function aggregateByZoneYear(records, metric = "avgScore") {
-  // Group: year → zone → [scores]
   const map = {};
   for (const r of records) {
     if (!r.zone || !r.year) continue;
@@ -396,7 +354,6 @@ export function aggregateByZoneYear(records, metric = "avgScore") {
     if (r.score !== null) {
       map[r.year][r.zone].push(r.score);
     } else {
-      // For count metric, we still count even if score is null
       if (metric === "count") map[r.year][r.zone].push(0);
     }
   }

@@ -99,15 +99,12 @@ export default function Streamgraph({
         const tooltip = d3.select(tooltipRef.current);
         const [mx] = d3.pointer(event, g.node());
 
-        // Show vertical line
         hoverLine.attr("x1", mx).attr("x2", mx).attr("opacity", 0.6);
 
-        // Find nearest year
         const yearFloat = xScale.invert(mx);
         const bisect = d3.bisector((r) => r.year).left;
         let idx = bisect(data, yearFloat, 1);
         idx = Math.min(idx, data.length - 1);
-        // Pick the closer of idx and idx-1
         if (idx > 0) {
           const d0 = data[idx - 1];
           const d1 = data[idx];
