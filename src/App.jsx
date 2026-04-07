@@ -327,7 +327,7 @@ export default function App() {
                     <td style={tdStyle}>{row.year}</td>
                     {Object.keys(ZONE_COLORS_TABLE).map((zone) => (
                       <td key={zone} style={tdStyle}>
-                        {row[zone] ?? 0}
+                        {row[zone] == null ? "–" : row[zone]}
                       </td>
                     ))}
                   </tr>

@@ -50,6 +50,12 @@ const ZONE_ALIASES = {
   "asie-p": "Asia-Pacific",
   "asia-pacific": "Asia-Pacific",
   "asia pacific": "Asia-Pacific",
+  "europe asie centrale": ["Europe", "EEAC"],
+  "europe - asie centrale": ["Europe", "EEAC"],
+  "maghreb moyen orient": "MENA",
+  "maghreb - moyen orient": "MENA",
+  "moyen orient": "MENA",
+  "moyen-orient": "MENA",
   mena: "MENA",
   eeac: "EEAC",
   eac: "EEAC",
@@ -63,12 +69,20 @@ function normalizeZone(raw) {
   const sanitized = trimmed
     .replace(/\uFFFD/g, "e")
     .normalize("NFD")
-    .replace(/\p{Diacritic}/gu, "");
+    .replace(/\p{Diacritic}/gu, "")
+    .replace(/[–—]/g, " ")
+    .replace(/[^a-zA-Z0-9 -]/g, " ")
+    .replace(/-/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
 
   const key = sanitized.toLowerCase();
   if (ZONE_ALIASES[key]) return ZONE_ALIASES[key];
 
-  for (const [alias, canonical] of Object.entries(ZONE_ALIASES)) {
+  const aliasEntries = Object.entries(ZONE_ALIASES).sort(
+    ([a], [b]) => b.length - a.length,
+  );
+  for (const [alias, canonical] of aliasEntries) {
     if (key.startsWith(alias) || alias.startsWith(key)) {
       return canonical;
     }
@@ -210,14 +224,18 @@ export function parseRSFCsv(csvText, fallbackYear) {
 
       if (!iso || isNaN(year)) continue;
 
-      records.push({
-        year,
-        iso,
-        rank: isNaN(rank) ? null : rank,
-        score: isNaN(score) ? null : score,
-        zone,
-        country,
-      });
+      const zones = Array.isArray(zone) ? zone : [zone];
+      for (const z of zones) {
+        if (!z) continue;
+        records.push({
+          year,
+          iso,
+          rank: isNaN(rank) ? null : rank,
+          score: isNaN(score) ? null : score,
+          zone: z,
+          country,
+        });
+      }
     }
   } else if (format === "C") {
     const iISO = findCol(rawHeader, "iso");
@@ -260,14 +278,18 @@ export function parseRSFCsv(csvText, fallbackYear) {
 
       if (!iso || isNaN(score)) continue;
 
-      records.push({
-        year,
-        iso,
-        rank: isNaN(rank) ? null : rank,
-        score,
-        zone,
-        country,
-      });
+      const zones = Array.isArray(zone) ? zone : [zone];
+      for (const z of zones) {
+        if (!z) continue;
+        records.push({
+          year,
+          iso,
+          rank: isNaN(rank) ? null : rank,
+          score,
+          zone: z,
+          country,
+        });
+      }
     }
   } else {
     for (let i = 1; i < lines.length; i++) {
@@ -283,14 +305,18 @@ export function parseRSFCsv(csvText, fallbackYear) {
 
       if (!iso || isNaN(year)) continue;
 
-      records.push({
-        year,
-        iso,
-        rank: isNaN(rank) ? null : rank,
-        score: isNaN(score) ? null : score,
-        zone,
-        country: "",
-      });
+      const zones = Array.isArray(zone) ? zone : [zone];
+      for (const z of zones) {
+        if (!z) continue;
+        records.push({
+          year,
+          iso,
+          rank: isNaN(rank) ? null : rank,
+          score: isNaN(score) ? null : score,
+          zone: z,
+          country: "",
+        });
+      }
     }
   }
 
@@ -377,7 +403,7 @@ export function aggregateByZoneYear(records, metric = "avgScore") {
         row[z] =
           arr.length > 0
             ? +(arr.reduce((s, v) => s + v, 0) / arr.length).toFixed(2)
-            : 0;
+            : null;
       }
     }
     return row;
