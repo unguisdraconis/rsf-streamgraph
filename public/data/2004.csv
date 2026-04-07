@@ -1,0 +1,168 @@
+﻿Year (N);ISO;Rank N;Score N;Score N without the exactions;Score N with the exactions;Score exactions;Rank N-1;Score N-1;Rank evolution;FR_country;EN_country;ES_country;AR_country;FA_country;Zone
+2004;DNK;1;0,5;;;;5;1;4;Danemark;Denmark;Dinamarca;الدنمارك;دانمارک;UE Balkans
+2004;FIN;1;0,5;;;;1;0,5;0;Finlande;Finland;Finlandia;فنلندا;فنلاند;UE Balkans
+2004;IRL;1;0,5;;;;17;2,83;16;Irlande;Ireland;Irlanda;أيرلندا;ایرلند;UE Balkans
+2004;ISL;1;0,5;;;;1;0,5;0;Islande;Iceland;Islandia;أيسلندا;ایسلند;UE Balkans
+2004;NOR;1;0,5;;;;1;0,5;0;Norvège;Norway;Noruega;النرويج;نروژ;UE Balkans
+2004;NLD;1;0,5;;;;1;0,5;0;Pays-Bas;Netherlands;Países Bajos;هولندا;هلند;UE Balkans
+2004;SVK;1;0,5;;;;12;2,5;11;Slovaquie;Slovakia;Eslovaquia;سلوفاكيا;اسلواکی;UE Balkans
+2004;CHE;1;0,5;;;;12;2,5;11;Suisse;Switzerland;Suiza;سويسرا;سويیس;UE Balkans
+2004;NZL;9;0,67;;;;17;2,83;8;Nouvelle-Zélande;New Zealand;Nueva Zelanda;نيوزيلاندا;زلاند نو;Asie-Pacifique
+2004;LVA;10;1;;;;11;2,25;1;Lettonie;Latvia;Letonia;لاتفيا;لتوانی;UE Balkans
+2004;DEU;11;2;;;;8;1,33;-3;Allemagne;Germany;Alemania;ألمانيا;آلمان;UE Balkans
+2004;EST;11;2;;;;12;2,5;1;Estonie;Estonia;Estonia;إستونيا;استونی;UE Balkans
+2004;SWE;11;2;;;;9;1,5;-2;Suède;Sweden;Suecia;السويد;سوئد;UE Balkans
+2004;TTO;11;2;;;;5;1;-6;Trinité-et-Tobago;Trinidad and Tobago;Trinidad y Tobago;ترينيداد وتوباغو;ترنتی و توبوگو;Amériques
+2004;SVN;15;2,25;;;;20;3;5;Slovénie;Slovenia;Eslovenia;سلوفينيا;اسلوانی;UE Balkans
+2004;LTU;16;3;;;;17;2,83;1;Lituanie;Lithuania;Lituania;ليتوانيا;لیتوانی;UE Balkans
+2004;AUT;17;3,25;;;;16;2,75;-1;Autriche;Austria;Austria;النمسا;اتریش;UE Balkans
+2004;CAN;18;3,33;;;;10;1,83;-8;Canada;Canada;Canadá;كندا;کانادا;Amériques
+2004;FRA;19;3,5;;;;26;4,17;7;France;France;Francia;فرنسا;فرانسه;UE Balkans
+2004;CZE;19;3,5;;;;12;2,5;-7;République tchèque;Czech Republic;República Checa;جمهورية التشيك;جمهوری چک;UE Balkans
+2004;BIH;21;3,67;;;;37;6,83;16;Bosnie-Herzégovine;Bosnia and Herzegovina;Bosnia-Herzegovina;البوسنة والهرسك;بوسنی هرزوگوین;UE Balkans
+2004;BEL;22;4;;;;7;1,17;-15;Belgique;Belgium;Bélgica;بلجيكا;بلژیک;UE Balkans
+2004;USA2;22;4;;;;31;6;9;États-Unis (territoire américain);United States (US territory);Estados Unidos (territorio estadounidense);الولايات المتحدة (الأراضي الأمريكية);ایالات متحده امریکا (در سرزمین ایالات متحده امریکا);Amériques
+2004;JAM;24;4,17;;;;21;3,33;-3;Jamaïque;Jamaica;Jamaica;جامايكا;جامائیکا;Amériques
+2004;PRT;25;4,5;;;;28;5,17;3;Portugal;Portugal;Portugal;البرتغال;پرتغال;UE Balkans
+2004;ZAF;26;5;;;;21;3,33;-5;Afrique du Sud;South Africa;Sudáfrica;جنوب أفريقيا;آفریقای جنوبی;Afrique
+2004;BEN;27;5,5;;;;29;5,25;2;Bénin;Benin;Benín;بنين;بنین;Afrique
+2004;SLV;28;6;;;;37;6,83;9;El Salvador;El Salvador;El Salvador;السلفادور;ال‌سالوادور;Amériques
+2004;HUN;28;6;;;;21;3,33;-7;Hongrie;Hungary;Hungría;المجر;مجارستان;UE Balkans
+2004;GBR;28;6;;;;27;4,25;-1;Royaume-Uni;United Kingdom;Reino Unido;المملكة المتحدة;بریتانیا;UE Balkans
+2004;DOM;31;6,75;;;;72;17;41;République dominicaine;Dominican Republic;República Dominicana;جمهورية الدومينيكان;جمهوری دومینیک;Amériques
+2004;POL;32;6,83;;;;33;6,17;1;Pologne;Poland;Polonia;بولندا;لهستان;UE Balkans
+2004;GRC;33;7;;;;31;6;-2;Grèce;Greece;Grecia;اليونان;یونان;UE Balkans
+2004;HKG;34;7,5;;;;56;11;22;Hong-Kong;Hong Kong;Hong Kong;هونغ كونغ;هنگ کنگ;Asie-Pacifique
+2004;CRI;35;7,63;;;;24;3,83;-11;Costa Rica;Costa Rica;Costa Rica;كوستاريكا;کاستاریکا;Amériques
+2004;BGR;36;8;;;;34;6,5;-2;Bulgarie;Bulgaria;Bulgaria;بلغاريا;بلغارستان;UE Balkans
+2004;ISR1;36;8;;;;44;8;8;Israël (territoire israélien);Israel (Israeli territory);Israel (territorio israelí);إسرائيل (الأراضي الإسرائيلية);اسرائیل (در سرزمین اسرائیل);MENA
+2004;CPV;38;8,75;;;;47;8,25;9;Cap-Vert;Cape Verde;Cabo Verde;الرأس الأخضر;کیپورد;Afrique
+2004;ESP;39;9;;;;42;7,67;3;Espagne;Spain;España;إسبانيا;اسپانیا;UE Balkans
+2004;ITA;39;9;;;;53;9,75;14;Italie;Italy;Italia;إيطاليا;ایتالیا;UE Balkans
+2004;AUS;41;9,5;;;;50;9,25;9;Australie;Australia;Australia;أستراليا;استرالیا;Asie-Pacifique
+2004;CHL;42;10;;;;37;6,83;-5;Chili;Chile;Chile;تشيلي;شیلی;Amériques
+2004;JPN;42;10;;;;44;8;2;Japon;Japan;Japón;اليابان;ژاپن;Asie-Pacifique
+2004;NAM;42;10;;;;56;11;14;Namibie;Namibia;Namibia;ناميبيا;نامیبیا;Afrique
+2004;URY;42;10;;;;25;4;-17;Uruguay;Uruguay;Uruguay;أوروغواي;اروگويه;Amériques
+2004;MUS;46;10,5;;;;41;7,25;-5;Maurice;Mauritius;Mauricio;موريشيوس;موریس;Afrique
+2004;PRY;46;10,5;;;;40;7,17;-6;Paraguay;Paraguay;Paraguay;باراغواي;پاراگوئه;Amériques
+2004;KOR;48;11,13;;;;49;9,17;1;Corée du Sud;South Korea;Corea del Sur;كوريا الجنوبية;کره جنوبی;Asie-Pacifique
+2004;MKD;49;11,25;;;;51;9,67;2;Macédoine du Nord;North Macedonia;República de Macedonia del Norte;مقدونيا الشمالية;مقدونیه شمالی ;UE Balkans
+2004;ALB;50;11,5;;;;34;6,5;-16;Albanie;Albania;Albania;ألبانيا;آلبانی;UE Balkans
+2004;BWA;50;11,5;;;;62;13;12;Botswana;Botswana;Botsuana;بوتسوانا;بوستاوانا;Afrique
+2004;NIC;52;11,67;;;;34;6,5;-18;Nicaragua;Nicaragua;Nicaragua;نيكاراغوا;نیکاراگوئه;Amériques
+2004;HND;53;11,75;;;;65;14,17;12;Honduras;Honduras;Honduras;هندوراس;هندوراس;Amériques
+2004;HRV;54;11,83;;;;69;16,5;15;Croatie;Croatia;Croacia;كرواتيا;کرواسی;UE Balkans
+2004;GRD;55;12;;;;;;;Grenade;Grenada;Granada;غرينادا;گرنادا;Amériques
+2004;MLI;56;12,83;;;;56;11;0;Mali;Mali;Malí;مالي;مالی;Afrique
+2004;GHA;57;13,5;;;;48;8,75;-9;Ghana;Ghana;Ghana;غانا;غنا;Afrique
+2004;TLS;57;13,5;;;;30;5,5;-27;Timor oriental;East Timor;Timor Oriental;تيمور الشرقية;تیمور شرقی;Asie-Pacifique
+2004;THA;59;14;;;;82;19,67;23;Thaïlande;Thailand;Tailandia;تايلاند;تایلند;Asie-Pacifique
+2004;TWN;60;14,25;;;;61;12;1;Taïwan;Taiwan;Taiwán;تايوان;تایوان;Asie-Pacifique
+2004;PAN;61;14,5;;;;53;9,75;-8;Panama;Panama;Panamá;بنما;پاناما;Amériques
+2004;TZA;61;14,5;;;;69;16,5;8;Tanzanie;Tanzania;Tanzania;تنزانيا;تانزانیا;Afrique
+2004;FJI;63;16;;;;59;11,5;-4;Fidji;Fiji;Fiyi;فيجي;فیجی;Asie-Pacifique
+2004;BFA;64;16,25;;;;76;18;12;Burkina Faso;Burkina Faso;Burkina Faso;بوركينا فاسو;بورکینافاسو;Afrique
+2004;MOZ;64;16,25;;;;63;14;-1;Mozambique;Mozambique;Mozambique;موزمبيق;موزامبیک;Afrique
+2004;BRA;66;16,5;;;;71;16,75;5;Brésil;Brazil;Brasil;البرازيل;برزیل;Amériques
+2004;ECU;66;16,5;;;;42;7,67;-24;Équateur;Ecuador;Ecuador;الإكوادور;اکواتور;Amériques
+2004;GTM;66;16,5;;;;99;30,83;33;Guatemala;Guatemala;Guatemala;غواتيمالا;گواتمالا;Amériques
+2004;COG;69;17,5;;;;63;14;-6;Congo;Congo;República del Congo;الكونغو;کنگو;Afrique
+2004;ROU;70;17,83;;;;59;11,5;-11;Roumanie;Romania;Rumania;رومانيا;رومانی;UE Balkans
+2004;NER;71;18,33;;;;68;15,75;-3;Niger;Niger;Niger;النيجر;نیجر;Afrique
+2004;MDG;72;18,5;;;;46;8,17;-26;Madagascar;Madagascar;Madagascar;مدغشقر;ماداگاسکار;Afrique
+2004;BDI;73;19;;;;92;26,25;19;Burundi;Burundi;Burundi;بوروندي;بروندی;Afrique
+2004;MNG;73;19;;;;77;18,25;4;Mongolie;Mongolia;Mongolia;منغوليا;مغولستان;Asie-Pacifique
+2004;TGO;75;19,5;;;;95;27,5;20;Togo;Togo;Togo;توغو;توگو;Afrique
+2004;BOL;76;20;;;;51;9,67;-25;Bolivie;Bolivia;Bolivia;بوليفيا;بلیوی;Amériques
+2004;SCG;77;20,13;;;;85;21,33;8;Serbie-Monténégro;Serbia-Montenegro;Serbia-Montenegro;صربيا والجبل الأسود;صربستان و مونته‌نگرو;UE Balkans
+2004;MDA;78;20,5;;;;94;27;16;Moldavie;Moldova;Moldavia;مولدوفا;مولداوی;EEAC
+2004;ARG;79;21,33;;;;67;15,17;-12;Argentine;Argentina;Argentina;الأرجنتين;آرژانتین;Amériques
+2004;SEN;80;21,5;;;;66;14,5;-14;Sénégal;Senegal;Senegal;السنغال;سنگال;Afrique
+2004;CTU;81;22;;;;;;;Chypre (partie Nord);Cyprus North;Chipre Norte;قبرص (الجزء الشمالي);قبرس (شمالی);UE Balkans
+2004;KEN;82;22,25;;;;79;18,5;-3;Kenya;Kenya;Kenia;كينيا;کنیا;Afrique
+2004;ARM;83;23,5;;;;90;25,17;7;Arménie;Armenia;Armenia;أرمينيا;ارمنستان;EEAC
+2004;GNB;83;23,5;;;;118;35,25;35;Guinée-Bissau;Guinea-Bissau;Guinea-Bisáu;غينيا بيساو;گینه بیسائو;Afrique
+2004;SYC;83;23,5;;;;93;26,75;10;Seychelles;Seychelles;Seychelles;سيشيل;سی‌شل;Afrique
+2004;UGA;86;24;;;;91;25,75;5;Ouganda;Uganda;Uganda;أوغندا;اوگاندا;Afrique
+2004;LBN;87;24,38;;;;106;32,5;19;Liban;Lebanon;Líbano;لبنان;لبنان;MENA
+2004;GIN;88;24,5;;;;109;33,17;21;Guinée;Guinea;Guinea;غينيا;گینه;Afrique
+2004;SLE;88;24,5;;;;87;23,5;-1;Sierra Leone;Sierra Leone;Sierra Leona;سيراليون;سئیرالئون;Afrique
+2004;VEN;90;24,63;;;;96;27,83;6;Venezuela;Venezuela;Venezuela;فنزويلا;ونزوئلا;Amériques
+2004;AGO;91;26,5;;;;97;28;6;Angola;Angola;Angola;أنغولا;آنگولا;Afrique
+2004;COM;91;26,5;;;;79;18,5;-12;Comores;Comoros;Comoras;جزر القمر;کومور;Afrique
+2004;CMR;93;27;;;;98;30,5;5;Cameroun;Cameroon;Camerún;الكاميرون;کامرون;Afrique
+2004;GEO;94;27,5;;;;73;17,33;-21;Géorgie;Georgia;Georgia;جورجيا;گرجستان;EEAC
+2004;TJK;95;27,75;;;;113;34,5;18;Tadjikistan;Tajikistan;Tayikistán;طاجيكستان;تاجیکستان;EEAC
+2004;MEX;96;27,83;;;;74;17,67;-22;Mexique;Mexico;México;المكسيك;مکزیک;Amériques
+2004;AFG;97;28,25;;;;134;40,17;37;Afghanistan;Afghanistan;Afganistán;أفغانستان;افغانستان;Asie-Pacifique
+2004;GMB;98;29,5;;;;77;18,25;-21;Gambie;Gambia;Gambia;غامبيا;گامبیا;Afrique
+2004;LSO;98;29,5;;;;75;17,75;-23;Lesotho;Lesotho;Lesoto;ليسوتو;لسو‌تو;Afrique
+2004;ZMB;100;29,75;;;;86;23,25;-14;Zambie;Zambia;Zambia;زامبيا;زامبیا;Afrique
+2004;MWI;101;31;;;;84;21;-17;Malawi;Malawi;Malaui;مالاوي;مالاوی;Afrique
+2004;SWZ;101;31;;;;124;37,5;23;Eswatini;Eswatini;Esuatini;إسواتيني;اسواتینی ;Afrique
+2004;KWT;103;31,67;;;;102;31,33;-1;Koweït;Kuwait;Kuwait;الكويت;کویت;MENA
+2004;QAT;104;32,5;;;;115;35;11;Qatar;Qatar;Catar;قطر;قطر;MENA
+2004;CAF;104;32,5;;;;107;32,75;3;République centrafricaine;Central African Republic;República Centroafricana;جمهورية أفريقيا الوسطى;جمهوری آفریقای مرکزی;Afrique
+2004;TCD;106;33,25;;;;88;24;-18;Tchad;Chad;Chad;تشاد;چاد;Afrique
+2004;KGZ;107;35,25;;;;104;32;-3;Kirghizstan;Kyrgyzstan;Kirguistán;قرغيزستان;قرقیزستان;EEAC
+2004;USA_I;108;36;;;;135;41;27;États-Unis (en Irak);United States (in Irak);Estados Unidos (en Irak);الولايات المتحدة (في العراق);ایالات متحده امریکا (در عراق);Amériques
+2004;KHM;109;36,5;;;;81;19,5;-28;Cambodge;Cambodia;Camboya;كمبوديا;کامبوج;Asie-Pacifique
+2004;LKA;109;36,5;;;;89;24,83;-20;Sri Lanka;Sri Lanka;Sri Lanka;سري لانكا;سریلانکا;Asie-Pacifique
+2004;PHL;111;36,63;;;;118;35,25;7;Philippines;Philippines;Filipinas;الفلبين;فلیپین;Asie-Pacifique
+2004;ETH;112;37;;;;124;37,5;12;Éthiopie;Ethiopia;Etiopía;أثيوبيا;اتیوپی;Afrique
+2004;RWA;113;37,25;;;;110;34,25;-3;Rwanda;Rwanda;Ruanda;رواندا;روندا;Afrique
+2004;TUR;113;37,25;;;;115;35;2;Turquie;Turkey;Turquía;تركيا;ترکیه;EEAC
+2004;GAB;115;37,5;;;;101;31,25;-14;Gabon;Gabon;República Gabonesa;الغابون;گابون;Afrique
+2004;ISR3;115;37,5;;;;146;49;31;Israël (territoires occupés);Israel (occupied territories);Israel (territorios ocupados);إسرائيل (فلسطين المحتلة);اسرائیل (درسرزمین‌های اشغالی);MENA
+2004;IDN;117;37,75;;;;110;34,25;-7;Indonésie;Indonesia;Indonesia;أندونيسيا;اندونزی;Asie-Pacifique
+2004;NGA;117;37,75;;;;103;31,5;-14;Nigeria;Nigeria;Nigeria;نيجيريا;نیجریه;Afrique
+2004;TON;119;38,17;;;;;;;Tonga;Tonga;Tonga;تونغا;تونگا;Asie-Pacifique
+2004;IND;120;38,5;;;;128;39;8;Inde;India;India;الهند;هند;Asie-Pacifique
+2004;JOR;121;39,13;;;;122;37;1;Jordanie;Jordan;Jordania;الأردن;اردن;MENA
+2004;MYS;122;39,83;;;;104;32;-18;Malaisie;Malaysia;Malasia;ماليزيا;مالزی;Asie-Pacifique
+2004;LBR;123;40;;;;132;40;9;Liberia;Liberia;Liberia;ليبيريا;لیبریا;Afrique
+2004;PER;123;40;;;;55;10,25;-68;Pérou;Peru;Peru;بيرو;پرو;Amériques
+2004;HTI;125;42,13;;;;100;31;-25;Haïti;Haiti;Haití;هايتي;هايیتی;Amériques
+2004;MAR;126;43;;;;131;39,67;5;Maroc;Morocco;Marruecos;المغرب;مراکش;MENA
+2004;PSE;127;43,17;;;;130;39,25;3;Palestine;Palestine;Palestina;فلسطين;فلسطین;MENA
+2004;DZA;128;43,5;;;;108;33;-20;Algérie;Algeria;Argelia;الجزائر;الجزایر;MENA
+2004;EGY;128;43,5;;;;110;34,25;-18;Égypte;Egypt;Egipto;مصر;مصر;MENA
+2004;SOM;128;43,5;;;;140;45;12;Somalie;Somalia;Somalia;الصومال;سومالی;Afrique
+2004;KAZ;131;44,17;;;;138;42,5;7;Kazakhstan;Kazakhstan;Kazajistán;كازاخستان;قزاقستان;EEAC
+2004;SDN;132;44,25;;;;142;45,75;10;Soudan;Sudan;Sudán;السودان;سودان;Afrique
+2004;GNQ;133;46,25;;;;139;44,75;6;Guinée équatoriale;Equatorial Guinea;Guinea Ecuatorial;غينيا الاستوائية;گینه اکوادور;Afrique
+2004;COL;134;47,38;;;;147;49,17;13;Colombie;Colombia;Colombia;كولومبيا;کلمبیا;Amériques
+2004;YEM;135;48;;;;136;41,83;1;Yémen;Yemen;Yemen;اليمن;یمن;MENA
+2004;AZE;136;49,67;;;;113;34,5;-23;Azerbaïdjan;Azerbaijan;Azerbaiyán;أذربيجان;آذربایجان;EEAC
+2004;ARE;137;50,25;;;;122;37;-15;Émirats arabes unis;United Arab Emirates;Emiratos Árabes Unidos;الإمارات العربية المتحدة;امارات متحده عربی;MENA
+2004;MRT;138;51;;;;121;36,67;-17;Mauritanie;Mauritania;Mauritania;موريتانيا;موریتانی;Afrique
+2004;UKR;138;51;;;;132;40;-6;Ukraine;Ukraine;Ucrania;أوكرانيا;اوکراين;EEAC
+2004;RUS;140;51,38;;;;148;49,5;8;Russie;Russian Federation;Rusia;روسيا;روسیه;EEAC
+2004;COD;141;51,5;;;;127;38,5;-14;RD Congo;The Democratic Republic Of The Congo;RD Congo;جمهورية الكونغو الديمقراطية;جمهوری دمکراتیک کنگو;Afrique
+2004;UZB;142;52,13;;;;154;61,5;12;Ouzbékistan;Uzbekistan;Uzbekistán;أوزبكستان;اوزبکستان;EEAC
+2004;BHR;143;52,5;;;;117;35,17;-26;Bahreïn;Bahrain;Baréin;البحرين;بحرین;MENA
+2004;BLR;144;54,1;;;;151;52;7;Bélarus;Belarus;Belarús;روسيا البيضاء;روسیه سفید;EEAC
+2004;DJI;145;55;;;;120;35,5;-25;Djibouti;Djibouti;Yibuti;جيبوتي;جیبوتی;Afrique
+2004;BTN;146;55,83;;;;157;77,33;11;Bhoutan;Bhutan;Bután;بوتان;بوتان;Asie-Pacifique
+2004;SGP;147;57;;;;144;47,33;-3;Singapour;Singapore;Singapur;سنغافورة;سنگاپور;Asie-Pacifique
+2004;IRQ;148;58,5;;;;124;37,5;-24;Irak;Iraq;Irak;العراق;عراق;MENA
+2004;CIV;149;60,38;;;;137;42,17;-12;Côte d'Ivoire;Ivory Coast;Costa de Marfil;ساحل العاج;ساحل عاج;Afrique
+2004;PAK;150;61,75;;;;128;39;-22;Pakistan;Pakistan;Pakistán;باكستان;پاکستان;Asie-Pacifique
+2004;BGD;151;62,5;;;;143;46,5;-8;Bangladesh;Bangladesh;Bangladés;بنغلاديش;بنگلادش;Asie-Pacifique
+2004;TUN;152;62,67;;;;149;50,83;-3;Tunisie;Tunisia;Túnez;تونس;تونس;MENA
+2004;LAO;153;64,33;;;;163;94,83;10;Laos;Lao People's Democratic Republic;Laos;لاوس;لائوس;Asie-Pacifique
+2004;LBY;154;65;;;;153;60;-1;Libye;Libya;Libia;ليبيا;لیبی;MENA
+2004;SYR;155;67,5;;;;155;67,5;0;Syrie;Syrian Arab Republic;Siria;سوريا;سوریه;MENA
+2004;ZWE;155;67,5;;;;141;45,5;-14;Zimbabwe;Zimbabwe;Zimbabue;زيمبابوي;زیمبابوه;Afrique
+2004;MDV;157;69,17;;;;145;47,5;-12;Maldives;Maldives;Maldivas;المالديف;مالدیو;Asie-Pacifique
+2004;IRN;158;78,3;;;;160;89,33;2;Iran;Islamic Republic of Iran;Irán;إيران;ایران;MENA
+2004;SAU;159;79,17;;;;156;71,5;-3;Arabie saoudite;Saudi Arabia;Arabia Saudita;المملكة العربية السعودية;عربستان سعودی;MENA
+2004;NPL;160;84;;;;150;51,5;-10;Népal;Nepal;Nepal;نيبال;نپال;Asie-Pacifique
+2004;VNM;161;86,88;;;;159;89,17;-2;Viêt Nam;Vietnam;Vietnam;فيتنام;ویتنام;Asie-Pacifique
+2004;CHN;162;92,33;;;;161;91,25;-1;Chine;China;China;الصين;چین;Asie-Pacifique
+2004;ERI;163;93,25;;;;162;91,5;-1;Érythrée;Eritrea;Eritrea;إريتريا;اریتره;Afrique
+2004;TKM;164;99,83;;;;158;82,83;-6;Turkménistan;Turkmenistan;Turkmenistán;تركمانستان;ترکمنستان;EEAC
+2004;MMR;165;103,63;;;;164;95,5;-1;Birmanie;Myanmar;Birmania;بورما;برمه;Asie-Pacifique
+2004;CUB;166;106,83;;;;165;97,83;-1;Cuba;Cuba;Cuba;كوبا;کوبا;Amériques
+2004;PRK;167;107,5;;;;166;99,5;-1;Corée du Nord;Democratic People's Republic of Korea;Corea del Norte;كوريا الشمالية;کره شمالی;Asie-Pacifique

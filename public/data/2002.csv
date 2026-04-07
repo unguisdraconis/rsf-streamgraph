@@ -1,0 +1,140 @@
+﻿Year (N);ISO;Rank N;Score N;Score N without the exactions;Score N with the exactions;Score exactions;Rank N-1;Score N-1;Rank evolution;FR_country;EN_country;ES_country;AR_country;FA_country;Zone
+2002;FIN;1;0,5;;;;;;;Finlande;Finland;Finlandia;فنلندا;فنلاند;UE Balkans
+2002;ISL;2;0,5;;;;;;;Islande;Iceland;Islandia;أيسلندا;ایسلند;UE Balkans
+2002;NOR;3;0,5;;;;;;;Norvège;Norway;Noruega;النرويج;نروژ;UE Balkans
+2002;NLD;4;0,5;;;;;;;Pays-Bas;Netherlands;Países Bajos;هولندا;هلند;UE Balkans
+2002;CAN;5;0,75;;;;;;;Canada;Canada;Canadá;كندا;کانادا;Amériques
+2002;IRL;6;1;;;;;;;Irlande;Ireland;Irlanda;أيرلندا;ایرلند;UE Balkans
+2002;DEU;7;1,5;;;;;;;Allemagne;Germany;Alemania;ألمانيا;آلمان;UE Balkans
+2002;PRT;8;1,5;;;;;;;Portugal;Portugal;Portugal;البرتغال;پرتغال;UE Balkans
+2002;SWE;9;1,5;;;;;;;Suède;Sweden;Suecia;السويد;سوئد;UE Balkans
+2002;DNK;10;3;;;;;;;Danemark;Denmark;Dinamarca;الدنمارك;دانمارک;UE Balkans
+2002;FRA;11;3,25;;;;;;;France;France;Francia;فرنسا;فرانسه;UE Balkans
+2002;AUS;12;3,5;;;;;;;Australie;Australia;Australia;أستراليا;استرالیا;Asie-Pacifique
+2002;BEL;13;3,5;;;;;;;Belgique;Belgium;Bélgica;بلجيكا;بلژیک;UE Balkans
+2002;SVN;14;4;;;;;;;Slovénie;Slovenia;Eslovenia;سلوفينيا;اسلوانی;UE Balkans
+2002;CRI;15;4,25;;;;;;;Costa Rica;Costa Rica;Costa Rica;كوستاريكا;کاستاریکا;Amériques
+2002;CHE;15;4,25;;;;;;;Suisse;Switzerland;Suiza;سويسرا;سويیس;UE Balkans
+2002;USA;17;4,75;;;;;;;États-Unis;United States;Estados Unidos;الولايات المتحدة;ایالات متحده امریکا;Amériques
+2002;HKG;18;4,83;;;;;;;Hong-Kong;Hong Kong;Hong Kong;هونغ كونغ;هنگ کنگ;Asie-Pacifique
+2002;GRC;19;5;;;;;;;Grèce;Greece;Grecia;اليونان;یونان;UE Balkans
+2002;ECU;20;5,5;;;;;;;Équateur;Ecuador;Ecuador;الإكوادور;اکواتور;Amériques
+2002;BEN;21;6;;;;;;;Bénin;Benin;Benín;بنين;بنین;Afrique
+2002;GBR;22;6;;;;;;;Royaume-Uni;United Kingdom;Reino Unido;المملكة المتحدة;بریتانیا;UE Balkans
+2002;URY;23;6;;;;;;;Uruguay;Uruguay;Uruguay;أوروغواي;اروگويه;Amériques
+2002;CHL;24;6,5;;;;;;;Chili;Chile;Chile;تشيلي;شیلی;Amériques
+2002;HUN;25;6,5;;;;;;;Hongrie;Hungary;Hungría;المجر;مجارستان;UE Balkans
+2002;ZAF;26;7,5;;;;;;;Afrique du Sud;South Africa;Sudáfrica;جنوب أفريقيا;آفریقای جنوبی;Afrique
+2002;AUT;27;7,5;;;;;;;Autriche;Austria;Austria;النمسا;اتریش;UE Balkans
+2002;JPN;28;7,5;;;;;;;Japon;Japan;Japón;اليابان;ژاپن;Asie-Pacifique
+2002;ESP;29;7,75;;;;;;;Espagne;Spain;España;إسبانيا;اسپانیا;UE Balkans
+2002;POL;30;7,75;;;;;;;Pologne;Poland;Polonia;بولندا;لهستان;UE Balkans
+2002;NAM;31;8;;;;;;;Namibie;Namibia;Namibia;ناميبيا;نامیبیا;Afrique
+2002;PRY;32;8,5;;;;;;;Paraguay;Paraguay;Paraguay;باراغواي;پاراگوئه;Amériques
+2002;HRV;33;8,75;;;;;;;Croatie;Croatia;Croacia;كرواتيا;کرواسی;UE Balkans
+2002;SLV;34;8,75;;;;;;;El Salvador;El Salvador;El Salvador;السلفادور;ال‌سالوادور;Amériques
+2002;TWN;35;9;;;;;;;Taïwan;Taiwan;Taiwán;تايوان;تایوان;Asie-Pacifique
+2002;MUS;36;9,5;;;;;;;Maurice;Mauritius;Mauricio;موريشيوس;موریس;Afrique
+2002;PER;37;9,5;;;;;;;Pérou;Peru;Peru;بيرو;پرو;Amériques
+2002;BGR;38;9,75;;;;;;;Bulgarie;Bulgaria;Bulgaria;بلغاريا;بلغارستان;UE Balkans
+2002;KOR;39;10,5;;;;;;;Corée du Sud;South Korea;Corea del Sur;كوريا الجنوبية;کره جنوبی;Asie-Pacifique
+2002;ITA;40;11;;;;;;;Italie;Italy;Italia;إيطاليا;ایتالیا;UE Balkans
+2002;CZE;41;11,25;;;;;;;République tchèque;Czech Republic;República Checa;جمهورية التشيك;جمهوری چک;UE Balkans
+2002;ARG;42;12;;;;;;;Argentine;Argentina;Argentina;الأرجنتين;آرژانتین;Amériques
+2002;BIH;43;12,5;;;;;;;Bosnie-Herzégovine;Bosnia and Herzegovina;Bosnia-Herzegovina;البوسنة والهرسك;بوسنی هرزوگوین;UE Balkans
+2002;MLI;44;12,5;;;;;;;Mali;Mali;Malí;مالي;مالی;Afrique
+2002;ROU;45;13,25;;;;;;;Roumanie;Romania;Rumania;رومانيا;رومانی;UE Balkans
+2002;CPV;46;13,75;;;;;;;Cap-Vert;Cape Verde;Cabo Verde;الرأس الأخضر;کیپورد;Afrique
+2002;SEN;47;14;;;;;;;Sénégal;Senegal;Senegal;السنغال;سنگال;Afrique
+2002;BOL;48;14,5;;;;;;;Bolivie;Bolivia;Bolivia;بوليفيا;بلیوی;Amériques
+2002;NGA;49;15,5;;;;;;;Nigeria;Nigeria;Nigeria;نيجيريا;نیجریه;Afrique
+2002;PAN;50;15,5;;;;;;;Panama;Panama;Panamá;بنما;پاناما;Amériques
+2002;LKA;51;15,75;;;;;;;Sri Lanka;Sri Lanka;Sri Lanka;سري لانكا;سریلانکا;Asie-Pacifique
+2002;UGA;52;17;;;;;;;Ouganda;Uganda;Uganda;أوغندا;اوگاندا;Afrique
+2002;NER;53;18,5;;;;;;;Niger;Niger;Niger;النيجر;نیجر;Afrique
+2002;BRA;54;18,75;;;;;;;Brésil;Brazil;Brasil;البرازيل;برزیل;Amériques
+2002;CIV;55;19;;;;;;;Côte d'Ivoire;Ivory Coast;Costa de Marfil;ساحل العاج;ساحل عاج;Afrique
+2002;LBN;56;19,67;;;;;;;Liban;Lebanon;Líbano;لبنان;لبنان;MENA
+2002;IDN;57;20;;;;;;;Indonésie;Indonesia;Indonesia;أندونيسيا;اندونزی;Asie-Pacifique
+2002;COM;58;20,5;;;;;;;Comores;Comoros;Comoras;جزر القمر;کومور;Afrique
+2002;GAB;59;20,5;;;;;;;Gabon;Gabon;República Gabonesa;الغابون;گابون;Afrique
+2002;YUG;60;20,75;;;;;;;République fédérale de Yougoslavie;Federal Republic of Yugoslavia;República Federal de Yugoslavia;جمهورية يوغوسلافيا الاتحادية‎;جمهوری فدرال یوگسلاوی;UE Balkans
+2002;SYC;61;20,75;;;;;;;Seychelles;Seychelles;Seychelles;سيشيل;سی‌شل;Afrique
+2002;TZA;62;21,25;;;;;;;Tanzanie;Tanzania;Tanzania;تنزانيا;تانزانیا;Afrique
+2002;CAF;63;21,5;;;;;;;République centrafricaine;Central African Republic;República Centroafricana;جمهورية أفريقيا الوسطى;جمهوری آفریقای مرکزی;Afrique
+2002;GMB;64;22,5;;;;;;;Gambie;Gambia;Gambia;غامبيا;گامبیا;Afrique
+2002;MDG;65;22,75;;;;;;;Madagascar;Madagascar;Madagascar;مدغشقر;ماداگاسکار;Afrique
+2002;THA;65;22,75;;;;;;;Thaïlande;Thailand;Tailandia;تايلاند;تایلند;Asie-Pacifique
+2002;BHR;67;23;;;;;;;Bahreïn;Bahrain;Baréin;البحرين;بحرین;MENA
+2002;GHA;67;23;;;;;;;Ghana;Ghana;Ghana;غانا;غنا;Afrique
+2002;COG;69;23,17;;;;;;;Congo;Congo;República del Congo;الكونغو;کنگو;Afrique
+2002;MOZ;70;23,5;;;;;;;Mozambique;Mozambique;Mozambique;موزمبيق;موزامبیک;Afrique
+2002;KHM;71;24,25;;;;;;;Cambodge;Cambodia;Camboya;كمبوديا;کامبوج;Asie-Pacifique
+2002;BDI;72;24,5;;;;;;;Burundi;Burundi;Burundi;بوروندي;بروندی;Afrique
+2002;MNG;73;24,5;;;;;;;Mongolie;Mongolia;Mongolia;منغوليا;مغولستان;Asie-Pacifique
+2002;SLE;74;24,5;;;;;;;Sierra Leone;Sierra Leone;Sierra Leona;سيراليون;سئیرالئون;Afrique
+2002;KEN;75;24,75;;;;;;;Kenya;Kenya;Kenia;كينيا;کنیا;Afrique
+2002;MEX;76;24,75;;;;;;;Mexique;Mexico;México;المكسيك;مکزیک;Amériques
+2002;VEN;77;25;;;;;;;Venezuela;Venezuela;Venezuela;فنزويلا;ونزوئلا;Amériques
+2002;KWT;78;25,5;;;;;;;Koweït;Kuwait;Kuwait;الكويت;کویت;MENA
+2002;GIN;79;26;;;;;;;Guinée;Guinea;Guinea;غينيا;گینه;Afrique
+2002;IND;80;26,5;;;;;;;Inde;India;India;الهند;هند;Asie-Pacifique
+2002;ZMB;81;26,75;;;;;;;Zambie;Zambia;Zambia;زامبيا;زامبیا;Afrique
+2002;PSE;82;27;;;;;;;Palestine;Palestine;Palestina;فلسطين;فلسطین;MENA
+2002;GTM;83;27,25;;;;;;;Guatemala;Guatemala;Guatemala;غواتيمالا;گواتمالا;Amériques
+2002;MWI;84;27,67;;;;;;;Malawi;Malawi;Malaui;مالاوي;مالاوی;Afrique
+2002;BFA;85;27,75;;;;;;;Burkina Faso;Burkina Faso;Burkina Faso;بوركينا فاسو;بورکینافاسو;Afrique
+2002;TJK;86;28,25;;;;;;;Tadjikistan;Tajikistan;Tayikistán;طاجيكستان;تاجیکستان;EEAC
+2002;TCD;87;28,75;;;;;;;Tchad;Chad;Chad;تشاد;چاد;Afrique
+2002;CMR;88;28,83;;;;;;;Cameroun;Cameroon;Camerún;الكاميرون;کامرون;Afrique
+2002;MAR;89;29;;;;;;;Maroc;Morocco;Marruecos;المغرب;مراکش;MENA
+2002;PHL;90;29;;;;;;;Philippines;Philippines;Filipinas;الفلبين;فلیپین;Asie-Pacifique
+2002;SWZ;91;29;;;;;;;Eswatini;Eswatini;Esuatini;إسواتيني;اسواتینی ;Afrique
+2002;ISR;92;30;;;;;;;Israël;Israel;Israel;إسرائيل;اسرائیل;MENA
+2002;AGO;93;30,17;;;;;;;Angola;Angola;Angola;أنغولا;آنگولا;Afrique
+2002;GNB;94;30,25;;;;;;;Guinée-Bissau;Guinea-Bissau;Guinea-Bisáu;غينيا بيساو;گینه بیسائو;Afrique
+2002;DZA;95;31;;;;;;;Algérie;Algeria;Argelia;الجزائر;الجزایر;MENA
+2002;DJI;96;31,25;;;;;;;Djibouti;Djibouti;Yibuti;جيبوتي;جیبوتی;Afrique
+2002;TGO;97;31,5;;;;;;;Togo;Togo;Togo;توغو;توگو;Afrique
+2002;KGZ;98;31,75;;;;;;;Kirghizstan;Kyrgyzstan;Kirguistán;قرغيزستان;قرقیزستان;EEAC
+2002;JOR;99;33,5;;;;;;;Jordanie;Jordan;Jordania;الأردن;اردن;MENA
+2002;TUR;100;33,5;;;;;;;Turquie;Turkey;Turquía;تركيا;ترکیه;EEAC
+2002;AZE;101;34,5;;;;;;;Azerbaïdjan;Azerbaijan;Azerbaiyán;أذربيجان;آذربایجان;EEAC
+2002;EGY;102;34,5;;;;;;;Égypte;Egypt;Egipto;مصر;مصر;MENA
+2002;YEM;103;34,75;;;;;;;Yémen;Yemen;Yemen;اليمن;یمن;MENA
+2002;AFG;104;35,5;;;;;;;Afghanistan;Afghanistan;Afganistán;أفغانستان;افغانستان;Asie-Pacifique
+2002;SDN;105;36;;;;;;;Soudan;Sudan;Sudán;السودان;سودان;Afrique
+2002;HTI;106;36,5;;;;;;;Haïti;Haiti;Haití;هايتي;هايیتی;Amériques
+2002;ETH;107;37,5;;;;;;;Éthiopie;Ethiopia;Etiopía;أثيوبيا;اتیوپی;Afrique
+2002;RWA;108;37,5;;;;;;;Rwanda;Rwanda;Ruanda;رواندا;روندا;Afrique
+2002;LBR;109;37,75;;;;;;;Liberia;Liberia;Liberia;ليبيريا;لیبریا;Afrique
+2002;MYS;110;37,83;;;;;;;Malaisie;Malaysia;Malasia;ماليزيا;مالزی;Asie-Pacifique
+2002;BRN;111;38;;;;;;;Brunei;Brunei Darussalam;Brunéi;بروناي;برونی;Asie-Pacifique
+2002;UKR;112;40;;;;;;;Ukraine;Ukraine;Ucrania;أوكرانيا;اوکراين;EEAC
+2002;COD;113;40,75;;;;;;;RD Congo;The Democratic Republic Of The Congo;RD Congo;جمهورية الكونغو الديمقراطية;جمهوری دمکراتیک کنگو;Afrique
+2002;COL;114;40,83;;;;;;;Colombie;Colombia;Colombia;كولومبيا;کلمبیا;Amériques
+2002;MRT;115;41,33;;;;;;;Mauritanie;Mauritania;Mauritania;موريتانيا;موریتانی;Afrique
+2002;KAZ;116;42;;;;;;;Kazakhstan;Kazakhstan;Kazajistán;كازاخستان;قزاقستان;EEAC
+2002;GNQ;117;42,75;;;;;;;Guinée équatoriale;Equatorial Guinea;Guinea Ecuatorial;غينيا الاستوائية;گینه اکوادور;Afrique
+2002;BGD;118;43,75;;;;;;;Bangladesh;Bangladesh;Bangladés;بنغلاديش;بنگلادش;Asie-Pacifique
+2002;PAK;119;44,67;;;;;;;Pakistan;Pakistan;Pakistán;باكستان;پاکستان;Asie-Pacifique
+2002;UZB;120;45;;;;;;;Ouzbékistan;Uzbekistan;Uzbekistán;أوزبكستان;اوزبکستان;EEAC
+2002;RUS;121;48;;;;;;;Russie;Russian Federation;Rusia;روسيا;روسیه;EEAC
+2002;IRN;122;48,25;;;;;;;Iran;Islamic Republic of Iran;Irán;إيران;ایران;MENA
+2002;ZWE;123;48,25;;;;;;;Zimbabwe;Zimbabwe;Zimbabue;زيمبابوي;زیمبابوه;Afrique
+2002;BLR;124;52,17;;;;;;;Bélarus;Belarus;Belarús;روسيا البيضاء;روسیه سفید;EEAC
+2002;SAU;125;62,5;;;;;;;Arabie saoudite;Saudi Arabia;Arabia Saudita;المملكة العربية السعودية;عربستان سعودی;MENA
+2002;SYR;126;62,83;;;;;;;Syrie;Syrian Arab Republic;Siria;سوريا;سوریه;MENA
+2002;NPL;127;63;;;;;;;Népal;Nepal;Nepal;نيبال;نپال;Asie-Pacifique
+2002;TUN;128;67,75;;;;;;;Tunisie;Tunisia;Túnez;تونس;تونس;MENA
+2002;LBY;129;72,5;;;;;;;Libye;Libya;Libia;ليبيا;لیبی;MENA
+2002;IRQ;130;79;;;;;;;Irak;Iraq;Irak;العراق;عراق;MENA
+2002;VNM;131;81,25;;;;;;;Viêt Nam;Vietnam;Vietnam;فيتنام;ویتنام;Asie-Pacifique
+2002;ERI;132;83,67;;;;;;;Érythrée;Eritrea;Eritrea;إريتريا;اریتره;Afrique
+2002;LAO;133;89;;;;;;;Laos;Lao People's Democratic Republic;Laos;لاوس;لائوس;Asie-Pacifique
+2002;CUB;134;90,25;;;;;;;Cuba;Cuba;Cuba;كوبا;کوبا;Amériques
+2002;BTN;135;90,75;;;;;;;Bhoutan;Bhutan;Bután;بوتان;بوتان;Asie-Pacifique
+2002;TKM;136;91,5;;;;;;;Turkménistan;Turkmenistan;Turkmenistán;تركمانستان;ترکمنستان;EEAC
+2002;MMR;137;96,83;;;;;;;Birmanie;Myanmar;Birmania;بورما;برمه;Asie-Pacifique
+2002;CHN;138;97;;;;;;;Chine;China;China;الصين;چین;Asie-Pacifique
+2002;PRK;139;97,5;;;;;;;Corée du Nord;Democratic People's Republic of Korea;Corea del Norte;كوريا الشمالية;کره شمالی;Asie-Pacifique

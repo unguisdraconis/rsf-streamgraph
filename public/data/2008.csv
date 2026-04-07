@@ -1,0 +1,174 @@
+﻿Year (N);ISO;Rank N;Score N;Score N without the exactions;Score N with the exactions;Score exactions;Rank N-1;Score N-1;Rank evolution;FR_country;EN_country;ES_country;AR_country;FA_country;Zone
+2008;ISL;1;1,5;;;;1;0,75;0;Islande;Iceland;Islandia;أيسلندا;ایسلند;UE Balkans
+2008;LUX;1;1,5;;;;;;;Luxembourg;Luxembourg;Luxemburgo;لوكسمبورغ;لوکزامبورگ;UE Balkans
+2008;NOR;1;1,5;;;;1;0,75;0;Norvège;Norway;Noruega;النرويج;نروژ;UE Balkans
+2008;EST;4;2;;;;3;1;-1;Estonie;Estonia;Estonia;إستونيا;استونی;UE Balkans
+2008;FIN;4;2;;;;5;1,5;1;Finlande;Finland;Finlandia;فنلندا;فنلاند;UE Balkans
+2008;IRL;4;2;;;;8;2;4;Irlande;Ireland;Irlanda;أيرلندا;ایرلند;UE Balkans
+2008;BEL;7;3;;;;5;1,5;-2;Belgique;Belgium;Bélgica;بلجيكا;بلژیک;UE Balkans
+2008;LVA;7;3;;;;12;3,5;5;Lettonie;Latvia;Letonia;لاتفيا;لتوانی;UE Balkans
+2008;NZL;7;3;;;;15;4,17;8;Nouvelle-Zélande;New Zealand;Nueva Zelanda;نيوزيلاندا;زلاند نو;Asie-Pacifique
+2008;SVK;7;3;;;;3;1;-4;Slovaquie;Slovakia;Eslovaquia;سلوفاكيا;اسلواکی;UE Balkans
+2008;SWE;7;3;;;;5;1,5;-2;Suède;Sweden;Suecia;السويد;سوئد;UE Balkans
+2008;CHE;7;3;;;;11;3;4;Suisse;Switzerland;Suiza;سويسرا;سويیس;UE Balkans
+2008;CAN;13;3,33;;;;18;4,88;5;Canada;Canada;Canadá;كندا;کانادا;Amériques
+2008;AUT;14;3,5;;;;16;4,25;2;Autriche;Austria;Austria;النمسا;اتریش;UE Balkans
+2008;DNK;14;3,5;;;;8;2;-6;Danemark;Denmark;Dinamarca;الدنمارك;دانمارک;UE Balkans
+2008;LTU;16;4;;;;23;7;7;Lituanie;Lithuania;Lituania;ليتوانيا;لیتوانی;UE Balkans
+2008;NLD;16;4;;;;12;3,5;-4;Pays-Bas;Netherlands;Países Bajos;هولندا;هلند;UE Balkans
+2008;PRT;16;4;;;;8;2;-8;Portugal;Portugal;Portugal;البرتغال;پرتغال;UE Balkans
+2008;CZE;16;4;;;;14;4;-2;République tchèque;Czech Republic;República Checa;جمهورية التشيك;جمهوری چک;UE Balkans
+2008;DEU;20;4,5;;;;20;5,75;0;Allemagne;Germany;Alemania;ألمانيا;آلمان;UE Balkans
+2008;JAM;21;4,88;;;;27;8,63;6;Jamaïque;Jamaica;Jamaica;جامايكا;جامائیکا;Amériques
+2008;CRI;22;5,1;;;;21;6,5;-1;Costa Rica;Costa Rica;Costa Rica;كوستاريكا;کاستاریکا;Amériques
+2008;HUN;23;5,5;;;;17;4,5;-6;Hongrie;Hungary;Hungría;المجر;مجارستان;UE Balkans
+2008;NAM;23;5,5;;;;25;8,5;2;Namibie;Namibia;Namibia;ناميبيا;نامیبیا;Afrique
+2008;GBR;23;5,5;;;;24;8,25;1;Royaume-Uni;United Kingdom;Reino Unido;المملكة المتحدة;بریتانیا;UE Balkans
+2008;SUR;26;6;;;;;;;Suriname;Suriname;Surinam;سورينام;سورینام;Amériques
+2008;TTO;27;6,13;;;;19;5;-8;Trinité-et-Tobago;Trinidad and Tobago;Trinidad y Tobago;ترينيداد وتوباغو;ترنتی و توبوگو;Amériques
+2008;AUS;28;6,25;;;;28;8,79;0;Australie;Australia;Australia;أستراليا;استرالیا;Asie-Pacifique
+2008;JPN;29;6,5;;;;37;11,75;8;Japon;Japan;Japón;اليابان;ژاپن;Asie-Pacifique
+2008;SVN;30;7,33;;;;21;6,5;-9;Slovénie;Slovenia;Eslovenia;سلوفينيا;اسلوانی;UE Balkans
+2008;CYP;31;7,5;;;;45;14;14;Chypre;Cyprus;Chipre;قبرص;قبرس;UE Balkans
+2008;GHA;31;7,5;;;;29;9;-2;Ghana;Ghana;Ghana;غانا;غنا;Afrique
+2008;GRC;31;7,5;;;;30;9,25;-1;Grèce;Greece;Grecia;اليونان;یونان;UE Balkans
+2008;MLI;31;7,5;;;;52;16,5;21;Mali;Mali;Malí;مالي;مالی;Afrique
+2008;FRA;35;7,67;;;;31;9,75;-4;France;France;Francia;فرنسا;فرانسه;UE Balkans
+2008;ZAF;36;8;;;;43;13;7;Afrique du Sud;South Africa;Sudáfrica;جنوب أفريقيا;آفریقای جنوبی;Afrique
+2008;BIH;36;8;;;;34;11,17;-2;Bosnie-Herzégovine;Bosnia and Herzegovina;Bosnia-Herzegovina;البوسنة والهرسك;بوسنی هرزوگوین;UE Balkans
+2008;CPV;36;8;;;;45;14;9;Cap-Vert;Cape Verde;Cabo Verde;الرأس الأخضر;کیپورد;Afrique
+2008;ESP;36;8;;;;33;10,25;-3;Espagne;Spain;España;إسبانيا;اسپانیا;UE Balkans
+2008;USA2;36;8;;;;48;14,5;12;États-Unis (territoire américain);United States (US territory);Estados Unidos (territorio estadounidense);الولايات المتحدة (الأراضي الأمريكية);ایالات متحده امریکا (در سرزمین ایالات متحده امریکا);Amériques
+2008;TWN;36;8;;;;32;10;-4;Taïwan;Taiwan;Taiwán;تايوان;تایوان;Asie-Pacifique
+2008;MKD;42;8,25;;;;36;11,5;-6;Macédoine du Nord;North Macedonia;República de Macedonia del Norte;مقدونيا الشمالية;مقدونیه شمالی ;UE Balkans
+2008;URY;43;8,33;;;;37;11,75;-6;Uruguay;Uruguay;Uruguay;أوروغواي;اروگويه;Amériques
+2008;ITA;44;8,42;;;;35;11,25;-9;Italie;Italy;Italia;إيطاليا;ایتالیا;UE Balkans
+2008;HRV;45;8,5;;;;41;12,5;-4;Croatie;Croatia;Croacia;كرواتيا;کرواسی;UE Balkans
+2008;ISR1;46;8,83;;;;44;13,25;-2;Israël (territoire israélien);Israel (Israeli territory);Israel (territorio israelí);إسرائيل (الأراضي الإسرائيلية);اسرائیل (در سرزمین اسرائیل);MENA
+2008;KOR;47;9;;;;39;12,13;-8;Corée du Sud;South Korea;Corea del Sur;كوريا الجنوبية;کره جنوبی;Asie-Pacifique
+2008;MUS;47;9;;;;25;8,5;-22;Maurice;Mauritius;Mauricio;موريشيوس;موریس;Afrique
+2008;POL;47;9;;;;56;18,5;9;Pologne;Poland;Polonia;بولندا;لهستان;UE Balkans
+2008;ROU;47;9;;;;42;12,75;-5;Roumanie;Romania;Rumania;رومانيا;رومانی;UE Balkans
+2008;HKG;51;9,75;;;;61;20;10;Hong-Kong;Hong Kong;Hong Kong;هونغ كونغ;هنگ کنگ;Asie-Pacifique
+2008;LBR;51;9,75;;;;85;25,33;34;Liberia;Liberia;Liberia;ليبيريا;لیبریا;Afrique
+2008;CTU;53;10;;;;58;19;5;Chypre (partie Nord);Cyprus North;Chipre Norte;قبرص (الجزء الشمالي);قبرس (شمالی);UE Balkans
+2008;MNE;53;10;;;;58;19;5;Monténégro;Montenegro;Montenegro;الجبل الأسود;مونته‌نگرو;UE Balkans
+2008;TGO;53;10;;;;49;15,17;-4;Togo;Togo;Togo;توغو;توگو;Afrique
+2008;CHL;56;11,5;;;;39;12,13;-17;Chili;Chile;Chile;تشيلي;شیلی;Amériques
+2008;PAN;57;11,83;;;;54;17,88;-3;Panama;Panama;Panamá;بنما;پاناما;Amériques
+2008;XKO;58;12;;;;60;19,75;2;Kosovo;Kosovo;Kosovo;كوسوفو;کوسووو;UE Balkans
+2008;BGR;59;12,5;;;;51;16,25;-8;Bulgarie;Bulgaria;Bulgaria;بلغاريا;بلغارستان;UE Balkans
+2008;NIC;59;12,5;;;;47;14,25;-12;Nicaragua;Nicaragua;Nicaragua;نيكاراغوا;نیکاراگوئه;Amériques
+2008;KWT;61;12,63;;;;63;20,17;2;Koweït;Kuwait;Kuwait;الكويت;کویت;MENA
+2008;SLV;62;12,8;;;;64;20,2;2;El Salvador;El Salvador;El Salvador;السلفادور;ال‌سالوادور;Amériques
+2008;BFA;63;13;;;;68;21,5;5;Burkina Faso;Burkina Faso;Burkina Faso;بوركينا فاسو;بورکینافاسو;Afrique
+2008;SRB;64;13,5;;;;67;21;3;Serbie;Serbia;Serbia;صربيا;صربستان;UE Balkans
+2008;TLS;65;13,75;;;;94;27;29;Timor oriental;East Timor;Timor Oriental;تيمور الشرقية;تیمور شرقی;Asie-Pacifique
+2008;BWA;66;14;;;;75;23,5;9;Botswana;Botswana;Botsuana;بوتسوانا;بوستاوانا;Afrique
+2008;LBN;66;14;;;;98;28,75;32;Liban;Lebanon;Líbano;لبنان;لبنان;MENA
+2008;ARG;68;14,08;;;;82;24,83;14;Argentine;Argentina;Argentina;الأرجنتين;آرژانتین;Amériques
+2008;ARE;69;14,5;;;;65;20,25;-4;Émirats arabes unis;United Arab Emirates;Emiratos Árabes Unidos;الإمارات العربية المتحدة;امارات متحده عربی;MENA
+2008;BEN;70;15;;;;53;17;-17;Bénin;Benin;Benín;بنين;بنین;Afrique
+2008;MWI;70;15;;;;92;26,75;22;Malawi;Malawi;Malaui;مالاوي;مالاوی;Afrique
+2008;TZA;70;15;;;;55;18;-15;Tanzanie;Tanzania;Tanzania;تنزانيا;تانزانیا;Afrique
+2008;HTI;73;15,13;;;;75;23,5;2;Haïti;Haiti;Haití;هايتي;هايیتی;Amériques
+2008;BTN;74;15,5;;;;116;37,17;42;Bhoutan;Bhutan;Bután;بوتان;بوتان;Asie-Pacifique
+2008;ECU;74;15,5;;;;56;18,5;-18;Équateur;Ecuador;Ecuador;الإكوادور;اکواتور;Amériques
+2008;QAT;74;15,5;;;;79;24;5;Qatar;Qatar;Catar;قطر;قطر;MENA
+2008;SYC;74;15,5;;;;104;33;30;Seychelles;Seychelles;Seychelles;سيشيل;سی‌شل;Afrique
+2008;ZMB;74;15,5;;;;68;21,5;-6;Zambie;Zambia;Zambia;زامبيا;زامبیا;Afrique
+2008;ALB;79;16;;;;87;25,5;8;Albanie;Albania;Albania;ألبانيا;آلبانی;UE Balkans
+2008;FJI;79;16;;;;107;33,5;28;Fidji;Fiji;Fiyi;فيجي;فیجی;Asie-Pacifique
+2008;GNB;81;16,33;;;;107;33,5;26;Guinée-Bissau;Guinea-Bissau;Guinea-Bisáu;غينيا بيساو;گینه بیسائو;Afrique
+2008;BRA;82;18;;;;84;25,25;2;Brésil;Brazil;Brasil;البرازيل;برزیل;Amériques
+2008;DOM;82;18;;;;72;22,75;-10;République dominicaine;Dominican Republic;República Dominicana;جمهورية الدومينيكان;جمهوری دومینیک;Amériques
+2008;TON;82;18;;;;119;38,25;37;Tonga;Tonga;Tonga;تونغا;تونگا;Asie-Pacifique
+2008;CAF;85;18,5;;;;71;22,5;-14;République centrafricaine;Central African Republic;República Centroafricana;جمهورية أفريقيا الوسطى;جمهوری آفریقای مرکزی;Afrique
+2008;SEN;86;19;;;;83;25;-3;Sénégal;Senegal;Senegal;السنغال;سنگال;Afrique
+2008;UKR;87;19,25;;;;92;26,75;5;Ukraine;Ukraine;Ucrania;أوكرانيا;اوکراين;EEAC
+2008;GUY;88;19,75;;;;;;;Guyana;Guyana;Guyana;غويانا;گیانا;Amériques
+2008;COM;89;20;;;;96;28;7;Comores;Comoros;Comoras;جزر القمر;کومور;Afrique
+2008;MOZ;90;20,5;;;;73;23;-17;Mozambique;Mozambique;Mozambique;موزمبيق;موزامبیک;Afrique
+2008;PRY;91;20,5;;;;90;26,1;-1;Paraguay;Paraguay;Paraguay;باراغواي;پاراگوئه;Amériques
+2008;COG;92;20,75;;;;80;24,5;-12;Congo;Congo;República del Congo;الكونغو;کنگو;Afrique
+2008;MNG;93;20,83;;;;74;23,4;-19;Mongolie;Mongolia;Mongolia;منغوليا;مغولستان;Asie-Pacifique
+2008;BDI;94;21;;;;127;43,4;33;Burundi;Burundi;Burundi;بوروندي;بروندی;Afrique
+2008;MDG;94;21;;;;61;20;-33;Madagascar;Madagascar;Madagascar;مدغشقر;ماداگاسکار;Afrique
+2008;BHR;96;21,17;;;;118;38;22;Bahreïn;Bahrain;Baréin;البحرين;بحرین;MENA
+2008;KEN;97;21,25;;;;78;23,75;-19;Kenya;Kenya;Kenia;كينيا;کنیا;Afrique
+2008;MDA;98;21,38;;;;81;24,75;-17;Moldavie;Moldova;Moldavia;مولدوفا;مولداوی;EEAC
+2008;GIN;99;21,5;;;;107;33,5;8;Guinée;Guinea;Guinea;غينيا;گینه;Afrique
+2008;HND;99;21,5;;;;87;25,5;-12;Honduras;Honduras;Honduras;هندوراس;هندوراس;Amériques
+2008;GTM;101;22,64;;;;104;33;3;Guatemala;Guatemala;Guatemala;غواتيمالا;گواتمالا;Amériques
+2008;ARM;102;22,75;;;;77;23,63;-25;Arménie;Armenia;Armenia;أرمينيا;ارمنستان;EEAC
+2008;TUR;102;22,75;;;;101;31,25;-1;Turquie;Turkey;Turquía;تركيا;ترکیه;EEAC
+2008;MDV;104;23,25;;;;129;45,17;25;Maldives;Maldives;Maldivas;المالديف;مالدیو;Asie-Pacifique
+2008;MRT;105;23,88;;;;50;15,5;-55;Mauritanie;Mauritania;Mauritania;موريتانيا;موریتانی;Afrique
+2008;TJK;106;25,5;;;;115;37;9;Tadjikistan;Tajikistan;Tayikistán;طاجيكستان;تاجیکستان;EEAC
+2008;UGA;107;26;;;;96;28;-11;Ouganda;Uganda;Uganda;أوغندا;اوگاندا;Afrique
+2008;PER;108;26,25;;;;117;37,38;9;Pérou;Peru;Peru;بيرو;پرو;Amériques
+2008;CIV;109;26,5;;;;94;27;-15;Côte d'Ivoire;Ivory Coast;Costa de Marfil;ساحل العاج;ساحل عاج;Afrique
+2008;GAB;110;26,75;;;;102;31,5;-8;Gabon;Gabon;República Gabonesa;الغابون;گابون;Afrique
+2008;IDN;111;27;;;;100;30,5;-11;Indonésie;Indonesia;Indonesia;أندونيسيا;اندونزی;Asie-Pacifique
+2008;KGZ;111;27;;;;110;33,6;-1;Kirghizstan;Kyrgyzstan;Kirguistán;قرغيزستان;قرقیزستان;EEAC
+2008;VEN;113;27,33;;;;114;36,88;1;Venezuela;Venezuela;Venezuela;فنزويلا;ونزوئلا;Amériques
+2008;SLE;114;27,75;;;;121;39,5;7;Sierra Leone;Sierra Leone;Sierra Leona;سيراليون;سئیرالئون;Afrique
+2008;BOL;115;28,2;;;;68;21,5;-47;Bolivie;Bolivia;Bolivia;بوليفيا;بلیوی;Amériques
+2008;AGO;116;29,5;;;;91;26,5;-25;Angola;Angola;Angola;أنغولا;آنگولا;Afrique
+2008;LSO;116;29,5;;;;99;29,5;-17;Lesotho;Lesotho;Lesoto;ليسوتو;لسو‌تو;Afrique
+2008;IND;118;30;;;;120;39,33;2;Inde;India;India;الهند;هند;Asie-Pacifique
+2008;USA1;119;31;;;;111;36;-8;États-Unis (hors territoire américain);United States (outside US territory);Estados Unidos (fuera del territorio estadounidense);الولايات المتحدة (باستثناء الأراضي الأمريكية);ایالات متحده امریکا (خارج از سرزمین‌ ایالات متحده امریکا);Amériques
+2008;GEO;120;31,25;;;;66;20,83;-54;Géorgie;Georgia;Georgia;جورجيا;گرجستان;EEAC
+2008;DZA;121;31,33;;;;123;40,5;2;Algérie;Algeria;Argelia;الجزائر;الجزایر;MENA
+2008;MAR;122;32,25;;;;106;33,25;-16;Maroc;Morocco;Marruecos;المغرب;مراکش;MENA
+2008;OMN;123;32,67;;;;;;;Oman;Oman;Omán;عمان;عمان;MENA
+2008;THA;124;34,5;;;;135;53,5;11;Thaïlande;Thailand;Tailandia;تايلاند;تایلند;Asie-Pacifique
+2008;KAZ;125;35,33;;;;125;41,63;0;Kazakhstan;Kazakhstan;Kazajistán;كازاخستان;قزاقستان;EEAC
+2008;KHM;126;35,5;;;;85;25,33;-41;Cambodge;Cambodia;Camboya;كمبوديا;کامبوج;Asie-Pacifique
+2008;COL;126;35,5;;;;126;42,33;0;Colombie;Colombia;Colombia;كولومبيا;کلمبیا;Amériques
+2008;JOR;128;36;;;;122;40,21;-6;Jordanie;Jordan;Jordania;الأردن;اردن;MENA
+2008;CMR;129;36,9;;;;111;36;-18;Cameroun;Cameroon;Camerún;الكاميرون;کامرون;Afrique
+2008;NER;130;37;;;;87;25,5;-43;Niger;Niger;Niger;النيجر;نیجر;Afrique
+2008;NGA;131;37,75;;;;131;49,83;0;Nigeria;Nigeria;Nigeria;نيجيريا;نیجریه;Afrique
+2008;MYS;132;39,5;;;;124;41;-8;Malaisie;Malaysia;Malasia;ماليزيا;مالزی;Asie-Pacifique
+2008;TCD;133;41,25;;;;113;36,5;-20;Tchad;Chad;Chad;تشاد;چاد;Afrique
+2008;DJI;134;41,5;;;;132;50,25;-2;Djibouti;Djibouti;Yibuti;جيبوتي;جیبوتی;Afrique
+2008;SDN;135;42;;;;140;55,75;5;Soudan;Sudan;Sudán;السودان;سودان;Afrique
+2008;BGD;136;42,7;;;;134;53,17;-2;Bangladesh;Bangladesh;Bangladés;بنغلاديش;بنگلادش;Asie-Pacifique
+2008;GMB;137;42,75;;;;130;48,25;-7;Gambie;Gambia;Gambia;غامبيا;گامبیا;Afrique
+2008;NPL;138;43,25;;;;137;53,75;-1;Népal;Nepal;Nepal;نيبال;نپال;Asie-Pacifique
+2008;PHL;139;45;;;;128;44,75;-11;Philippines;Philippines;Filipinas;الفلبين;فلیپین;Asie-Pacifique
+2008;MEX;140;46,13;;;;136;53,63;-4;Mexique;Mexico;México;المكسيك;مکزیک;Amériques
+2008;RUS;141;47,5;;;;144;56,9;3;Russie;Russian Federation;Rusia;روسيا;روسیه;EEAC
+2008;ETH;142;47,75;;;;150;63;8;Éthiopie;Ethiopia;Etiopía;أثيوبيا;اتیوپی;Afrique
+2008;TUN;143;48,1;;;;145;57;2;Tunisie;Tunisia;Túnez;تونس;تونس;MENA
+2008;SGP;144;49;;;;141;56;-3;Singapour;Singapore;Singapur;سنغافورة;سنگاپور;Asie-Pacifique
+2008;RWA;145;50;;;;147;58,88;2;Rwanda;Rwanda;Ruanda;رواندا;روندا;Afrique
+2008;EGY;146;50,25;;;;146;58;0;Égypte;Egypt;Egipto;مصر;مصر;MENA
+2008;SWZ;147;50,5;;;;138;54,5;-9;Eswatini;Eswatini;Esuatini;إسواتيني;اسواتینی ;Afrique
+2008;COD;148;51,25;;;;133;50,5;-15;RD Congo;The Democratic Republic Of The Congo;RD Congo;جمهورية الكونغو الديمقراطية;جمهوری دمکراتیک کنگو;Afrique
+2008;ISR2;149;51,5;;;;103;32;-46;Israël (hors territoire israélien);Israel (outside Israeli territory);Israel (fuera del territorio israelí);إسرائيل (باستثناء الأراضي الإسرائيلية);اسرائیل (خارج ازسرزمین اسرائیل);MENA
+2008;AZE;150;53,63;;;;139;55,4;-11;Azerbaïdjan;Azerbaijan;Azerbaiyán;أذربيجان;آذربایجان;EEAC
+2008;ZWE;151;54;;;;149;62;-2;Zimbabwe;Zimbabwe;Zimbabue;زيمبابوي;زیمبابوه;Afrique
+2008;PAK;152;54,88;;;;152;64,83;0;Pakistan;Pakistan;Pakistán;باكستان;پاکستان;Asie-Pacifique
+2008;SOM;153;58;;;;159;71,5;6;Somalie;Somalia;Somalia;الصومال;سومالی;Afrique
+2008;BLR;154;58,33;;;;151;63,63;-3;Bélarus;Belarus;Belarús;روسيا البيضاء;روسیه سفید;EEAC
+2008;YEM;155;59;;;;143;56,67;-12;Yémen;Yemen;Yemen;اليمن;یمن;MENA
+2008;AFG;156;59,25;;;;142;56,5;-14;Afghanistan;Afghanistan;Afganistán;أفغانستان;افغانستان;Asie-Pacifique
+2008;GNQ;156;59,25;;;;153;65,25;-3;Guinée équatoriale;Equatorial Guinea;Guinea Ecuatorial;غينيا الاستوائية;گینه اکوادور;Afrique
+2008;IRQ;158;59,38;;;;157;67,83;-1;Irak;Iraq;Irak;العراق;عراق;MENA
+2008;SYR;159;59,63;;;;154;66;-5;Syrie;Syrian Arab Republic;Siria;سوريا;سوریه;MENA
+2008;LBY;160;61,5;;;;155;66,5;-5;Libye;Libya;Libia;ليبيا;لیبی;MENA
+2008;SAU;161;61,75;;;;148;59,75;-13;Arabie saoudite;Saudi Arabia;Arabia Saudita;المملكة العربية السعودية;عربستان سعودی;MENA
+2008;UZB;162;62,7;;;;160;74,88;-2;Ouzbékistan;Uzbekistan;Uzbekistán;أوزبكستان;اوزبکستان;EEAC
+2008;PSE;163;66,88;;;;158;69,83;-5;Palestine;Palestine;Palestina;فلسطين;فلسطین;MENA
+2008;LAO;164;70;;;;161;75;-3;Laos;Lao People's Democratic Republic;Laos;لاوس;لائوس;Asie-Pacifique
+2008;LKA;165;78;;;;156;67,5;-9;Sri Lanka;Sri Lanka;Sri Lanka;سري لانكا;سریلانکا;Asie-Pacifique
+2008;IRN;166;80,33;;;;166;96,5;0;Iran;Islamic Republic of Iran;Irán;إيران;ایران;MENA
+2008;CHN;167;85,5;;;;163;89;-4;Chine;China;China;الصين;چین;Asie-Pacifique
+2008;VNM;168;86,17;;;;162;79,25;-6;Viêt Nam;Vietnam;Vietnam;فيتنام;ویتنام;Asie-Pacifique
+2008;CUB;169;88,33;;;;165;96,17;-4;Cuba;Cuba;Cuba;كوبا;کوبا;Amériques
+2008;MMR;170;94,38;;;;164;93,75;-6;Birmanie;Myanmar;Birmania;بورما;برمه;Asie-Pacifique
+2008;TKM;171;95,5;;;;167;103,75;-4;Turkménistan;Turkmenistan;Turkmenistán;تركمانستان;ترکمنستان;EEAC
+2008;PRK;172;96,5;;;;168;108,75;-4;Corée du Nord;Democratic People's Republic of Korea;Corea del Norte;كوريا الشمالية;کره شمالی;Asie-Pacifique
+2008;ERI;173;97,5;;;;169;114,75;-4;Érythrée;Eritrea;Eritrea;إريتريا;اریتره;Afrique
