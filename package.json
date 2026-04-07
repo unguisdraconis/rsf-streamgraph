@@ -8,7 +8,8 @@
     "build": "vite build",
     "deploy": "vite build && gh-pages -d dist",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test:parser": "node ./test/parseCSV-safety.test.mjs"
   },
   "dependencies": {
     "d3": "^7.9.0",

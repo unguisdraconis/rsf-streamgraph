@@ -60,7 +60,12 @@ function normalizeZone(raw) {
   const trimmed = raw.trim();
   if (!trimmed) return null;
 
-  const key = trimmed.toLowerCase();
+  const sanitized = trimmed
+    .replace(/\uFFFD/g, "e")
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "");
+
+  const key = sanitized.toLowerCase();
   if (ZONE_ALIASES[key]) return ZONE_ALIASES[key];
 
   for (const [alias, canonical] of Object.entries(ZONE_ALIASES)) {
