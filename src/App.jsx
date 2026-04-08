@@ -28,6 +28,8 @@ const CSV_FILES = [
   { file: `${DATA_BASE}2006.csv`, year: 2006 },
   { file: `${DATA_BASE}2007.csv`, year: 2007 },
   { file: `${DATA_BASE}2008.csv`, year: 2008 },
+  { file: `${DATA_BASE}2009.csv`, year: 2009 },
+  { file: `${DATA_BASE}2010.csv`, year: 2010 },
   { file: `${DATA_BASE}2012.csv`, year: 2012 },
   { file: `${DATA_BASE}2013.csv`, year: 2013 },
   { file: `${DATA_BASE}2014.csv`, year: 2014 },
@@ -255,6 +257,9 @@ export default function App() {
           <br />
           For the most direct comparison of normalized average scores, use the{" "}
           <strong>Stacked Area</strong> layout.
+          <br />
+          MENA = Middle East & North Africa; EEAC = Eastern Europe & Central
+          Asia.
         </div>
       )}
 
