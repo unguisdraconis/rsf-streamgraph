@@ -1,0 +1,179 @@
+﻿Year (N);ISO;Rank N;Score N;Score N without the exactions;Score N with the exactions;Score exactions;Rank N-1;Score N-1;Rank evolution;FR_country;EN_country;ES_country;AR_country;FA_country;Zone
+2010;FIN;1;0;;;;1;0;0;Finlande;Finland;Finlandia;فنلندا;فنلاند;UE Balkans
+2010;ISL;2;0;;;;9;2;7;Islande;Iceland;Islandia;أيسلندا;ایسلند;UE Balkans
+2010;NOR;3;0;;;;1;0;-2;Norvège;Norway;Noruega;النرويج;نروژ;UE Balkans
+2010;NLD;4;0;;;;7;1;3;Pays-Bas;Netherlands;Países Bajos;هولندا;هلند;UE Balkans
+2010;SWE;5;0;;;;1;0;-4;Suède;Sweden;Suecia;السويد;سوئد;UE Balkans
+2010;CHE;6;0;;;;7;1;1;Suisse;Switzerland;Suiza;سويسرا;سويیس;UE Balkans
+2010;AUT;7;0,5;;;;13;3;6;Autriche;Austria;Austria;النمسا;اتریش;UE Balkans
+2010;NZL;8;1,5;;;;13;3;5;Nouvelle-Zélande;New Zealand;Nueva Zelanda;نيوزيلاندا;زلاند نو;Asie-Pacifique
+2010;EST;9;2;;;;6;0,5;-3;Estonie;Estonia;Estonia;إستونيا;استونی;UE Balkans
+2010;IRL;10;2;;;;1;0;-9;Irlande;Ireland;Irlanda;أيرلندا;ایرلند;UE Balkans
+2010;DNK;11;2,5;;;;1;0;-10;Danemark;Denmark;Dinamarca;الدنمارك;دانمارک;UE Balkans
+2010;JPN;12;2,5;;;;17;3,25;5;Japon;Japan;Japón;اليابان;ژاپن;Asie-Pacifique
+2010;LTU;13;2,5;;;;10;2,25;-3;Lituanie;Lithuania;Lituania;ليتوانيا;لیتوانی;UE Balkans
+2010;BEL;14;4;;;;11;2,5;-3;Belgique;Belgium;Bélgica;بلجيكا;بلژیک;UE Balkans
+2010;LUX;15;4;;;;20;4;5;Luxembourg;Luxembourg;Luxemburgo;لوكسمبورغ;لوکزامبورگ;UE Balkans
+2010;MLT;16;4;;;;11;2,5;-5;Malte;Malta;Malta;مالطا;مالت;UE Balkans
+2010;DEU;17;4,25;;;;18;3,5;1;Allemagne;Germany;Alemania;ألمانيا;آلمان;UE Balkans
+2010;AUS;18;5,38;;;;16;3,125;-2;Australie;Australia;Australia;أستراليا;استرالیا;Asie-Pacifique
+2010;GBR;19;6;;;;20;4;1;Royaume-Uni;United Kingdom;Reino Unido;المملكة المتحدة;بریتانیا;UE Balkans
+2010;USA2;20;6,75;;;;20;4;0;États-Unis (territoire américain);United States (US territory);Estados Unidos (territorio estadounidense);الولايات المتحدة (الأراضي الأمريكية);ایالات متحده امریکا (در سرزمین ایالات متحده امریکا);Amériques
+2010;CAN;21;7;;;;19;3,7;-2;Canada;Canada;Canadá;كندا;کانادا;Amériques
+2010;NAM;22;7;;;;35;9;13;Namibie;Namibia;Namibia;ناميبيا;نامیبیا;Afrique
+2010;HUN;23;7,5;;;;25;5,5;2;Hongrie;Hungary;Hungría;المجر;مجارستان;UE Balkans
+2010;CZE;24;7,5;;;;24;5;0;République tchèque;Czech Republic;República Checa;جمهورية التشيك;جمهوری چک;UE Balkans
+2010;JAM;25;7,67;;;;23;4,75;-2;Jamaïque;Jamaica;Jamaica;جامايكا;جامائیکا;Amériques
+2010;CPV;26;8;;;;44;11;18;Cap-Vert;Cape Verde;Cabo Verde;الرأس الأخضر;کیپورد;Afrique
+2010;GHA;27;8;;;;27;6;0;Ghana;Ghana;Ghana;غانا;غنا;Afrique
+2010;MLI;28;8;;;;30;8;2;Mali;Mali;Malí;مالي;مالی;Afrique
+2010;CRI;29;8,08;;;;30;8;1;Costa Rica;Costa Rica;Costa Rica;كوستاريكا;کاستاریکا;Amériques
+2010;LVA;30;8,5;;;;13;3;-17;Lettonie;Latvia;Letonia;لاتفيا;لتوانی;UE Balkans
+2010;TTO;30;8,5;;;;28;7;-2;Trinité-et-Tobago;Trinidad and Tobago;Trinidad y Tobago;ترينيداد وتوباغو;ترنتی و توبوگو;Amériques
+2010;POL;32;8,88;;;;37;9,5;5;Pologne;Poland;Polonia;بولندا;لهستان;UE Balkans
+2010;CHL;33;10,5;;;;39;10,5;6;Chili;Chile;Chile;تشيلي;شیلی;Amériques
+2010;HKG;34;10,75;;;;48;11,75;14;Hong-Kong;Hong Kong;Hong Kong;هونغ كونغ;هنگ کنگ;Asie-Pacifique
+2010;SVK;35;11,5;;;;44;11;9;Slovaquie;Slovakia;Eslovaquia;سلوفاكيا;اسلواکی;UE Balkans
+2010;SUR;36;11,5;;;;42;10,6;6;Suriname;Suriname;Surinam;سورينام;سورینام;Amériques
+2010;URY;37;11,75;;;;29;7,625;-8;Uruguay;Uruguay;Uruguay;أوروغواي;اروگويه;Amériques
+2010;ZAF;38;12;;;;33;8,5;-5;Afrique du Sud;South Africa;Sudáfrica;جنوب أفريقيا;آفریقای جنوبی;Afrique
+2010;ESP;39;12,25;;;;44;11;5;Espagne;Spain;España;إسبانيا;اسپانیا;UE Balkans
+2010;PRT;40;12,36;;;;30;8;-10;Portugal;Portugal;Portugal;البرتغال;پرتغال;UE Balkans
+2010;TZA;41;13;;;;62;15,5;21;Tanzanie;Tanzania;Tanzania;تنزانيا;تانزانیا;Afrique
+2010;KOR;42;13,33;;;;69;15,66666667;27;Corée du Sud;South Korea;Corea del Sur;كوريا الجنوبية;کره جنوبی;Asie-Pacifique
+2010;PNG;43;13,33;;;;56;14,7;13;Papouasie-Nouvelle-Guinée;Papua New Guinea;Papúa Nueva Guinea;بابوا غينيا الجديدة;پاپوآ گینه نو;Asie-Pacifique
+2010;FRA;44;13,38;;;;43;10,66666667;-1;France;France;Francia;فرنسا;فرانسه;UE Balkans
+2010;CYP;45;13,4;;;;25;5,5;-20;Chypre;Cyprus;Chipre;قبرص;قبرس;UE Balkans
+2010;SVN;46;13,44;;;;37;9,5;-9;Slovénie;Slovenia;Eslovenia;سلوفينيا;اسلوانی;UE Balkans
+2010;BIH;47;13,5;;;;39;10,5;-8;Bosnie-Herzégovine;Bosnia and Herzegovina;Bosnia-Herzegovina;البوسنة والهرسك;بوسنی هرزوگوین;UE Balkans
+2010;TWN;48;14,5;;;;59;15,08333333;11;Taïwan;Taiwan;Taiwán;تايوان;تایوان;Asie-Pacifique
+2010;BFA;49;15;;;;57;15;8;Burkina Faso;Burkina Faso;Burkina Faso;بوركينا فاسو;بورکینافاسو;Afrique
+2010;ITA;50;15;;;;49;12,14285714;-1;Italie;Italy;Italia;إيطاليا;ایتالیا;UE Balkans
+2010;SLV;51;15,83;;;;79;17,25;28;El Salvador;El Salvador;El Salvador;السلفادور;ال‌سالوادور;Amériques
+2010;MDV;52;16;;;;51;14;-1;Maldives;Maldives;Maldivas;المالديف;مالدیو;Asie-Pacifique
+2010;ROU;53;16;;;;50;12,5;-3;Roumanie;Romania;Rumania;رومانيا;رومانی;UE Balkans
+2010;PRY;54;16,25;;;;54;14,33333333;0;Paraguay;Paraguay;Paraguay;باراغواي;پاراگوئه;Amériques
+2010;ARG;55;16,35;;;;47;11,33333333;-8;Argentine;Argentina;Argentina;الأرجنتين;آرژانتین;Amériques
+2010;HTI;56;16,38;;;;57;15;1;Haïti;Haiti;Haití;هايتي;هايیتی;Amériques
+2010;XCD;57;16,5;;;;;;;OECS;OECS;OECS;الكاريبي;جزایر کارائیب شرقی;Amériques
+2010;BRA;58;16,6;;;;71;15,875;13;Brésil;Brazil;Brasil;البرازيل;برزیل;Amériques
+2010;GUY;59;16,63;;;;39;10,5;-20;Guyana;Guyana;Guyana;غويانا;گیانا;Amériques
+2010;TGO;60;17;;;;62;15,5;2;Togo;Togo;Togo;توغو;توگو;Afrique
+2010;CTU;61;17,25;;;;51;14;-10;Chypre (partie Nord);Cyprus North;Chipre Norte;قبرص (الجزء الشمالي);قبرس (شمالی);UE Balkans
+2010;BWA;62;17,5;;;;62;15,5;0;Botswana;Botswana;Botsuana;بوتسوانا;بوستاوانا;Afrique
+2010;HRV;63;17,5;;;;78;17,16666667;15;Croatie;Croatia;Croacia;كرواتيا;کرواسی;UE Balkans
+2010;BTN;64;17,75;;;;70;15,75;6;Bhoutan;Bhutan;Bután;بوتان;بوتان;Asie-Pacifique
+2010;MUS;65;18;;;;51;14;-14;Maurice;Mauritius;Mauricio;موريشيوس;موریس;Afrique
+2010;SYC;66;18;;;;72;16;6;Seychelles;Seychelles;Seychelles;سيشيل;سی‌شل;Afrique
+2010;GNB;67;18,25;;;;92;23,5;25;Guinée-Bissau;Guinea-Bissau;Guinea-Bisáu;غينيا بيساو;گینه بیسائو;Afrique
+2010;MKD;68;18,4;;;;34;8,75;-34;Macédoine du Nord;North Macedonia;República de Macedonia del Norte;مقدونيا الشمالية;مقدونیه شمالی ;UE Balkans
+2010;CAF;69;18,5;;;;80;17,75;11;République centrafricaine;Central African Republic;República Centroafricana;جمهورية أفريقيا الوسطى;جمهوری آفریقای مرکزی;Afrique
+2010;BEN;70;19;;;;72;16;2;Bénin;Benin;Benín;بنين;بنین;Afrique
+2010;BGR;71;19;;;;68;15,61111111;-3;Bulgarie;Bulgaria;Bulgaria;بلغاريا;بلغارستان;UE Balkans
+2010;COM;72;19;;;;82;19;10;Comores;Comoros;Comoras;جزر القمر;کومور;Afrique
+2010;GRC;73;19;;;;35;9;-38;Grèce;Greece;Grecia;اليونان;یونان;UE Balkans
+2010;KEN;74;19;;;;96;25;22;Kenya;Kenya;Kenia;كينيا;کنیا;Afrique
+2010;MDA;75;19,13;;;;114;33,75;39;Moldavie;Moldova;Moldavia;مولدوفا;مولداوی;EEAC
+2010;MNG;76;19,42;;;;91;23,33333333;15;Mongolie;Mongolia;Mongolia;منغوليا;مغولستان;Asie-Pacifique
+2010;GTM;77;20,25;;;;106;29,5;29;Guatemala;Guatemala;Guatemala;غواتيمالا;گواتمالا;Amériques
+2010;LBN;78;20,5;;;;61;15,41666667;-17;Liban;Lebanon;Líbano;لبنان;لبنان;MENA
+2010;MWI;79;21;;;;62;15,5;-17;Malawi;Malawi;Malaui;مالاوي;مالاوی;Afrique
+2010;ALB;80;21,5;;;;88;21,75;8;Albanie;Albania;Albania;ألبانيا;آلبانی;UE Balkans
+2010;PAN;81;21,83;;;;55;14,5;-26;Panama;Panama;Panamá;بنما;پاناما;Amériques
+2010;ZMB;82;22;;;;97;26,75;15;Zambie;Zambia;Zambia;زامبيا;زامبیا;Afrique
+2010;NIC;83;22,33;;;;76;16,75;-7;Nicaragua;Nicaragua;Nicaragua;نيكاراغوا;نیکاراگوئه;Amériques
+2010;LBR;84;22,5;;;;62;15,5;-22;Liberia;Liberia;Liberia;ليبيريا;لیبریا;Afrique
+2010;SRB;85;23;;;;62;15,5;-23;Serbie;Serbia;Serbia;صربيا;صربستان;UE Balkans
+2010;ISR1;86;23,25;;;;93;23,75;7;Israël (territoire israélien);Israel (Israeli territory);Israel (territorio israelí);إسرائيل (الأراضي الإسرائيلية);اسرائیل (در سرزمین اسرائیل);MENA
+2010;ARE;87;23,75;;;;86;21,5;-1;Émirats arabes unis;United Arab Emirates;Emiratos Árabes Unidos;الإمارات العربية المتحدة;امارات متحده عربی;MENA
+2010;KWT;88;23,75;;;;60;15,25;-28;Koweït;Kuwait;Kuwait;الكويت;کویت;MENA
+2010;TON;89;23,75;;;;;;;Tonga;Tonga;Tonga;تونغا;تونگا;Asie-Pacifique
+2010;LSO;90;24;;;;99;27,5;9;Lesotho;Lesotho;Lesoto;ليسوتو;لسو‌تو;Afrique
+2010;SLE;91;24,25;;;;115;34;24;Sierra Leone;Sierra Leone;Sierra Leona;سيراليون;سئیرالئون;Afrique
+2010;XKO;92;24,83;;;;75;16,58333333;-17;Kosovo;Kosovo;Kosovo;كوسوفو;کوسووو;UE Balkans
+2010;SEN;93;25;;;;89;22;-4;Sénégal;Senegal;Senegal;السنغال;سنگال;Afrique
+2010;TLS;94;25;;;;72;16;-22;Timor oriental;East Timor;Timor Oriental;تيمور الشرقية;تیمور شرقی;Asie-Pacifique
+2010;MRT;95;25,38;;;;100;28,5;5;Mauritanie;Mauritania;Mauritania;موريتانيا;موریتانی;Afrique
+2010;UGA;96;25,5;;;;86;21,5;-10;Ouganda;Uganda;Uganda;أوغندا;اوگاندا;Afrique
+2010;DOM;97;26,13;;;;98;26,83333333;1;République dominicaine;Dominican Republic;República Dominicana;جمهورية الدومينيكان;جمهوری دومینیک;Amériques
+2010;MOZ;98;26,5;;;;82;19;-16;Mozambique;Mozambique;Mozambique;موزمبيق;موزامبیک;Afrique
+2010;USA1;99;27;;;;108;30;9;États-Unis (hors territoire américain);United States (outside US territory);Estados Unidos (fuera del territorio estadounidense);الولايات المتحدة (باستثناء الأراضي الأمريكية);ایالات متحده امریکا (خارج از سرزمین‌ ایالات متحده امریکا);Amériques
+2010;GEO;100;27;;;;81;18,83333333;-19;Géorgie;Georgia;Georgia;جورجيا;گرجستان;EEAC
+2010;ARM;101;27,5;;;;111;31,125;10;Arménie;Armenia;Armenia;أرمينيا;ارمنستان;EEAC
+2010;ECU;102;27,5;;;;84;20;-18;Équateur;Ecuador;Ecuador;الإكوادور;اکواتور;Amériques
+2010;BOL;103;28,13;;;;95;24,16666667;-8;Bolivie;Bolivia;Bolivia;بوليفيا;بلیوی;Amériques
+2010;AGO;104;28,5;;;;119;36,5;15;Angola;Angola;Angola;أنغولا;آنگولا;Afrique
+2010;MNE;105;28,5;;;;77;17;-28;Monténégro;Montenegro;Montenegro;الجبل الأسود;مونته‌نگرو;UE Balkans
+2010;NER;106;28,5;;;;139;48,5;33;Niger;Niger;Niger;النيجر;نیجر;Afrique
+2010;GAB;107;28,75;;;;129;43,5;22;Gabon;Gabon;República Gabonesa;الغابون;گابون;Afrique
+2010;BDI;108;28,88;;;;103;29;-5;Burundi;Burundi;Burundi;بوروندي;بروندی;Afrique
+2010;PER;109;30;;;;85;20,875;-24;Pérou;Peru;Peru;بيرو;پرو;Amériques
+2010;DJI;110;30,5;;;;110;31;0;Djibouti;Djibouti;Yibuti;جيبوتي;جیبوتی;Afrique
+2010;WSM;111;33;;;;;;;Samoa;Samoa;Samoa;ساموا;ساموآ;Asie-Pacifique
+2010;TCD;112;33,17;;;;132;44,5;20;Tchad;Chad;Chad;تشاد;چاد;Afrique
+2010;GIN;113;33,5;;;;100;28,5;-13;Guinée;Guinea;Guinea;غينيا;گینه;Afrique
+2010;COG;114;33,6;;;;116;34,25;2;Congo;Congo;República del Congo;الكونغو;کنگو;Afrique
+2010;TJK;115;34,5;;;;113;32;-2;Tadjikistan;Tajikistan;Tayikistán;طاجيكستان;تاجیکستان;EEAC
+2010;MDG;116;34,88;;;;134;45,83333333;18;Madagascar;Madagascar;Madagascar;مدغشقر;ماداگاسکار;Afrique
+2010;IDN;117;35,83;;;;100;28,5;-17;Indonésie;Indonesia;Indonesia;أندونيسيا;اندونزی;Asie-Pacifique
+2010;CIV;118;36;;;;103;29;-15;Côte d'Ivoire;Ivory Coast;Costa de Marfil;ساحل العاج;ساحل عاج;Afrique
+2010;NPL;119;36,38;;;;118;35,625;-1;Népal;Nepal;Nepal;نيبال;نپال;Asie-Pacifique
+2010;JOR;120;37;;;;112;31,875;-8;Jordanie;Jordan;Jordania;الأردن;اردن;MENA
+2010;QAT;121;38;;;;94;24;-27;Qatar;Qatar;Catar;قطر;قطر;MENA
+2010;IND;122;38,75;;;;105;29,33333333;-17;Inde;India;India;الهند;هند;Asie-Pacifique
+2010;ZWE;123;39,5;;;;136;46,5;13;Zimbabwe;Zimbabwe;Zimbabue;زيمبابوي;زیمبابوه;Afrique
+2010;OMN;124;40,25;;;;106;29,5;-18;Oman;Oman;Omán;عمان;عمان;MENA
+2010;GMB;125;40,5;;;;137;48,25;12;Gambie;Gambia;Gambia;غامبيا;گامبیا;Afrique
+2010;BGD;126;42,5;;;;121;37,33333333;-5;Bangladesh;Bangladesh;Bangladés;بنغلاديش;بنگلادش;Asie-Pacifique
+2010;EGY;127;43,33;;;;143;51,375;16;Égypte;Egypt;Egipto;مصر;مصر;MENA
+2010;KHM;128;43,83;;;;117;35,16666667;-11;Cambodge;Cambodia;Camboya;كمبوديا;کامبوج;Asie-Pacifique
+2010;CMR;129;44,3;;;;109;30,5;-20;Cameroun;Cameroon;Camerún;الكاميرون;کامرون;Afrique
+2010;IRQ;130;45,58;;;;145;53,3;15;Irak;Iraq;Irak;العراق;عراق;MENA
+2010;UKR;131;46,83;;;;89;22;-42;Ukraine;Ukraine;Ucrania;أوكرانيا;اوکراين;EEAC
+2010;ISR2;132;47;;;;150;55,5;18;Israël (hors territoire israélien);Israel (outside Israeli territory);Israel (fuera del territorio israelí);إسرائيل (باستثناء الأراضي الإسرائيلية);اسرائیل (خارج ازسرزمین اسرائیل);MENA
+2010;DZA;133;47,33;;;;141;49,5625;8;Algérie;Algeria;Argelia;الجزائر;الجزایر;MENA
+2010;VEN;134;47,33;;;;124;39,5;-10;Venezuela;Venezuela;Venezuela;فنزويلا;ونزوئلا;Amériques
+2010;MAR;135;47,4;;;;127;41;-8;Maroc;Morocco;Marruecos;المغرب;مراکش;MENA
+2010;MEX;136;47,5;;;;137;48,25;1;Mexique;Mexico;México;المكسيك;مکزیک;Amériques
+2010;SGP;137;47,5;;;;133;45;-4;Singapour;Singapore;Singapur;سنغافورة;سنگاپور;Asie-Pacifique
+2010;TUR;138;49,25;;;;122;38,25;-16;Turquie;Turkey;Turquía;تركيا;ترکیه;EEAC
+2010;ETH;139;49,38;;;;140;49;1;Éthiopie;Ethiopia;Etiopía;أثيوبيا;اتیوپی;Afrique
+2010;RUS;140;49,9;;;;153;60,875;13;Russie;Russian Federation;Rusia;روسيا;روسیه;EEAC
+2010;MYS;141;50,75;;;;131;44,25;-10;Malaisie;Malaysia;Malasia;ماليزيا;مالزی;Asie-Pacifique
+2010;BRN;142;51;;;;155;63,5;13;Brunei;Brunei Darussalam;Brunéi;بروناي;برونی;Asie-Pacifique
+2010;HND;143;51,13;;;;128;42;-15;Honduras;Honduras;Honduras;هندوراس;هندوراس;Amériques
+2010;BHR;144;51,38;;;;119;36,5;-25;Bahreïn;Bahrain;Baréin;البحرين;بحرین;MENA
+2010;COL;145;51,5;;;;126;40,125;-19;Colombie;Colombia;Colombia;كولومبيا;کلمبیا;Amériques
+2010;NGA;146;51,5;;;;135;46;-11;Nigeria;Nigeria;Nigeria;نيجيريا;نیجریه;Afrique
+2010;AFG;147;51,67;;;;149;54,25;2;Afghanistan;Afghanistan;Afganistán;أفغانستان;افغانستان;Asie-Pacifique
+2010;COD;148;51,83;;;;146;53,5;-2;RD Congo;The Democratic Republic Of The Congo;RD Congo;جمهورية الكونغو الديمقراطية;جمهوری دمکراتیک کنگو;Afrique
+2010;FJI;149;52,75;;;;152;60;3;Fidji;Fiji;Fiyi;فيجي;فیجی;Asie-Pacifique
+2010;PSE;150;56,13;;;;161;69,83333333;11;Palestine;Palestine;Palestina;فلسطين;فلسطین;MENA
+2010;PAK;151;56,17;;;;159;65,66666667;8;Pakistan;Pakistan;Pakistán;باكستان;پاکستان;Asie-Pacifique
+2010;AZE;152;56,38;;;;146;53,5;-6;Azerbaïdjan;Azerbaijan;Azerbaiyán;أذربيجان;آذربایجان;EEAC
+2010;THA;153;56,83;;;;130;44;-23;Thaïlande;Thailand;Tailandia;تايلاند;تایلند;Asie-Pacifique
+2010;BLR;154;57;;;;151;59,5;-3;Bélarus;Belarus;Belarús;روسيا البيضاء;روسیه سفید;EEAC
+2010;SWZ;155;57,5;;;;144;52,5;-11;Eswatini;Eswatini;Esuatini;إسواتيني;اسواتینی ;Afrique
+2010;PHL;156;60;;;;122;38,25;-34;Philippines;Philippines;Filipinas;الفلبين;فلیپین;Asie-Pacifique
+2010;SAU;157;61,5;;;;163;76,5;6;Arabie saoudite;Saudi Arabia;Arabia Saudita;المملكة العربية السعودية;عربستان سعودی;MENA
+2010;LKA;158;62,5;;;;162;75;4;Sri Lanka;Sri Lanka;Sri Lanka;سري لانكا;سریلانکا;Asie-Pacifique
+2010;KGZ;159;63;;;;125;40;-34;Kirghizstan;Kyrgyzstan;Kirguistán;قرغيزستان;قرقیزستان;EEAC
+2010;LBY;160;63,5;;;;156;64,5;-4;Libye;Libya;Libia;ليبيا;لیبی;MENA
+2010;SOM;161;66;;;;164;77,5;3;Somalie;Somalia;Somalia;الصومال;سومالی;Afrique
+2010;KAZ;162;68,5;;;;142;49,66666667;-20;Kazakhstan;Kazakhstan;Kazajistán;كازاخستان;قزاقستان;EEAC
+2010;UZB;163;71,5;;;;160;67,66666667;-3;Ouzbékistan;Uzbekistan;Uzbekistán;أوزبكستان;اوزبکستان;EEAC
+2010;TUN;164;72,5;;;;154;61,5;-10;Tunisie;Tunisia;Túnez;تونس;تونس;MENA
+2010;VNM;165;75,75;;;;166;81,66666667;1;Viêt Nam;Vietnam;Vietnam;فيتنام;ویتنام;Asie-Pacifique
+2010;CUB;166;78;;;;170;94;4;Cuba;Cuba;Cuba;كوبا;کوبا;Amériques
+2010;GNQ;167;79;;;;158;65,5;-9;Guinée équatoriale;Equatorial Guinea;Guinea Ecuatorial;غينيا الاستوائية;گینه اکوادور;Afrique
+2010;LAO;168;80,5;;;;169;92;1;Laos;Lao People's Democratic Republic;Laos;لاوس;لائوس;Asie-Pacifique
+2010;RWA;169;81;;;;157;64,66666667;-12;Rwanda;Rwanda;Ruanda;رواندا;روندا;Afrique
+2010;YEM;170;82,13;;;;167;83,375;-3;Yémen;Yemen;Yemen;اليمن;یمن;MENA
+2010;CHN;171;84,67;;;;168;84,5;-3;Chine;China;China;الصين;چین;Asie-Pacifique
+2010;SDN;172;85,33;;;;148;54;-24;Soudan;Sudan;Sudán;السودان;سودان;Afrique
+2010;SYR;173;91,5;;;;165;78;-8;Syrie;Syrian Arab Republic;Siria;سوريا;سوریه;MENA
+2010;MMR;174;94,5;;;;171;102,6666667;-3;Birmanie;Myanmar;Birmania;بورما;برمه;Asie-Pacifique
+2010;IRN;175;94,56;;;;172;104,1428571;-3;Iran;Islamic Republic of Iran;Irán;إيران;ایران;MENA
+2010;TKM;176;95,33;;;;173;107;-3;Turkménistan;Turkmenistan;Turkmenistán;تركمانستان;ترکمنستان;EEAC
+2010;PRK;177;104,75;;;;174;112,5;-3;Corée du Nord;Democratic People's Republic of Korea;Corea del Norte;كوريا الشمالية;کره شمالی;Asie-Pacifique
+2010;ERI;178;105;;;;175;115,5;-3;Érythrée;Eritrea;Eritrea;إريتريا;اریتره;Afrique
