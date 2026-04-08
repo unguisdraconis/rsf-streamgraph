@@ -149,8 +149,12 @@ export default function Streamgraph({
 
     // ── Y Axis (stacked area only) ─────────────────────────
     if (layout !== "wiggle") {
-      const yAxis = d3.axisLeft(yScale).ticks(6);
-      g.append("g").call(yAxis).selectAll("text").attr("font-size", 12);
+      const yAxis = d3.axisLeft(yScale).ticks(6).tickSize(0);
+      g.append("g")
+        .call(yAxis)
+        .call((axisG) => axisG.select(".domain").remove())
+        .call((axisG) => axisG.selectAll("text").remove())
+        .call((axisG) => axisG.selectAll("line").remove());
     }
 
     // ── Axis labels ─────────────────────────────────────────
@@ -191,11 +195,11 @@ export default function Streamgraph({
       );
 
     // ── Methodology change annotation ───────────────────────
-    const x2022 = xScale(2022);
-    if (x2022 >= 0 && x2022 <= innerW) {
+    const x2013 = xScale(2013);
+    if (x2013 >= 0 && x2013 <= innerW) {
       g.append("line")
-        .attr("x1", x2022)
-        .attr("x2", x2022)
+        .attr("x1", x2013)
+        .attr("x2", x2013)
         .attr("y1", 0)
         .attr("y2", innerH)
         .attr("stroke", "#c00")
@@ -204,7 +208,7 @@ export default function Streamgraph({
         .attr("opacity", 0.7);
 
       g.append("text")
-        .attr("x", x2022 + 4)
+        .attr("x", x2013 + 4)
         .attr("y", 14)
         .attr("font-size", 10)
         .attr("fill", "#c00")

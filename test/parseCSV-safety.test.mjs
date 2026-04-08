@@ -1,6 +1,10 @@
 import assert from "assert";
 import fs from "fs";
-import { parseRSFCsv, aggregateByZoneYear } from "../src/utils/parseCSV.js";
+import {
+  parseRSFCsv,
+  normalizeScores,
+  aggregateByZoneYear,
+} from "../src/utils/parseCSV.js";
 
 const csvText = `ISO;Score;Rank;Political Context;Rank_Pol;Economic Context;Rank_Eco;Legal Context;Rank_Leg;Social Context;Rank_Soc;Safety;Rank_Saf;Zone;Country_EN;Country_FR;Country_ES;Country_AR;Country_FA;Year (N);Rank N-1;Rank evolution;Score N-1;Score evolution
 USA;75,00;1;90,00;1;80,00;1;85,00;1;88,00;1;92,00;1;Am�riques;United States;États-Unis;Estados Unidos;الولايات المتحدة;??????;2025;1;0;74,00;1,00`;
@@ -104,13 +108,13 @@ ARM;70,00;40;65,00;40;55,00;40;60,00;40;70,00;40;80,00;40;Europe - Asie centrale
 const recordsEuropeAsie = parseRSFCsv(csvTextEuropeAsie, 2022);
 assert.strictEqual(
   recordsEuropeAsie.length,
-  2,
-  "Expected two Europe - Asie centrale records to be parsed for dual-region mapping",
+  1,
+  "Expected one Europe - Asie centrale record to be parsed",
 );
-assert.deepStrictEqual(
-  recordsEuropeAsie.map((r) => r.zone).sort(),
-  ["EEAC", "Europe"],
-  "Expected Europe - Asie centrale to map to both Europe and EEAC",
+assert.strictEqual(
+  recordsEuropeAsie[0].zone,
+  "Europe",
+  "Expected Europe - Asie centrale to map to Europe only",
 );
 
 const aggregatedEuropeAsie = aggregateByZoneYear(recordsEuropeAsie, "avgScore");
@@ -122,10 +126,6 @@ assert.strictEqual(
 assert.ok(
   aggregatedEuropeAsie[0].Europe > 0,
   "Expected Europe average score to be greater than zero",
-);
-assert.ok(
-  aggregatedEuropeAsie[0].EEAC > 0,
-  "Expected EEAC average score to be greater than zero for dual-region mapping",
 );
 
 const csvTextEEAC = `ISO;Score;Rank;Political Context;Rank_Pol;Economic Context;Rank_Eco;Legal Context;Rank_Leg;Social Context;Rank_Soc;Safety;Rank_Saf;Zone;Country_EN;Country_FR;Country_ES;Country_AR;Country_FA;Year (N);Rank N-1;Rank evolution;Score N-1;Score evolution

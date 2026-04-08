@@ -58,8 +58,7 @@ const tdStyle = { padding: "4px 12px" };
 export default function App() {
   const [allRecords, setAllRecords] = useState([]);
   const [metric, setMetric] = useState("avgScore");
-  const [layout, setLayout] = useState("wiggle");
-  const [scoreDir, setScoreDir] = useState("higherIsBetter");
+  const [layout, setLayout] = useState("zero");
   const [loading, setLoading] = useState(true);
   const [errors, setErrors] = useState([]);
   const [dimensions, setDimensions] = useState({
@@ -141,7 +140,7 @@ export default function App() {
   const handleDragOver = (e) => e.preventDefault();
 
   // Apply score normalization and aggregation
-  const normalized = normalizeScores(allRecords, scoreDir);
+  const normalized = normalizeScores(allRecords);
   const aggregated = aggregateByZoneYear(normalized, metric);
 
   // Stats
@@ -202,20 +201,6 @@ export default function App() {
           </select>
         </label>
 
-        {metric === "avgScore" && (
-          <label style={{ fontSize: 14 }}>
-            <strong>Score direction: </strong>
-            <select
-              value={scoreDir}
-              onChange={(e) => setScoreDir(e.target.value)}
-              style={{ marginLeft: 4, padding: "4px 8px", fontSize: 14 }}
-            >
-              <option value="higherIsBetter">Higher = More Free</option>
-              <option value="lowerIsBetter">Lower = More Free (raw)</option>
-            </select>
-          </label>
-        )}
-
         <span style={{ fontSize: 12, color: "#999" }}>
           {allRecords.length.toLocaleString()} total records ·{" "}
           {recordsWithScore.toLocaleString()} with scores ·{" "}
@@ -259,12 +244,15 @@ export default function App() {
             color: "#37474f",
           }}
         >
-          <strong>Note:</strong> RSF changed methodology in 2022. Scores before
-          2022 (lower = more free, 0–100+) are inverted to match the 2022+ scale
+          <strong>Note:</strong> RSF changed methodology in 2013. Scores before
+          2013 (lower = more free, 0–100+) are inverted to match the 2013+ scale
           (higher = more free, 0–100). The{" "}
           <span style={{ color: "#c00" }}>dashed red line</span> marks this
           transition. Years without a corresponding CSV file will appear as
           gaps.
+          <br />
+          For the most direct comparison of normalized average scores, use the{" "}
+          <strong>Stacked Area</strong> layout.
         </div>
       )}
 

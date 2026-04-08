@@ -50,8 +50,8 @@ const ZONE_ALIASES = {
   "asie-p": "Asia-Pacific",
   "asia-pacific": "Asia-Pacific",
   "asia pacific": "Asia-Pacific",
-  "europe asie centrale": ["Europe", "EEAC"],
-  "europe - asie centrale": ["Europe", "EEAC"],
+  "europe asie centrale": "Europe",
+  "europe - asie centrale": "Europe",
   "maghreb moyen orient": "MENA",
   "maghreb - moyen orient": "MENA",
   "moyen orient": "MENA",
@@ -326,9 +326,9 @@ export function parseRSFCsv(csvText, fallbackYear) {
 // ─── Score Normalization ───────────────────────────────────────────
 
 /**
- * RSF changed scoring methodology in 2022:
- *   2002–2021: Lower score = more free (0 = best, ~105 = worst)
- *   2022–2025: Higher score = more free (100 = best, 0 = worst)
+ * RSF changed scoring methodology in 2013:
+ *   2002–2012: Lower score = more free (0 = best, ~105 = worst)
+ *   2013–2025: Higher score = more free (100 = best, 0 = worst)
  *
  * This function aligns all years to a single direction.
  *
@@ -339,7 +339,7 @@ export function normalizeScores(records, direction = "higherIsBetter") {
     if (r.score === null) return r;
 
     let normalized;
-    if (r.year <= 2021) {
+    if (r.year <= 2012) {
       if (direction === "higherIsBetter") {
         normalized = Math.max(0, 100 - r.score);
       } else {
