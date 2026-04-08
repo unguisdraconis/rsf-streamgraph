@@ -3,6 +3,7 @@ import {
   parseRSFCsv,
   normalizeScores,
   aggregateByZoneYear,
+  applyCrossYearZoneOverrides,
 } from "./utils/parseCSV";
 import Streamgraph from "./components/Streamgraph";
 
@@ -139,8 +140,9 @@ export default function App() {
 
   const handleDragOver = (e) => e.preventDefault();
 
-  // Apply score normalization and aggregation
-  const normalized = normalizeScores(allRecords);
+  // Apply cross-year zone overrides before normalization and aggregation
+  const recordsWithCrossYearZones = applyCrossYearZoneOverrides(allRecords);
+  const normalized = normalizeScores(recordsWithCrossYearZones);
   const aggregated = aggregateByZoneYear(normalized, metric);
 
   // Stats

@@ -150,7 +150,14 @@ function detectFormat(headerCells) {
 function findCol(headers, ...needles) {
   return headers.findIndex((h) => {
     const lc = (h || "").trim().toLowerCase();
-    return needles.some((n) => lc === n || lc.includes(n));
+    return needles.some((n) => {
+      const needle = n.toLowerCase();
+      return (
+        lc === needle ||
+        lc.startsWith(`${needle} `) ||
+        lc.includes(` ${needle}`)
+      );
+    });
   });
 }
 
@@ -407,5 +414,18 @@ export function aggregateByZoneYear(records, metric = "avgScore") {
       }
     }
     return row;
+  });
+}
+
+export function applyCrossYearZoneOverrides(records) {
+  const eeacIsos = new Set(
+    records.filter((r) => r.zone === "EEAC").map((r) => r.iso),
+  );
+
+  return records.map((r) => {
+    if (r.year === 2022 && eeacIsos.has(r.iso) && r.zone !== "EEAC") {
+      return { ...r, zone: "EEAC" };
+    }
+    return r;
   });
 }

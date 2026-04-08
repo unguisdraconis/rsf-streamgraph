@@ -4,6 +4,7 @@ import {
   parseRSFCsv,
   normalizeScores,
   aggregateByZoneYear,
+  applyCrossYearZoneOverrides,
 } from "../src/utils/parseCSV.js";
 
 const csvText = `ISO;Score;Rank;Political Context;Rank_Pol;Economic Context;Rank_Eco;Legal Context;Rank_Leg;Social Context;Rank_Soc;Safety;Rank_Saf;Zone;Country_EN;Country_FR;Country_ES;Country_AR;Country_FA;Year (N);Rank N-1;Rank evolution;Score N-1;Score evolution
@@ -152,6 +153,44 @@ assert.strictEqual(
 assert.ok(
   aggregatedEEAC[0].EEAC > 0,
   "Expected EEAC average score to be greater than zero",
+);
+
+const csvText2025Header = `ISO;Score 2025;Rank;Political Context;Rank_Pol;Economic Context;Rank_Eco;Legal Context;Rank_Leg;Social Context;Rank_Soc;Safety;Rank_Saf;Zone;Country_EN;Country_FR;Country_ES;Country_AR;Country_FA;Year (N);Rank N-1;Rank evolution;Score N-1;Score evolution
+ARM;73,96;34;65,21;33;52,02;48;84,13;14;76,76;36;91,67;26;EEAC;Armenia;Arménie;Armenia;أرمينيا;??????;2025;43;9;71,6;2,36`;
+
+const records2025Header = parseRSFCsv(csvText2025Header, 2025);
+assert.strictEqual(
+  records2025Header.length,
+  1,
+  "Expected one 2025 record with Score 2025 header to be parsed",
+);
+assert.strictEqual(
+  records2025Header[0].zone,
+  "EEAC",
+  "Expected 2025 Score 2025 header to normalize EEAC labels",
+);
+
+const aggregated2025Header = aggregateByZoneYear(records2025Header, "avgScore");
+assert.strictEqual(
+  aggregated2025Header.length,
+  1,
+  "Expected one aggregated year entry for 2025 header sample",
+);
+assert.strictEqual(
+  aggregated2025Header[0].EEAC,
+  73.96,
+  "Expected EEAC average score to be parsed from Score 2025 header",
+);
+
+const eeacCrossYearRecords = [
+  { year: 2025, iso: "ARM", score: 73.96, zone: "EEAC" },
+  { year: 2022, iso: "ARM", score: 68.97, zone: "Europe" },
+];
+const fixed2022 = applyCrossYearZoneOverrides(eeacCrossYearRecords);
+assert.strictEqual(
+  fixed2022.find((r) => r.year === 2022 && r.iso === "ARM").zone,
+  "EEAC",
+  "Expected 2022 ARM row to be remapped to EEAC when the same country is EEAC in another year",
 );
 
 // Real 2022 file regression: ensure MENA and Europe values are parsed from actual data
