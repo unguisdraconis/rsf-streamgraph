@@ -13,6 +13,22 @@ const ZONE_COLORS = {
   EEAC: "#af7aa1",
 };
 
+const SCORE_COLOR_BINS = [
+  { min: 85, max: Infinity, color: "#c6e269", label: "Good" },
+  { min: 70, max: 85, color: "#ecc33c", label: "Satisfactory" },
+  { min: 55, max: 70, color: "#E29950", label: "Problematic" },
+  { min: 40, max: 55, color: "#de364b", label: "Difficult" },
+  { min: 0, max: 40, color: "#9f1614", label: "Very serious" },
+];
+
+function getScoreColor(score) {
+  if (score == null || Number.isNaN(score)) return "#ccc";
+  for (const bin of SCORE_COLOR_BINS) {
+    if (score >= bin.min && score < bin.max) return bin.color;
+  }
+  return "#ccc";
+}
+
 export default function Streamgraph({
   data,
   width = 960,
@@ -23,6 +39,7 @@ export default function Streamgraph({
   const svgRef = useRef(null);
   const tooltipRef = useRef(null);
   const [hoveredZone, setHoveredZone] = useState(null);
+  const [hoveredYear, setHoveredYear] = useState(null);
 
   const innerW = width - MARGIN.left - MARGIN.right;
   const innerH = height - MARGIN.top - MARGIN.bottom;
@@ -48,6 +65,23 @@ export default function Streamgraph({
     const stack = d3.stack().keys(ZONE_KEYS).offset(offsetFn).order(orderFn);
 
     const series = stack(data);
+
+    const latestScoreByZone = new Map(ZONE_KEYS.map((zone) => [zone, null]));
+    const scoresByYear = new Map(data.map((row) => [row.year, row]));
+    data.forEach((row) => {
+      ZONE_KEYS.forEach((zone) => {
+        if (row[zone] != null) latestScoreByZone.set(zone, row[zone]);
+      });
+    });
+
+    const getZoneScore = (zone) => {
+      if (metric !== "avgScore") return null;
+      if (hoveredYear != null) {
+        const row = scoresByYear.get(hoveredYear);
+        if (row && row[zone] != null) return row[zone];
+      }
+      return latestScoreByZone.get(zone);
+    };
 
     const yMin = d3.min(series, (s) => d3.min(s, (d) => d[0]));
     const yMax = d3.max(series, (s) => d3.max(s, (d) => d[1]));
@@ -85,7 +119,11 @@ export default function Streamgraph({
       .join("path")
       .attr("class", "layer")
       .attr("d", area)
-      .attr("fill", (d) => ZONE_COLORS[d.key])
+      .attr("fill", (d) =>
+        metric === "avgScore"
+          ? getScoreColor(getZoneScore(d.key))
+          : ZONE_COLORS[d.key],
+      )
       .attr("opacity", (d) =>
         hoveredZone === null || hoveredZone === d.key ? 0.85 : 0.15,
       )
@@ -115,6 +153,10 @@ export default function Streamgraph({
         const closest = data[idx];
         const val = closest[d.key];
 
+        if (hoveredYear !== closest.year) {
+          setHoveredYear(closest.year);
+        }
+
         tooltip
           .style("display", "block")
           .style("left", `${event.pageX + 14}px`)
@@ -126,6 +168,7 @@ export default function Streamgraph({
       })
       .on("mouseleave", function () {
         setHoveredZone(null);
+        setHoveredYear(null);
         hoverLine.attr("opacity", 0);
         d3.select(tooltipRef.current).style("display", "none");
       });
@@ -236,7 +279,12 @@ export default function Streamgraph({
         .attr("width", 16)
         .attr("height", 16)
         .attr("rx", 3)
-        .attr("fill", ZONE_COLORS[z])
+        .attr(
+          "fill",
+          metric === "avgScore"
+            ? getScoreColor(getZoneScore(z))
+            : ZONE_COLORS[z],
+        )
         .attr("opacity", hoveredZone === null || hoveredZone === z ? 1 : 0.25);
 
       row
@@ -250,7 +298,60 @@ export default function Streamgraph({
         )
         .text(z);
     });
-  }, [data, innerW, innerH, width, height, hoveredZone, layout, metric]);
+
+    if (metric === "avgScore") {
+      const scoreLegend = svg
+        .append("g")
+        .attr(
+          "transform",
+          `translate(${MARGIN.left + innerW + 16}, ${
+            MARGIN.top + 10 + ZONE_KEYS.length * 26 + 24
+          })`,
+        );
+
+      scoreLegend
+        .append("text")
+        .attr("x", 0)
+        .attr("y", 0)
+        .attr("font-size", 12)
+        .attr("fill", "#222")
+        .attr("font-weight", 600)
+        .text("Score categories");
+
+      SCORE_COLOR_BINS.forEach((bin, i) => {
+        const row = scoreLegend
+          .append("g")
+          .attr("transform", `translate(0, ${16 + i * 22})`);
+
+        row
+          .append("rect")
+          .attr("width", 14)
+          .attr("height", 14)
+          .attr("rx", 3)
+          .attr("fill", bin.color);
+
+        row
+          .append("text")
+          .attr("x", 20)
+          .attr("y", 12)
+          .attr("font-size", 12)
+          .attr("fill", "#222")
+          .text(
+            `${bin.label} ${bin.min}${bin.max === Infinity ? "+" : "–" + bin.max}`,
+          );
+      });
+    }
+  }, [
+    data,
+    innerW,
+    innerH,
+    width,
+    height,
+    hoveredZone,
+    hoveredYear,
+    layout,
+    metric,
+  ]);
 
   useEffect(() => {
     draw();
