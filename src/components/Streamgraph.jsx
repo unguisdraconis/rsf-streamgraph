@@ -164,6 +164,7 @@ export default function Streamgraph({
             <strong style="color:${ZONE_COLORS[d.key]}">${d.key}</strong><br/>
             Year: <strong>${closest.year}</strong><br/>
             ${metric === "avgScore" ? "Avg Score" : "Countries"}: <strong>${val}</strong>
+            ${metric === "avgScore" && closest.worldAvg != null ? `<br/>World avg: <strong>${closest.worldAvg}</strong>` : ""}
           `);
       })
       .on("mouseleave", function () {

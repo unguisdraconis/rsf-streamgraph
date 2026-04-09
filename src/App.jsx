@@ -145,7 +145,26 @@ export default function App() {
   // Apply cross-year zone overrides before normalization and aggregation
   const recordsWithCrossYearZones = applyCrossYearZoneOverrides(allRecords);
   const normalized = normalizeScores(recordsWithCrossYearZones);
-  const aggregated = aggregateByZoneYear(normalized, metric);
+
+  const worldAveragesByYear = normalized.reduce((acc, record) => {
+    if (record.score === null) return acc;
+    const year = record.year;
+    if (!acc[year]) acc[year] = { sum: 0, count: 0 };
+    acc[year].sum += record.score;
+    acc[year].count += 1;
+    return acc;
+  }, {});
+
+  const aggregated = aggregateByZoneYear(normalized, metric).map((row) => {
+    const worldData = worldAveragesByYear[row.year];
+    return {
+      ...row,
+      worldAvg:
+        metric === "avgScore" && worldData && worldData.count > 0
+          ? +(worldData.sum / worldData.count).toFixed(2)
+          : null,
+    };
+  });
 
   // Stats
   const yearsWithData = aggregated.map((r) => r.year);
