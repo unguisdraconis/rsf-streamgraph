@@ -279,6 +279,16 @@ export default function App() {
           <br />
           MENA = Middle East & North Africa; EEAC = Eastern Europe & Central
           Asia.
+          <br />
+          Source:{" "}
+          <a
+            href="https://rsf.org/en/index"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Reporters Without Borders
+          </a>{" "}
+          , visualized by Jeremiah King
         </div>
       )}
 
