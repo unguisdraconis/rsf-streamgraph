@@ -157,10 +157,11 @@ export default function Streamgraph({
           setHoveredYear(closest.year);
         }
 
+        const containerRect = tooltipRef.current.parentNode.getBoundingClientRect();
         tooltip
           .style("display", "block")
-          .style("left", `${event.pageX + 14}px`)
-          .style("top", `${event.pageY - 28}px`).html(`
+          .style("left", `${event.clientX - containerRect.left + 8}px`)
+          .style("top", `${event.clientY - containerRect.top + 8}px`).html(`
             <strong style="color:${ZONE_COLORS[d.key]}">${d.key}</strong><br/>
             Year: <strong>${closest.year}</strong><br/>
             ${metric === "avgScore" ? "Avg Score" : "Countries"}: <strong>${val}</strong>
