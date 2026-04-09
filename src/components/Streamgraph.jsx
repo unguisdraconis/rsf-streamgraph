@@ -157,7 +157,8 @@ export default function Streamgraph({
           setHoveredYear(closest.year);
         }
 
-        const containerRect = tooltipRef.current.parentNode.getBoundingClientRect();
+        const containerRect =
+          tooltipRef.current.parentNode.getBoundingClientRect();
         tooltip
           .style("display", "block")
           .style("left", `${event.clientX - containerRect.left + 8}px`)
