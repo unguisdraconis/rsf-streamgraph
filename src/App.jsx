@@ -186,8 +186,8 @@ export default function App() {
         RSF World Press Freedom Index
       </h1>
       <p style={{ color: "#666", marginBottom: 20, fontSize: 14 }}>
-        Interactive Streamgraph — Reporters Without Borders data by region.
-        Hover a region to highlight it.
+        Interactive Stacked Area Chart — Reporters Without Borders data by
+        region. Hover a region to highlight it.
       </p>
 
       {/* Controls */}
