@@ -23,6 +23,8 @@ The central lesson is: **valid code + attractive visualization ≠ valid analysi
 
 **Live site:** https://unguisdraconis.github.io/rsf-streamgraph/
 
+![Interactive stacked area chart of historical RSF scores.](docs/images/rsf-streamgraph.png)
+
 The bundled RSF exports are preserved unchanged. All interpretation and derived
 analysis happens downstream in application code.
 
@@ -57,10 +59,10 @@ Africa, Americas, Asia-Pacific, MENA, and EEAC.
 
 The controls select the metric and visual layout:
 
-| Metric | Default form | Optional form | Meaning |
-| --- | --- | --- | --- |
+| Metric        | Default form | Optional form          | Meaning                                                                       |
+| ------------- | ------------ | ---------------------- | ----------------------------------------------------------------------------- |
 | Average Score | Stacked area | Streamgraph comparison | Interpretive field of regional arithmetic means; stack height is not additive |
-| Country Count | Stacked area | Streamgraph comparison | Number of included countries in each region |
+| Country Count | Stacked area | Streamgraph comparison | Number of included countries in each region                                   |
 
 Hovering the chart reveals an exact value. The region legend supports pointer and
 keyboard exploration, and the disclosure below the chart provides the same values
