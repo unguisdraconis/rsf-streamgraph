@@ -21,16 +21,15 @@ The central lesson is: **valid code + attractive visualization ≠ valid analysi
 
 **Live site:** https://unguisdraconis.github.io/rsf-streamgraph/
 
-The published site may lag this source branch. This curation pass is intentionally
-not being deployed until the redistribution status of the bundled exports is
-clarified.
+The bundled RSF exports are preserved unchanged. All interpretation and derived
+analysis happens downstream in application code.
 
 ## Human and AI contributions
 
 AI-assisted tools wrote most of the application and scripting implementation.
-Jeremiah King developed the analytical and cleaning approach, diagnosed
+Jeremiah King developed the analytical and data-interpretation approach, diagnosed
 data-quality and interpretation failures, directed the normalization logic,
-validated the transformed results, and made the final visualization and
+validated the derived results, and made the final visualization and
 interpretation decisions.
 
 Earlier Python scripts used during exploration are no longer present. The retained
@@ -58,7 +57,8 @@ as a structured table.
 
 ## Data reconciliation
 
-The parser and application address several source inconsistencies:
+The parser and application interpret several source inconsistencies without
+rewriting the bundled files:
 
 - **Changing schemas:** column names and widths vary, including `Score 2025` in
   the latest export. Columns are resolved by headers rather than fixed positions.
@@ -69,8 +69,9 @@ The parser and application address several source inconsistencies:
   combined edition, represented internally at 2012; there is no separate 2011
   annual observation and no interpolated value.
 - **2022 regional regrouping:** the source merged Eastern Europe and Central Asia
-  into Europe. ISO evidence from adjacent editions restores the project grouping
-  from 53 Europe / 0 EEAC to 40 Europe / 13 EEAC.
+  into Europe. Application logic uses ISO evidence from adjacent editions to
+  derive the project grouping of 40 Europe / 13 EEAC from the source grouping of
+  53 Europe / 0 EEAC.
 - **2025 encoding damage:** the raw file contains 219 Unicode replacement
   characters, including damaged multilingual country and region text. The raw
   export is preserved; region aliases allow all 180 rows to resolve, but the
@@ -101,7 +102,10 @@ thresholds are not projected backward across historical methodologies.
 
 ## Diagnostic evidence
 
-Lightweight Node scripts preserve the investigation as executable evidence:
+Lightweight Node scripts preserve the investigation as executable evidence. They
+test assumptions about schema changes, regional mappings, score direction, and
+methodology boundaries in the interpretation layer; they do not modify the RSF
+files:
 
 - `check-2022-region-split.mjs` verifies the real 53/0 source grouping and the
   reconciled 40/13 Europe/EEAC result.
@@ -122,14 +126,26 @@ npm run test:diagnostics
 
 ## Data provenance
 
-The bundled files were downloaded directly from RSF. Their original Windows
-download metadata records the RSF index page, direct export URL, and local download
-date; those details are preserved in [`public/data/README.md`](public/data/README.md)
-because NTFS alternate data streams do not travel reliably with Git.
+The bundled RSF CSV exports are preserved unchanged. Parsing, schema
+reconciliation, region normalization, score-direction alignment, methodology
+segmentation, and aggregation are performed in the application rather than
+written back into the source files. This keeps the source material intact while
+making the project's analytical decisions explicit in code.
 
-This provenance record does **not** resolve permission to redistribute the data.
-RSF's terms for these annual CSV exports still need clarification before this
-curated version is promoted or redeployed. No data or code license is inferred.
+The files were downloaded directly from RSF. Their original Windows download
+metadata records the RSF index page, direct export URL, and local download date;
+those details are preserved in
+[`public/data/README.md`](public/data/README.md) because NTFS alternate data
+streams do not travel reliably with Git.
+
+The original exports are retained unchanged and shared with attribution for this
+non-commercial educational project. [RSF's published terms](https://rsf.org/en/methodology-used-compiling-world-press-freedom-index-2026)
+authorize non-commercial sharing, copying, distribution, and communication of its
+content while restricting modification or adaptation without consent. This
+application reads the unchanged source files and generates its own analytical
+structures and visualizations at runtime; it does not redistribute modified
+versions of the source CSVs. This project description documents its design and
+intended use, not a universal legal determination or a license for the repository.
 
 ## Quick start
 
@@ -145,8 +161,8 @@ npm run build
 npm run preview
 ```
 
-`npm run deploy` exists for the established GitHub Pages workflow, but deployment
-is deliberately outside this curation pass.
+`npm run deploy` publishes the validated `dist/` output through the established
+GitHub Pages workflow.
 
 ## Project structure
 
@@ -161,8 +177,8 @@ test/                 full-corpus parser regression checks
 
 ## Known limitations
 
-- Redistribution/right-to-publish terms for the bundled RSF exports remain
-  unresolved; this blocks promotion and redeployment.
+- Reusers should review RSF's attribution, non-commercial-use, and
+  no-modification terms for their own context.
 - Historical methodology changes limit direct score comparison across eras.
 - The 2025 source includes widespread encoding damage; only the fields required
   for the current regional analysis are robustly recovered.

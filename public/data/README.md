@@ -1,13 +1,18 @@
 # Bundled RSF export provenance
 
-These 23 CSV files were downloaded from the Reporters Without Borders World Press
-Freedom Index site. The table transcribes the source URL and local acquisition date
-from each file's Windows `Zone.Identifier` metadata and filesystem timestamps before
-that machine-specific evidence is lost through Git transport.
+These 23 CSV files are the Reporters Without Borders World Press Freedom Index
+source exports used by this project. They are preserved unchanged. The application
+parses and interprets them at runtime; it does not write schema reconciliation,
+region normalization, score-direction alignment, or aggregation back into these
+source artifacts.
 
-Dates are local calendar dates on the acquisition machine (America/New_York). They
-document how these copies were obtained; they do not establish redistribution
-permission or a data license.
+The table transcribes the source URL and local acquisition date from each file's
+Windows `Zone.Identifier` metadata and filesystem timestamps before that
+machine-specific evidence is lost through Git transport.
+
+Dates are local calendar dates on the acquisition machine (America/New_York). The
+download URLs and acquisition dates are retained as provenance for the unchanged
+exports.
 
 | File | Downloaded | Index-page referrer | Direct RSF export |
 | --- | --- | --- | --- |
@@ -37,3 +42,13 @@ permission or a data license.
 
 The direct URLs above were the `HostUrl` values recorded at download time. URL
 availability can change independently of the copies bundled here.
+
+Diagnostic scripts test the application's interpretation and reconciliation logic
+against these exports without modifying them. The originals are shared with
+attribution for this non-commercial educational project under
+[RSF's published sharing terms](https://rsf.org/en/methodology-used-compiling-world-press-freedom-index-2026),
+which authorize non-commercial copying, distribution, and communication while
+restricting modification or adaptation without consent. The application produces
+its derived analytical structures, tables, and visualizations at runtime. This
+note records the project's provenance and reuse basis; it is not a universal legal
+determination and does not apply an RSF license to the repository's source code.
