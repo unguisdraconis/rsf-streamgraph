@@ -1,237 +1,186 @@
-# RSF World Press Freedom Index — Streamgraph
+# RSF World Press Freedom Index — analytical visualization
 
-An interactive visualization of the [Reporters Without Borders](https://rsf.org/en/index)
-(RSF) World Press Freedom Index, covering **2002–2025** across **six world regions**.
+This project began as a **#30DayChartChallenge** attempt to build a streamgraph
+from [Reporters Without Borders (RSF) World Press Freedom Index](https://rsf.org/en/index)
+data. Reconciling 23 historical exports exposed a more important story: code can
+run and a chart can look convincing while its analysis is still wrong.
 
-**Live demo:** https://unguisdraconis.github.io/rsf-streamgraph/
+Historical schemas, labels, score direction, regional groupings, and methodology
+all changed. AI-assisted implementations repeatedly produced plausible but
+inaccurate results until human-led validation changed both the data treatment and
+the visualization design. The repository name preserves the original experiment;
+the current application uses the form appropriate to each metric:
 
-Built with React 19, Vite, and D3 v7. No backend — the CSVs are served as static
-assets and parsed in the browser.
+- **Country Count** is additive across six mutually exclusive project regions, so
+  a stable-baseline stacked area is the default. The original streamgraph remains
+  available as a comparison.
+- **Average Score** is not additive. It is shown as one line per region, with
+  breaks at methodology boundaries rather than as a misleading stacked total.
 
----
+The central lesson is: **valid code + attractive visualization ≠ valid analysis**.
 
-## What it shows
+**Live site:** https://unguisdraconis.github.io/rsf-streamgraph/
 
-23 annual RSF index files are parsed, normalized onto a single scoring scale, and
-aggregated into a stacked D3 area chart with two toggles:
+The published site may lag this source branch. This curation pass is intentionally
+not being deployed until the redistribution status of the bundled exports is
+clarified.
 
-| Control    | Options                       | Effect                                          |
-| ---------- | ----------------------------- | ----------------------------------------------- |
-| **Metric** | Average Score / Country Count | What the band height encodes                    |
-| **Layout** | Stacked Area / Streamgraph    | `d3.stackOffsetNone` vs. `d3.stackOffsetWiggle` |
+## Human and AI contributions
 
-Regions are RSF's own: **Europe** (its "UE Balkans" zone), **Africa**, **Americas**,
-**Asia-Pacific**, **MENA** (Middle East & North Africa), and **EEAC** (Eastern Europe
-& Central Asia).
+AI-assisted tools wrote most of the application and scripting implementation.
+Jeremiah King developed the analytical and cleaning approach, diagnosed
+data-quality and interpretation failures, directed the normalization logic,
+validated the transformed results, and made the final visualization and
+interpretation decisions.
 
-Interaction:
+Earlier Python scripts used during exploration are no longer present. The retained
+JavaScript diagnostics capture the claims needed by the current application. Git
+authorship should not be read as evidence that the implementation was written
+independently of AI assistance, nor that AI independently solved the data problem.
 
-- Hovering a band highlights it, dims the others, and pins a vertical year line.
-- The tooltip reports the region, year, its value, and that year's **world average**.
-- In _Average Score_ mode, bands are colored by RSF's five press-freedom categories
-  rather than by region — so the chart reads as a heat map of conditions over time:
+## What the application shows
 
-  | Category     | Score |
-  | ------------ | ----- |
-  | Good         | 85+   |
-  | Satisfactory | 70–85 |
-  | Problematic  | 55–70 |
-  | Difficult    | 40–55 |
-  | Very serious | 0–40  |
+The browser loads 23 semicolon-delimited CSV exports covering editions 2002–2010,
+the combined 2011–2012 edition, and 2013–2025. The parser produces 4,020 unique
+edition/ISO records and maps source labels into six project regions: Europe,
+Africa, Americas, Asia-Pacific, MENA, and EEAC.
 
-- A dashed red line at **2013** marks RSF's methodology change (see below).
-- An expandable table below the chart lists the aggregated per-region values.
-- Extra CSVs can be dragged onto the page to be parsed at runtime.
+The metric control changes the analytical form:
 
----
+| Metric | Default form | Optional form | Meaning |
+| --- | --- | --- | --- |
+| Average Score | Segmented regional lines | None | Arithmetic mean of included country scores in each region |
+| Country Count | Stacked area | Streamgraph comparison | Number of included countries in each region |
 
-## Quick start
+Hovering the chart reveals an exact value. The region legend supports pointer and
+keyboard exploration, and the disclosure below the chart provides the same values
+as a structured table.
 
-```bash
-npm install
-npm run dev        # dev server with HMR
-npm run build      # production build to dist/
-npm run preview    # serve the production build locally
-npm run lint       # ESLint
-npm run test:parser  # parser regression suite
-npm run deploy     # build + publish dist/ to the gh-pages branch
-```
+## Data reconciliation
 
-Requires Node `^20.19.0 || >=22.12.0` (per Vite 8; developed on Node 22).
+The parser and application address several source inconsistencies:
 
----
+- **Changing schemas:** column names and widths vary, including `Score 2025` in
+  the latest export. Columns are resolved by headers rather than fixed positions.
+- **Multilingual and malformed labels:** French and English region names, damaged
+  accents, punctuation variants, and truncated values are mapped to the six
+  project regions.
+- **Combined edition:** `2012.csv` identifies its year as `2011-12`. It is one
+  combined edition, represented internally at 2012; there is no separate 2011
+  annual observation and no interpolated value.
+- **2022 regional regrouping:** the source merged Eastern Europe and Central Asia
+  into Europe. ISO evidence from adjacent editions restores the project grouping
+  from 53 Europe / 0 EEAC to 40 Europe / 13 EEAC.
+- **2025 encoding damage:** the raw file contains 219 Unicode replacement
+  characters, including damaged multilingual country and region text. The raw
+  export is preserved; region aliases allow all 180 rows to resolve, but the
+  damaged display text has not been fully repaired.
+- **Score direction:** earlier scores use the opposite better/worse direction from
+  later scores. Pre-2013 values are displayed as `100 - score` only to align that
+  direction.
 
-## The data
+### Score and methodology limitation
 
-### Source and coverage
+Direction alignment is **not** statistical normalization, recalibration, or proof
+of a common scale. The combined 2011–2012 source ranges from -10 to 142; direction
+alignment preserves the corresponding -42 to 110 range instead of clamping it to
+0–100.
 
-`public/data/` holds one semicolon-delimited CSV per index year, downloaded from RSF.
-The parser reads all 23 files and produces **4,020 country-year records**, every one of
-them carrying both a score and a region. Country coverage grows from 139 in 2002 to a
-steady 180 from 2014 onward.
+Average Score lines are separately drawn for:
 
-There is **no `2011.csv`** — this is not an omission. RSF published a single combined
-2011–2012 index, so the 2012 file covers both years. Its year column reads `2011`, and
-the parser remaps it to 2012 (`YEAR_REMAP`). The chart therefore shows a genuine gap at 2011.
+- 2002–2010;
+- the combined 2011–2012 edition;
+- 2013–2021; and
+- 2022–2025.
 
-### Three CSV generations
+Markers identify the 2013 and 2022 methodology changes. Lines do not bridge
+2010→2012, 2012→2013, or 2021→2022. Cross-era magnitudes should therefore be
+treated cautiously; the chart supports within-era exploration, not a claim that
+all editions share one statistically comparable scale. Modern score-quality
+thresholds are not projected backward across historical methodologies.
 
-RSF changed its export format twice. The parser sniffs the header row and dispatches
-accordingly (`detectFormat`):
+## Diagnostic evidence
 
-**Format B — 2002–2021** (header begins `Year (N)`)
+Lightweight Node scripts preserve the investigation as executable evidence:
 
-```
-Year (N);ISO;Rank N;Score N;Score N without the exactions;Score N with the exactions;
-Score exactions;Rank N-1;Score N-1;Rank evolution;FR_country;EN_country;ES_country;
-AR_country;FA_country;Zone
-```
+- `check-2022-region-split.mjs` verifies the real 53/0 source grouping and the
+  reconciled 40/13 Europe/EEAC result.
+- `check-region-consistency.mjs` verifies 4,020 rows, 191 ISO entities, six known
+  regions, and one stable project region per ISO after reconciliation.
+- `check-score-direction.mjs` verifies the 2011–2012 raw and transformed extents
+  and fails if a later edit silently clamps them.
+- `parseCSV-safety.test.mjs` checks the full file/year manifest, unique
+  edition/ISO keys, required score and region parsing, methodology segmentation,
+  and the known 2025 encoding condition.
 
-**Format C — 2022–2025** (header begins `ISO`)
-
-```
-ISO;Score;Rank;Political Context;Rank_Pol;Economic Context;Rank_Eco;Legal Context;
-Rank_Leg;Social Context;Rank_Soc;Safety;Rank_Saf;Zone;Country_EN;...;Year (N);
-Rank N-1;Rank evolution
-```
-
-Format C is itself inconsistent: 2022 has 22 columns and no `Country_PT`, while 2025
-has 25 columns and labels its score column `Score 2025` rather than `Score`. Columns are
-resolved by name, not by position, so this is absorbed transparently.
-
-A third branch (`Format A`) exists in the parser for an older layout without country-name
-columns. **No file in this repository triggers it** — it is defensive only.
-
-### Quirks the parser has to absorb
-
-**1. The 2013 scale inversion.** RSF reversed the meaning of its score in 2013:
-
-- 2002–2012: _lower_ is better (0 = best, ~105 = worst)
-- 2013–2025: _higher_ is better (100 = best, 0 = worst)
-
-`normalizeScores()` flips pre-2013 values to `100 - score` so the whole series reads in
-one direction. Without this the chart is meaningless across the boundary — hence the
-dashed marker at 2013.
-
-**2. The 2022 region collapse.** 2022 is the only year that abandons RSF's usual zone
-labels. It drops **EEAC entirely**, folding those 13 countries into a merged
-`Europe - Asie centrale` zone of 53, and renames MENA to `Maghreb - Moyen-Orient`:
-
-|        | 2021 | 2022 (raw) | 2023 |
-| ------ | ---- | ---------- | ---- |
-| Europe | 40   | 53         | 40   |
-| EEAC   | 13   | 0          | 13   |
-
-Left alone this puts a visible discontinuity in two bands for one year only.
-`applyCrossYearZoneOverrides()` repairs it by collecting the ISO codes that are labeled
-EEAC in _any other_ year and reassigning them in 2022, restoring the 40/13 split.
-
-**3. Inconsistent and corrupted zone labels.** Across the corpus the `Zone` column takes
-nine distinct raw values, mixing French and English (`Afrique`, `Amériques`,
-`Asie-Pacifique`, `UE Balkans`, `Maghreb - Moyen-Orient`, `Europe - Asie centrale`,
-`MENA`, `EEAC`) — plus one encoding casualty: 2025 contains `Am�riques`, where the
-accented character was lost to a bad round-trip.
-
-`normalizeZone()` handles all of it by mapping `U+FFFD` back to `e`, stripping diacritics
-via NFD decomposition, normalizing dashes and punctuation to spaces, then matching against
-an alias table longest-prefix-first so that truncated labels also resolve.
-
-**4. Encoding.** Most files are UTF-8 with a BOM; 2025 is not. Line endings are CRLF.
-Decimal separators are European commas (`92,48`), handled by `parseNum()`.
-
----
-
-## How it works
-
-```
-public/data/*.csv
-      │
-      ▼
-parseRSFCsv()              detect format → split → normalize zone → coerce numbers
-      │                    → { year, iso, rank, score, zone, country }
-      ▼
-applyCrossYearZoneOverrides()   repair the 2022 EEAC collapse
-      │
-      ▼
-normalizeScores()          flip pre-2013 scores onto the modern scale
-      │
-      ▼
-aggregateByZoneYear()      → [{ year, Europe, Africa, Americas, 'Asia-Pacific', MENA, EEAC }]
-      │
-      ▼
-<Streamgraph />            d3.stack → d3.area (curveBasis) → SVG
-```
-
-`App.jsx` owns data loading and UI state; `Streamgraph.jsx` is a self-contained D3
-renderer that draws into a ref'd `<svg>` from a `useCallback`, redrawing on any change to
-data, dimensions, layout, metric, or hover state. React never renders the SVG children —
-D3 owns that subtree.
-
-Files that 404 are skipped silently, so the manifest in `App.jsx` can list years you don't
-have yet; anything else that fails surfaces as an on-page warning.
-
-### Project structure
-
-```
-public/data/          23 RSF CSV files, one per index year
-src/
-  App.jsx             CSV manifest, loading, controls, layout, data table
-  components/
-    Streamgraph.jsx   D3 rendering, hover, legends, annotations
-  utils/
-    parseCSV.js       format detection, parsing, zone + score normalization
-  main.jsx            React entry point
-test/
-  parseCSV-safety.test.mjs   parser regression suite
-```
-
----
-
-## Testing
+Run them with:
 
 ```bash
 npm run test:parser
+npm run test:diagnostics
 ```
 
-A dependency-free assertion suite (Node's built-in `assert`) covering the parts most
-likely to break when RSF ships a new file:
+## Data provenance
 
-- Zone normalization for each region, including deliberately mangled labels
-  (`Am�riques`, `Asi�-Pacifique`, `UE Balkans`, `Maghreb - Moyen-Orient`)
-- Aggregation producing non-zero averages for each region
-- The 2022 EEAC cross-year override
-- A regression test against the **real** `2022.csv`, asserting that MENA and Europe both
-  parse and aggregate
+The bundled files were downloaded directly from RSF. Their original Windows
+download metadata records the RSF index page, direct export URL, and local download
+date; those details are preserved in [`public/data/README.md`](public/data/README.md)
+because NTFS alternate data streams do not travel reliably with Git.
 
----
+This provenance record does **not** resolve permission to redistribute the data.
+RSF's terms for these annual CSV exports still need clarification before this
+curated version is promoted or redeployed. No data or code license is inferred.
 
-## Deployment
+## Quick start
 
-`vite.config.js` sets `base: "/rsf-streamgraph/"` for GitHub Pages project-site hosting.
-`npm run deploy` builds and pushes `dist/` to the `gh-pages` branch via the `gh-pages`
-package.
+Requires Node `^20.19.0 || >=22.12.0` (Vite 8).
 
----
+```bash
+npm ci
+npm run dev
+npm run test:parser
+npm run test:diagnostics
+npm run lint
+npm run build
+npm run preview
+```
 
-## Known issues
+`npm run deploy` exists for the established GitHub Pages workflow, but deployment
+is deliberately outside this curation pass.
 
-- `test/parseCSV-test-utils.mjs` is an
-  unused leftover from earlier refactors.
-- `tmp-2022-zone-check.mjs`, `tmp-avg-trend-check.mjs` and `tmp-zone-consistency-check.mjs`
-  are one-off diagnostic scripts kept for reference, not part of the build.
-- There is no `.gitattributes`, so CRLF/LF differences can show up as spurious diffs on
-  the CSV and source files.
-- `npm run lint` reports one `no-useless-escape` error in `parseCSV.js` and one
-  `react-hooks/exhaustive-deps` warning in `Streamgraph.jsx`.
-- The format-detection docblock in `parseCSV.js` describes a "Format A" layout that no
-  bundled file actually uses.
+## Project structure
 
----
+```text
+public/data/          RSF CSV exports and tracked provenance notes
+scripts/diagnostics/  focused corpus checks retained from analysis
+src/App.jsx           data loading, controls, notes, and exact-value table
+src/components/       D3 line, stacked-area, and streamgraph rendering
+src/utils/            parsing, region reconciliation, direction alignment
+test/                 full-corpus parser regression checks
+```
+
+## Known limitations
+
+- Redistribution/right-to-publish terms for the bundled RSF exports remain
+  unresolved; this blocks promotion and redeployment.
+- Historical methodology changes limit direct score comparison across eras.
+- The 2025 source includes widespread encoding damage; only the fields required
+  for the current regional analysis are robustly recovered.
+- Browser, screen-reader, and other assistive-technology testing is incomplete.
+- A screenshot/social preview and broader presentation polish remain future work.
+- The repository intentionally has no added software license pending a separate
+  licensing decision.
+
+## Deployment architecture
+
+`master` is the source branch. `gh-pages` is independent generated publication
+output produced by the `gh-pages` package and should remain separate. The current
+work belongs on `fix/rsf-analytical-validity` until it is reviewed and can later be
+fast-forwarded into `master`; it should not be deployed from this task.
 
 ## Credits
 
-Data: [Reporters Without Borders — World Press Freedom Index](https://rsf.org/en/index).
-Index scores and regional groupings are RSF's; all parsing, normalization, and
-visualization decisions are this project's.
-
-Visualization by **Jeremiah King**.
+Data and index methodology: [Reporters Without Borders](https://rsf.org/en/index).
+Analytical approach, validation direction, and visualization decisions: Jeremiah
+King. Application and diagnostic implementation: AI-assisted under Jeremiah's
+direction and review.
