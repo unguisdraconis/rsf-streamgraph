@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test:parser": "node ./test/parseCSV-safety.test.mjs",
-    "test:diagnostics": "node ./scripts/diagnostics/check-2022-region-split.mjs && node ./scripts/diagnostics/check-region-consistency.mjs && node ./scripts/diagnostics/check-score-direction.mjs"
+    "test:diagnostics": "node ./scripts/diagnostics/check-2022-region-split.mjs && node ./scripts/diagnostics/check-region-consistency.mjs && node ./scripts/diagnostics/check-score-direction.mjs",
+    "test:visual": "node ./test/visual-intent.test.mjs"
   },
   "dependencies": {
     "d3": "^7.9.0",

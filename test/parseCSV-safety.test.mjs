@@ -131,21 +131,21 @@ assert.deepEqual(
 );
 
 const means = aggregateByZoneYear(alignScoreDirection(reconciled), "avgScore");
-const segments = segmentByMethodologyEra(means);
+const methodologyGroups = segmentByMethodologyEra(means);
 assert.deepEqual(
-  segments.map(({ id }) => id),
+  methodologyGroups.map(({ id }) => id),
   METHODOLOGY_ERAS.map(({ id }) => id),
-  "all four methodology-aware chart segments should be present",
+  "all four methodology eras should remain represented",
 );
 assert.deepEqual(
-  segments.map(({ data }) => [data[0].year, data.at(-1).year]),
+  methodologyGroups.map(({ data }) => [data[0].year, data.at(-1).year]),
   [
     [2002, 2010],
     [2012, 2012],
     [2013, 2021],
     [2022, 2025],
   ],
-  "segments must not bridge the missing edition or methodology changes",
+  "era metadata should retain the combined edition and methodology boundaries",
 );
 
 const text2025 = fs.readFileSync(path.join(dataDir, "2025.csv"), "utf8");
