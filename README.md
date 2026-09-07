@@ -9,13 +9,15 @@ Historical schemas, labels, score direction, regional groupings, and methodology
 all changed. AI-assisted implementations repeatedly produced plausible but
 inaccurate results until human-led validation changed both the data treatment and
 the visualization design. The repository name preserves the original experiment;
-the current application uses the form appropriate to each metric:
+the current application uses stacked area as its preferred visual field:
 
+- **Average Score** uses an intentionally interpretive stack to emphasize changing
+  regional shape and continuity. Its total height is not an additive RSF score.
 - **Country Count** is additive across six mutually exclusive project regions, so
-  a stable-baseline stacked area is the default. The original streamgraph remains
-  available as a comparison.
-- **Average Score** is not additive. It is shown as one line per region, with
-  breaks at methodology boundaries rather than as a misleading stacked total.
+  its stack also has a literal compositional meaning.
+
+The original streamgraph remains available as a comparison for both metrics, but
+its shifting baseline made regional evolution harder to perceive in this project.
 
 The central lesson is: **valid code + attractive visualization ≠ valid analysis**.
 
@@ -26,11 +28,20 @@ analysis happens downstream in application code.
 
 ## Human and AI contributions
 
-AI-assisted tools wrote most of the application and scripting implementation.
-Jeremiah King developed the analytical and data-interpretation approach, diagnosed
-data-quality and interpretation failures, directed the normalization logic,
-validated the derived results, and made the final visualization and
+AI-assisted tools wrote most of the application and diagnostic implementation.
+Jeremiah King developed and directed the downstream data-cleaning and analytical
+approach, diagnosed repeated interpretation failures, directed the normalization
+logic, validated the derived results, and made the final visualization and
 interpretation decisions.
+
+A later AI-assisted review recommended replacing the stacked Average Score view
+with independent lines because regional averages are non-additive. Jeremiah
+rejected that change because it optimized for precise numerical comparison rather
+than the project's intended perceptual goal. The restored stacked-area view is
+deliberate: the bands form an interpretive visual field, not an additive
+statistical total. This is another part of the project's evidence that human
+judgment was needed both to determine what the data mean and what the visualization
+is for.
 
 Earlier Python scripts used during exploration are no longer present. The retained
 JavaScript diagnostics capture the claims needed by the current application. Git
@@ -44,16 +55,32 @@ the combined 2011–2012 edition, and 2013–2025. The parser produces 4,020 uni
 edition/ISO records and maps source labels into six project regions: Europe,
 Africa, Americas, Asia-Pacific, MENA, and EEAC.
 
-The metric control changes the analytical form:
+The controls select the metric and visual layout:
 
 | Metric | Default form | Optional form | Meaning |
 | --- | --- | --- | --- |
-| Average Score | Segmented regional lines | None | Arithmetic mean of included country scores in each region |
+| Average Score | Stacked area | Streamgraph comparison | Interpretive field of regional arithmetic means; stack height is not additive |
 | Country Count | Stacked area | Streamgraph comparison | Number of included countries in each region |
 
 Hovering the chart reveals an exact value. The region legend supports pointer and
 keyboard exploration, and the disclosure below the chart provides the same values
 as a structured table.
+
+### Why stacked area?
+
+The original #30DayChartChallenge concept was a streamgraph. Jeremiah tested that
+form against the actual historical data and found that its shifting baseline made
+regional evolution harder to perceive. A stable-baseline stacked area produced a
+clearer visual field for this project's goal, so it became the preferred layout
+while the repository name and optional streamgraph preserve the design history.
+This is a project-specific perceptual judgment, not a claim that stacked area is
+universally superior.
+
+The Average Score stack is intentionally interpretive rather than additive. Its
+purpose is to show changing regional shape and continuity across the historical
+RSF material; the total stack height should not be read as a summed RSF score.
+Methodology annotations remain visible so graphical continuity is not mistaken for
+statistical equivalence.
 
 ## Data reconciliation
 
@@ -87,18 +114,26 @@ of a common scale. The combined 2011–2012 source ranges from -10 to 142; direc
 alignment preserves the corresponding -42 to 110 range instead of clamping it to
 0–100.
 
-Average Score lines are separately drawn for:
+The application retains metadata for four methodology eras:
 
 - 2002–2010;
 - the combined 2011–2012 edition;
 - 2013–2021; and
 - 2022–2025.
 
-Markers identify the 2013 and 2022 methodology changes. Lines do not bridge
-2010→2012, 2012→2013, or 2021→2022. Cross-era magnitudes should therefore be
-treated cautiously; the chart supports within-era exploration, not a claim that
-all editions share one statistically comparable scale. Modern score-quality
-thresholds are not projected backward across historical methodologies.
+The continuous area connects the available editions as an intentional visual-flow
+device. The combined 2011–2012 edition is plotted at 2012; no separate 2011
+observation is invented. Annotations identify that combined edition and the 2013
+and 2022 methodology changes. Cross-era magnitudes should be treated cautiously:
+visual continuity does not establish a statistically common scale. Modern
+score-quality thresholds are not projected backward across historical
+methodologies.
+
+The RSF Index is itself interpretive, combining qualitative and quantitative
+inputs whose methodology has changed over time; it should not be read as an
+exhaustive objective count of press-freedom events. That limitation does not relax
+source fidelity: parsing and reconciliation remain tested against the untouched
+exports.
 
 ## Diagnostic evidence
 
@@ -116,12 +151,16 @@ files:
 - `parseCSV-safety.test.mjs` checks the full file/year manifest, unique
   edition/ISO keys, required score and region parsing, methodology segmentation,
   and the known 2025 encoding condition.
+- `visual-intent.test.mjs` protects the stacked-area default, interpretive copy,
+  methodology annotations, and accessible table/legend structure from accidental
+  reversal.
 
 Run them with:
 
 ```bash
 npm run test:parser
 npm run test:diagnostics
+npm run test:visual
 ```
 
 ## Data provenance
@@ -170,7 +209,7 @@ GitHub Pages workflow.
 public/data/          RSF CSV exports and tracked provenance notes
 scripts/diagnostics/  focused corpus checks retained from analysis
 src/App.jsx           data loading, controls, notes, and exact-value table
-src/components/       D3 line, stacked-area, and streamgraph rendering
+src/components/       D3 stacked-area and streamgraph rendering
 src/utils/            parsing, region reconciliation, direction alignment
 test/                 full-corpus parser regression checks
 ```
@@ -189,10 +228,9 @@ test/                 full-corpus parser regression checks
 
 ## Deployment architecture
 
-`master` is the source branch. `gh-pages` is independent generated publication
-output produced by the `gh-pages` package and should remain separate. The current
-work belongs on `fix/rsf-analytical-validity` until it is reviewed and can later be
-fast-forwarded into `master`; it should not be deployed from this task.
+`master` is the authoritative source branch. `gh-pages` is independent generated
+publication output produced by the `gh-pages` package and should remain separate
+from editable source history.
 
 ## Credits
 
