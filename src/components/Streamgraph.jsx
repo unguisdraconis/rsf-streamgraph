@@ -30,6 +30,7 @@ export default function Streamgraph({
   const svgRef = useRef(null);
   const tooltipRef = useRef(null);
   const [hoveredZone, setHoveredZone] = useState(null);
+  const [pinnedZone, setPinnedZone] = useState(null);
   const titleId = useId();
   const descriptionId = useId();
   const compact = width < 640;
@@ -42,6 +43,7 @@ export default function Streamgraph({
   const innerW = Math.max(1, width - margin.left - margin.right);
   const innerH = Math.max(1, height - margin.top - margin.bottom);
   const isAverage = metric === "avgScore";
+  const activeZone = hoveredZone ?? pinnedZone;
   const chartForm = isAverage
     ? "segmented line chart"
     : layout === "wiggle"
@@ -67,8 +69,8 @@ export default function Streamgraph({
       .attr("id", descriptionId)
       .text(
         isAverage
-          ? "Regional arithmetic means are drawn as separate lines. Lines break between 2010 and the combined 2011-2012 edition, at the 2013 methodology change, and at the 2022 methodology change. Exact values are available in the table after the chart."
-          : "Band thickness represents the number of included countries in each mutually exclusive project region. Exact values are available in the table after the chart.",
+          ? "A segmented line chart of regional arithmetic mean scores. Lines break between 2010 and the combined 2011-2012 edition, at the 2013 methodology change, and at the 2022 methodology change. Exact values are available in the table after the chart."
+          : `A ${chartForm} of country counts. Band thickness represents the number of included countries in each mutually exclusive project region. Exact values are available in the table after the chart.`,
       );
 
     const xScale = d3
@@ -159,10 +161,10 @@ export default function Streamgraph({
         .attr("fill", "none")
         .attr("stroke", (series) => ZONE_COLORS[series.zone])
         .attr("stroke-width", (series) =>
-          hoveredZone === series.zone ? 4 : 2.5,
+          activeZone === series.zone ? 4 : 2.5,
         )
         .attr("opacity", (series) =>
-          hoveredZone === null || hoveredZone === series.zone ? 1 : 0.16,
+          activeZone === null || activeZone === series.zone ? 1 : 0.16,
         )
         .attr("d", (series) => line(series.values))
         .style("cursor", "crosshair")
@@ -193,10 +195,10 @@ export default function Streamgraph({
         .attr("class", "score-point")
         .attr("cx", ({ row }) => xScale(row.year))
         .attr("cy", ({ zone, row }) => yScale(row[zone]))
-        .attr("r", ({ zone }) => (hoveredZone === zone ? 4 : 2.5))
+        .attr("r", ({ zone }) => (activeZone === zone ? 4 : 2.5))
         .attr("fill", ({ zone }) => ZONE_COLORS[zone])
         .attr("opacity", ({ zone }) =>
-          hoveredZone === null || hoveredZone === zone ? 1 : 0.12,
+          activeZone === null || activeZone === zone ? 1 : 0.12,
         )
         .on("mouseenter", (event, point) => {
           setHoveredZone(point.zone);
@@ -263,7 +265,7 @@ export default function Streamgraph({
         .attr("d", area)
         .attr("fill", (layer) => ZONE_COLORS[layer.key])
         .attr("opacity", (layer) =>
-          hoveredZone === null || hoveredZone === layer.key ? 0.88 : 0.15,
+          activeZone === null || activeZone === layer.key ? 0.88 : 0.15,
         )
         .attr("stroke", "white")
         .attr("stroke-width", 0.5)
@@ -335,12 +337,12 @@ export default function Streamgraph({
           : `RSF country count by region — ${layout === "wiggle" ? "streamgraph" : "stacked area"}`,
       );
   }, [
+    activeZone,
     chartForm,
     compact,
     data,
     descriptionId,
     height,
-    hoveredZone,
     innerH,
     innerW,
     isAverage,
@@ -369,7 +371,11 @@ export default function Streamgraph({
             onMouseLeave={() => setHoveredZone(null)}
             onFocus={() => setHoveredZone(zone)}
             onBlur={() => setHoveredZone(null)}
-            aria-label={`Highlight ${zone}`}
+            onClick={() =>
+              setPinnedZone((current) => (current === zone ? null : zone))
+            }
+            aria-label={`Highlight ${zone} region`}
+            aria-pressed={pinnedZone === zone}
           >
             <span
               className="legend-swatch"
@@ -380,6 +386,11 @@ export default function Streamgraph({
           </button>
         ))}
       </div>
+      <p className="sr-only" aria-live="polite">
+        {activeZone
+          ? `${activeZone} is highlighted. Activate its legend button to keep or clear the highlight.`
+          : "All regions are shown without emphasis."}
+      </p>
       <div className="chart-canvas">
         <svg
           ref={svgRef}
