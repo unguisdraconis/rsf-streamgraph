@@ -387,9 +387,9 @@ export function getMethodologyEra(year) {
 }
 
 /**
- * Split annual aggregates into methodology-aware segments. Line charts must
- * draw each returned segment separately so they cannot imply continuity
- * across the unobserved 2011 edition or the 2013 and 2022 methodology changes.
+ * Group annual aggregates into methodology-aware segments for validation and
+ * interpretation. A visualization may use continuous geometry for an explicitly
+ * interpretive purpose while annotating these non-comparable boundaries.
  */
 export function segmentByMethodologyEra(rows) {
   return METHODOLOGY_ERAS.map((era) => ({

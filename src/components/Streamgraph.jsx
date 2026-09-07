@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useId, useRef, useState } from "react";
 import * as d3 from "d3";
-import { segmentByMethodologyEra, ZONE_KEYS } from "../utils/parseCSV";
+import { ZONE_KEYS } from "../utils/parseCSV";
 
 const ZONE_COLORS = {
   Europe: "#4e79a7",
@@ -35,7 +35,7 @@ export default function Streamgraph({
   const descriptionId = useId();
   const compact = width < 640;
   const margin = {
-    top: 54,
+    top: 58,
     right: compact ? 18 : 32,
     bottom: compact ? 68 : 58,
     left: compact ? 48 : 64,
@@ -44,11 +44,7 @@ export default function Streamgraph({
   const innerH = Math.max(1, height - margin.top - margin.bottom);
   const isAverage = metric === "avgScore";
   const activeZone = hoveredZone ?? pinnedZone;
-  const chartForm = isAverage
-    ? "segmented line chart"
-    : layout === "wiggle"
-      ? "streamgraph"
-      : "stacked area chart";
+  const chartForm = layout === "wiggle" ? "streamgraph" : "stacked area chart";
 
   const draw = useCallback(() => {
     if (!data || data.length === 0) return;
@@ -61,7 +57,7 @@ export default function Streamgraph({
       .attr("id", titleId)
       .text(
         isAverage
-          ? "RSF direction-aligned mean scores by region"
+          ? `RSF direction-aligned regional mean scores, ${chartForm}`
           : `RSF country counts by region, ${chartForm}`,
       );
     svg
@@ -69,18 +65,40 @@ export default function Streamgraph({
       .attr("id", descriptionId)
       .text(
         isAverage
-          ? "A segmented line chart of regional arithmetic mean scores. Lines break between 2010 and the combined 2011-2012 edition, at the 2013 methodology change, and at the 2022 methodology change. Exact values are available in the table after the chart."
-          : `A ${chartForm} of country counts. Band thickness represents the number of included countries in each mutually exclusive project region. Exact values are available in the table after the chart.`,
+          ? `An interpretive ${chartForm} of direction-aligned regional mean scores. Bands show changing regional patterns and visual continuity; their combined height is not an additive RSF score. The combined 2011-2012 edition is plotted at 2012, and annotations identify the 2013 and 2022 methodology changes. Exact values are available in the table after the chart.`
+          : `A ${chartForm} of additive country counts. Band thickness represents the number of included countries in each mutually exclusive project region. Exact values are available in the table after the chart.`,
       );
 
     const xScale = d3
       .scaleLinear()
       .domain(d3.extent(data, (row) => row.year))
       .range([0, innerW]);
+    const offsetFn =
+      layout === "wiggle" ? d3.stackOffsetWiggle : d3.stackOffsetNone;
+    const orderFn =
+      layout === "wiggle" ? d3.stackOrderInsideOut : d3.stackOrderNone;
+    const series = d3
+      .stack()
+      .keys(ZONE_KEYS)
+      .offset(offsetFn)
+      .order(orderFn)(data);
+    const yScale = d3
+      .scaleLinear()
+      .domain([
+        d3.min(series, (layer) => d3.min(layer, (point) => point[0])),
+        d3.max(series, (layer) => d3.max(layer, (point) => point[1])),
+      ])
+      .nice()
+      .range([innerH, 0]);
+    const area = d3
+      .area()
+      .x((point) => xScale(point.data.year))
+      .y0((point) => yScale(point[0]))
+      .y1((point) => yScale(point[1]))
+      .curve(d3.curveBasis);
     const g = svg
       .append("g")
       .attr("transform", `translate(${margin.left},${margin.top})`);
-
     const hoverLine = g
       .append("line")
       .attr("y1", 0)
@@ -114,106 +132,39 @@ export default function Streamgraph({
       d3.select(tooltipRef.current).style("display", "none");
     };
 
+    g.selectAll("path.layer")
+      .data(series)
+      .join("path")
+      .attr("class", "layer")
+      .attr("d", area)
+      .attr("fill", (layer) => ZONE_COLORS[layer.key])
+      .attr("opacity", (layer) =>
+        activeZone === null || activeZone === layer.key ? 0.88 : 0.15,
+      )
+      .attr("stroke", "white")
+      .attr("stroke-width", 0.5)
+      .style("cursor", "crosshair")
+      .on("mouseenter", (_event, layer) => setHoveredZone(layer.key))
+      .on("mousemove", function (event, layer) {
+        const [mx] = d3.pointer(event, g.node());
+        const year = xScale.invert(mx);
+        const row = d3.least(data, (candidate) =>
+          Math.abs(candidate.year - year),
+        );
+        hoverLine
+          .attr("x1", xScale(row.year))
+          .attr("x2", xScale(row.year))
+          .attr("opacity", 0.55);
+        showTooltip(event, layer.key, row);
+      })
+      .on("mouseleave", hideTooltip);
+
     if (isAverage) {
-      const values = data.flatMap((row) =>
-        ZONE_KEYS.map((zone) => row[zone]).filter(Number.isFinite),
-      );
-      const rawExtent = d3.extent(values);
-      const padding = Math.max(2, (rawExtent[1] - rawExtent[0]) * 0.06);
-      const yScale = d3
-        .scaleLinear()
-        .domain([rawExtent[0] - padding, rawExtent[1] + padding])
-        .nice()
-        .range([innerH, 0]);
-      const line = d3
-        .line()
-        .defined((row) => Number.isFinite(row.value))
-        .x((row) => xScale(row.year))
-        .y((row) => yScale(row.value))
-        .curve(d3.curveMonotoneX);
-      const segments = segmentByMethodologyEra(data);
-      const lineData = ZONE_KEYS.flatMap((zone) =>
-        segments.map((segment) => ({
-          zone,
-          era: segment.id,
-          values: segment.data.map((row) => ({
-            ...row,
-            value: row[zone],
-          })),
-        })),
-      );
-
-      g.append("g").attr("class", "grid-lines").call(
-        d3.axisLeft(yScale).ticks(6).tickSize(-innerW).tickFormat(""),
-      );
-      g.select(".grid-lines .domain").remove();
-      g.selectAll(".grid-lines line")
-        .attr("stroke", "#d9d9d9")
-        .attr("stroke-opacity", 0.7);
-      g.append("g").call(d3.axisLeft(yScale).ticks(6));
-
-      g.selectAll("path.score-line")
-        .data(lineData.filter((series) => series.values.length > 1))
-        .join("path")
-        .attr("class", "score-line")
-        .attr("data-zone", (series) => series.zone)
-        .attr("data-era", (series) => series.era)
-        .attr("fill", "none")
-        .attr("stroke", (series) => ZONE_COLORS[series.zone])
-        .attr("stroke-width", (series) =>
-          activeZone === series.zone ? 4 : 2.5,
-        )
-        .attr("opacity", (series) =>
-          activeZone === null || activeZone === series.zone ? 1 : 0.16,
-        )
-        .attr("d", (series) => line(series.values))
-        .style("cursor", "crosshair")
-        .on("mouseenter", (_event, series) => setHoveredZone(series.zone))
-        .on("mousemove", function (event, series) {
-          const [mx] = d3.pointer(event, g.node());
-          const year = xScale.invert(mx);
-          const row = d3.least(
-            series.values,
-            (candidate) => Math.abs(candidate.year - year),
-          );
-          hoverLine
-            .attr("x1", xScale(row.year))
-            .attr("x2", xScale(row.year))
-            .attr("opacity", 0.55);
-          showTooltip(event, series.zone, row);
-        })
-        .on("mouseleave", hideTooltip);
-
-      const points = ZONE_KEYS.flatMap((zone) =>
-        data
-          .filter((row) => Number.isFinite(row[zone]))
-          .map((row) => ({ zone, row })),
-      );
-      g.selectAll("circle.score-point")
-        .data(points)
-        .join("circle")
-        .attr("class", "score-point")
-        .attr("cx", ({ row }) => xScale(row.year))
-        .attr("cy", ({ zone, row }) => yScale(row[zone]))
-        .attr("r", ({ zone }) => (activeZone === zone ? 4 : 2.5))
-        .attr("fill", ({ zone }) => ZONE_COLORS[zone])
-        .attr("opacity", ({ zone }) =>
-          activeZone === null || activeZone === zone ? 1 : 0.12,
-        )
-        .on("mouseenter", (event, point) => {
-          setHoveredZone(point.zone);
-          hoverLine
-            .attr("x1", xScale(point.row.year))
-            .attr("x2", xScale(point.row.year))
-            .attr("opacity", 0.55);
-          showTooltip(event, point.zone, point.row);
-        })
-        .on("mouseleave", hideTooltip);
-
       [
-        { year: 2013, label: "2013 methodology" },
-        { year: 2022, label: "2022 methodology" },
-      ].forEach(({ year, label }, index) => {
+        { year: 2012, label: "2011–12 combined", anchor: "end", dx: -4, y: 12 },
+        { year: 2013, label: "2013 methodology", anchor: "start", dx: 4, y: 26 },
+        { year: 2022, label: "2022 methodology", anchor: "start", dx: 4, y: 12 },
+      ].forEach(({ year, label, anchor, dx, y }) => {
         const x = xScale(year);
         g.append("line")
           .attr("x1", x)
@@ -223,71 +174,21 @@ export default function Streamgraph({
           .attr("stroke", "#8b1a1a")
           .attr("stroke-width", 1.5)
           .attr("stroke-dasharray", "6,4")
-          .attr("opacity", 0.75)
+          .attr("opacity", 0.8)
           .attr("pointer-events", "none");
         g.append("text")
-          .attr("x", x + (index === 1 && compact ? -4 : 4))
-          .attr("y", 12 + index * 14)
-          .attr("text-anchor", index === 1 && compact ? "end" : "start")
+          .attr("x", x + dx)
+          .attr("y", y)
+          .attr("text-anchor", anchor)
           .attr("font-size", compact ? 9 : 10)
           .attr("fill", "#8b1a1a")
+          .attr("pointer-events", "none")
           .text(label);
       });
-    } else {
-      const offsetFn =
-        layout === "wiggle" ? d3.stackOffsetWiggle : d3.stackOffsetNone;
-      const orderFn =
-        layout === "wiggle" ? d3.stackOrderInsideOut : d3.stackOrderNone;
-      const series = d3
-        .stack()
-        .keys(ZONE_KEYS)
-        .offset(offsetFn)
-        .order(orderFn)(data);
-      const yScale = d3
-        .scaleLinear()
-        .domain([
-          d3.min(series, (layer) => d3.min(layer, (point) => point[0])),
-          d3.max(series, (layer) => d3.max(layer, (point) => point[1])),
-        ])
-        .nice()
-        .range([innerH, 0]);
-      const area = d3
-        .area()
-        .x((point) => xScale(point.data.year))
-        .y0((point) => yScale(point[0]))
-        .y1((point) => yScale(point[1]))
-        .curve(d3.curveBasis);
+    }
 
-      g.selectAll("path.layer")
-        .data(series)
-        .join("path")
-        .attr("class", "layer")
-        .attr("d", area)
-        .attr("fill", (layer) => ZONE_COLORS[layer.key])
-        .attr("opacity", (layer) =>
-          activeZone === null || activeZone === layer.key ? 0.88 : 0.15,
-        )
-        .attr("stroke", "white")
-        .attr("stroke-width", 0.5)
-        .style("cursor", "crosshair")
-        .on("mouseenter", (_event, layer) => setHoveredZone(layer.key))
-        .on("mousemove", function (event, layer) {
-          const [mx] = d3.pointer(event, g.node());
-          const year = xScale.invert(mx);
-          const row = d3.least(data, (candidate) =>
-            Math.abs(candidate.year - year),
-          );
-          hoverLine
-            .attr("x1", xScale(row.year))
-            .attr("x2", xScale(row.year))
-            .attr("opacity", 0.55);
-          showTooltip(event, layer.key, row);
-        })
-        .on("mouseleave", hideTooltip);
-
-      if (layout !== "wiggle") {
-        g.append("g").call(d3.axisLeft(yScale).ticks(6));
-      }
+    if (layout !== "wiggle" && !isAverage) {
+      g.append("g").call(d3.axisLeft(yScale).ticks(6));
     }
 
     const xAxis = d3
@@ -312,7 +213,7 @@ export default function Streamgraph({
       .attr("font-size", 13)
       .attr("fill", "#555")
       .text("Index edition");
-    if (isAverage || layout !== "wiggle") {
+    if (layout !== "wiggle") {
       svg
         .append("text")
         .attr("transform", "rotate(-90)")
@@ -321,7 +222,7 @@ export default function Streamgraph({
         .attr("text-anchor", "middle")
         .attr("font-size", 12)
         .attr("fill", "#555")
-        .text(isAverage ? "Direction-aligned regional mean" : "Country count");
+        .text(isAverage ? "Regional mean bands (not additive)" : "Country count");
     }
     svg
       .append("text")
@@ -333,7 +234,7 @@ export default function Streamgraph({
       .attr("fill", "#222")
       .text(
         isAverage
-          ? "RSF direction-aligned regional mean scores"
+          ? `RSF regional mean score patterns — ${layout === "wiggle" ? "streamgraph" : "stacked area"}`
           : `RSF country count by region — ${layout === "wiggle" ? "streamgraph" : "stacked area"}`,
       );
   }, [
@@ -402,6 +303,7 @@ export default function Streamgraph({
           height={height}
           preserveAspectRatio="xMidYMid meet"
           data-chart-form={chartForm}
+          data-chart-metric={isAverage ? "average-score" : "country-count"}
         />
         <div ref={tooltipRef} className="chart-tooltip" aria-hidden="true" />
       </div>

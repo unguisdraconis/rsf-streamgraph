@@ -158,8 +158,9 @@ export default function App() {
         RSF World Press Freedom Index
       </h1>
       <p style={{ color: "#666", marginBottom: 20, fontSize: 14 }}>
-        Regional views of Reporters Without Borders data. Average Score uses
-        methodology-aware lines; Country Count uses additive area layouts.
+        Explore changing regional patterns in Reporters Without Borders data.
+        Stacked Area is the preferred view; Streamgraph preserves the original
+        visual experiment.
       </p>
 
       {/* Controls */}
@@ -184,19 +185,17 @@ export default function App() {
           </select>
         </label>
 
-        {metric === "count" && (
-          <label style={{ fontSize: 14 }}>
-            <strong>Count layout: </strong>
-            <select
-              value={layout}
-              onChange={(e) => setLayout(e.target.value)}
-              style={{ marginLeft: 4, padding: "4px 8px", fontSize: 14 }}
-            >
-              <option value="zero">Stacked Area</option>
-              <option value="wiggle">Streamgraph comparison</option>
-            </select>
-          </label>
-        )}
+        <label style={{ fontSize: 14 }}>
+          <strong>Layout: </strong>
+          <select
+            value={layout}
+            onChange={(e) => setLayout(e.target.value)}
+            style={{ marginLeft: 4, padding: "4px 8px", fontSize: 14 }}
+          >
+            <option value="zero">Stacked Area</option>
+            <option value="wiggle">Streamgraph comparison</option>
+          </select>
+        </label>
 
         <span style={{ fontSize: 12, color: "#999" }}>
           {allRecords.length.toLocaleString()} total records ·{" "}
@@ -242,15 +241,17 @@ export default function App() {
             color: "#37474f",
           }}
         >
-          <strong>Comparison note:</strong> pre-2013 scores are subtracted from
-          100 to align direction only; this is not statistical normalization.
-          Magnitudes are not demonstrated to be comparable across methodology
-          eras. Lines are deliberately broken for 2002–2010, the combined
-          2011–2012 edition, 2013–2021, and 2022–2025.
+          <strong>Interpretive score view:</strong> regional score bands are
+          stacked to show changing patterns and visual continuity; the combined
+          stack height is not an additive RSF score. Pre-2013 scores are
+          subtracted from 100 to align direction only, not to statistically
+          normalize them. Magnitudes are not demonstrated to be comparable
+          across methodology eras.
           <br />
-          The dashed markers identify the 2013 and 2022 methodology changes.
-          Regional arithmetic means are shown as lines because averages are not
-          additive.
+          The combined 2011–2012 edition is plotted at 2012; there is no separate
+          2011 observation. Dashed annotations identify that edition and the 2013
+          and 2022 methodology changes. Visual continuity does not establish
+          statistical equivalence.
           <br />
           MENA = Middle East & North Africa; EEAC = Eastern Europe & Central
           Asia.
