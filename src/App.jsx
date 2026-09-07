@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import {
   parseRSFCsv,
-  normalizeScores,
+  alignScoreDirection,
   aggregateByZoneYear,
   applyCrossYearZoneOverrides,
 } from "./utils/parseCSV";
@@ -13,8 +13,8 @@ import Streamgraph from "./components/Streamgraph";
  * The parser reads the year from the data when available;
  * fallbackYear is used only when the file lacks a year column.
  *
- * The 2012 file covers 2011–2012. If its year column reads "2011",
- * the parser remaps it to 2012 automatically.
+ * The 2012 file covers the combined 2011–2012 edition. Its raw year value is
+ * "2011-12"; the parser represents that single edition as 2012.
  *
  * Add or remove entries here to match the files you have.
  */
@@ -46,14 +46,14 @@ const CSV_FILES = [
   { file: `${DATA_BASE}2025.csv`, year: 2025 },
 ];
 
-const ZONE_COLORS_TABLE = {
-  Europe: "#4e79a7",
-  Africa: "#f28e2b",
-  Americas: "#e15759",
-  "Asia-Pacific": "#76b7b2",
-  MENA: "#59a14f",
-  EEAC: "#af7aa1",
-};
+const ZONE_KEYS = [
+  "Europe",
+  "Africa",
+  "Americas",
+  "Asia-Pacific",
+  "MENA",
+  "EEAC",
+];
 
 const thStyle = { padding: "6px 12px", textAlign: "left" };
 const tdStyle = { padding: "4px 12px" };
@@ -65,16 +65,16 @@ export default function App() {
   const [loading, setLoading] = useState(true);
   const [errors, setErrors] = useState([]);
   const [dimensions, setDimensions] = useState({
-    width: Math.min(window.innerWidth - 40, 1100),
-    height: 560,
+    width: Math.max(280, Math.min(window.innerWidth - 40, 1100)),
+    height: 520,
   });
 
   // Responsive resize
   useEffect(() => {
     const handleResize = () => {
       setDimensions({
-        width: Math.min(window.innerWidth - 40, 1100),
-        height: 560,
+        width: Math.max(280, Math.min(window.innerWidth - 40, 1100)),
+        height: 520,
       });
     };
     window.addEventListener("resize", handleResize);
@@ -113,40 +113,11 @@ export default function App() {
     load();
   }, []);
 
-  // Optional: drag-and-drop to add extra CSV files at runtime
-  const handleDrop = useCallback((e) => {
-    e.preventDefault();
-    const files = Array.from(e.dataTransfer.files).filter((f) =>
-      f.name.toLowerCase().endsWith(".csv"),
-    );
-    if (files.length === 0) return;
-
-    Promise.all(
-      files.map(
-        (f) =>
-          new Promise((resolve) => {
-            const reader = new FileReader();
-            reader.onload = () => {
-              const match = f.name.match(/(\d{4})/);
-              const year = match ? parseInt(match[1], 10) : 2020;
-              resolve(parseRSFCsv(reader.result, year));
-            };
-            reader.readAsText(f);
-          }),
-      ),
-    ).then((results) => {
-      const newRecords = results.flat();
-      setAllRecords((prev) => [...prev, ...newRecords]);
-    });
-  }, []);
-
-  const handleDragOver = (e) => e.preventDefault();
-
-  // Apply cross-year zone overrides before normalization and aggregation
+  // Reconcile the 2022 regions, then align score direction for display.
   const recordsWithCrossYearZones = applyCrossYearZoneOverrides(allRecords);
-  const normalized = normalizeScores(recordsWithCrossYearZones);
+  const directionAligned = alignScoreDirection(recordsWithCrossYearZones);
 
-  const worldAveragesByYear = normalized.reduce((acc, record) => {
+  const includedMeansByYear = directionAligned.reduce((acc, record) => {
     if (record.score === null) return acc;
     const year = record.year;
     if (!acc[year]) acc[year] = { sum: 0, count: 0 };
@@ -155,13 +126,13 @@ export default function App() {
     return acc;
   }, {});
 
-  const aggregated = aggregateByZoneYear(normalized, metric).map((row) => {
-    const worldData = worldAveragesByYear[row.year];
+  const aggregated = aggregateByZoneYear(directionAligned, metric).map((row) => {
+    const includedData = includedMeansByYear[row.year];
     return {
       ...row,
-      worldAvg:
-        metric === "avgScore" && worldData && worldData.count > 0
-          ? +(worldData.sum / worldData.count).toFixed(2)
+      includedMean:
+        metric === "avgScore" && includedData && includedData.count > 0
+          ? +(includedData.sum / includedData.count).toFixed(2)
           : null,
     };
   });
@@ -179,15 +150,16 @@ export default function App() {
         padding: "20px",
         fontFamily: "'Inter', 'Helvetica Neue', sans-serif",
       }}
-      onDrop={handleDrop}
-      onDragOver={handleDragOver}
     >
-      <h1 style={{ fontSize: 24, marginBottom: 4, color: "#222" }}>
+      <h1
+        id="page-title"
+        style={{ fontSize: 24, marginBottom: 4, color: "#222" }}
+      >
         RSF World Press Freedom Index
       </h1>
       <p style={{ color: "#666", marginBottom: 20, fontSize: 14 }}>
-        Interactive Stacked Area Chart — Reporters Without Borders data by
-        region. Hover a region to highlight it.
+        Regional views of Reporters Without Borders data. Average Score uses
+        methodology-aware lines; Country Count uses additive area layouts.
       </p>
 
       {/* Controls */}
@@ -212,23 +184,25 @@ export default function App() {
           </select>
         </label>
 
-        <label style={{ fontSize: 14 }}>
-          <strong>Layout: </strong>
-          <select
-            value={layout}
-            onChange={(e) => setLayout(e.target.value)}
-            style={{ marginLeft: 4, padding: "4px 8px", fontSize: 14 }}
-          >
-            <option value="wiggle">Streamgraph</option>
-            <option value="zero">Stacked Area</option>
-          </select>
-        </label>
+        {metric === "count" && (
+          <label style={{ fontSize: 14 }}>
+            <strong>Count layout: </strong>
+            <select
+              value={layout}
+              onChange={(e) => setLayout(e.target.value)}
+              style={{ marginLeft: 4, padding: "4px 8px", fontSize: 14 }}
+            >
+              <option value="zero">Stacked Area</option>
+              <option value="wiggle">Streamgraph comparison</option>
+            </select>
+          </label>
+        )}
 
         <span style={{ fontSize: 12, color: "#999" }}>
           {allRecords.length.toLocaleString()} total records ·{" "}
           {recordsWithScore.toLocaleString()} with scores ·{" "}
           {recordsWithZone.toLocaleString()} with zones · {yearsWithData.length}{" "}
-          years
+          editions
         </span>
       </div>
 
@@ -254,9 +228,10 @@ export default function App() {
         </div>
       )}
 
-      {/* Methodology note */}
+      {/* Methodology and comparability note */}
       {metric === "avgScore" && (
         <div
+          id="methodology-note"
           style={{
             background: "#f0f4ff",
             border: "1px solid #c5cae9",
@@ -267,15 +242,15 @@ export default function App() {
             color: "#37474f",
           }}
         >
-          <strong>Note:</strong> RSF changed methodology in 2013. Scores before
-          2013 (lower = more free, 0–100+) are inverted to match the 2013+ scale
-          (higher = more free, 0–100). The{" "}
-          <span style={{ color: "#c00" }}>dashed red line</span> marks this
-          transition. Years without a corresponding CSV file will appear as
-          gaps.
+          <strong>Comparison note:</strong> pre-2013 scores are subtracted from
+          100 to align direction only; this is not statistical normalization.
+          Magnitudes are not demonstrated to be comparable across methodology
+          eras. Lines are deliberately broken for 2002–2010, the combined
+          2011–2012 edition, 2013–2021, and 2022–2025.
           <br />
-          For the most direct comparison of normalized average scores, use the{" "}
-          <strong>Stacked Area</strong> layout.
+          The dashed markers identify the 2013 and 2022 methodology changes.
+          Regional arithmetic means are shown as lines because averages are not
+          additive.
           <br />
           MENA = Middle East & North Africa; EEAC = Eastern Europe & Central
           Asia.
@@ -288,7 +263,8 @@ export default function App() {
           >
             Reporters Without Borders
           </a>{" "}
-          , visualized by Jeremiah King
+          . Analysis and visualization by Jeremiah King; implementation was
+          AI-assisted.
         </div>
       )}
 
@@ -318,6 +294,7 @@ export default function App() {
           height={dimensions.height}
           metric={metric}
           layout={layout}
+          labelledBy="page-title"
         />
       )}
 
@@ -335,25 +312,42 @@ export default function App() {
                 width: "100%",
               }}
             >
+              <caption>
+                {metric === "avgScore"
+                  ? "Direction-aligned regional mean scores by RSF index edition"
+                  : "Included country counts by region and RSF index edition"}
+              </caption>
               <thead>
                 <tr>
-                  <th style={thStyle}>Year</th>
-                  {Object.keys(ZONE_COLORS_TABLE).map((zone) => (
-                    <th key={zone} style={thStyle}>
+                  <th scope="col" style={thStyle}>
+                    Edition
+                  </th>
+                  {ZONE_KEYS.map((zone) => (
+                    <th key={zone} scope="col" style={thStyle}>
                       {zone}
                     </th>
                   ))}
+                  {metric === "avgScore" && (
+                    <th scope="col" style={thStyle}>
+                      Mean of included country scores
+                    </th>
+                  )}
                 </tr>
               </thead>
               <tbody>
                 {aggregated.map((row) => (
                   <tr key={row.year}>
-                    <td style={tdStyle}>{row.year}</td>
-                    {Object.keys(ZONE_COLORS_TABLE).map((zone) => (
+                    <th scope="row" style={tdStyle}>
+                      {row.year === 2012 ? "2011–2012" : row.year}
+                    </th>
+                    {ZONE_KEYS.map((zone) => (
                       <td key={zone} style={tdStyle}>
                         {row[zone] == null ? "–" : row[zone]}
                       </td>
                     ))}
+                    {metric === "avgScore" && (
+                      <td style={tdStyle}>{row.includedMean ?? "–"}</td>
+                    )}
                   </tr>
                 ))}
               </tbody>

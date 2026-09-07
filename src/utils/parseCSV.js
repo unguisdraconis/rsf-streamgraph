@@ -98,7 +98,7 @@ function normalizeZone(raw) {
 function parseNum(val) {
   if (val == null) return NaN;
   let cleaned = String(val).trim().replace(",", ".");
-  cleaned = cleaned.replace(/[^0-9.\-]/g, "");
+  cleaned = cleaned.replace(/[^0-9.-]/g, "");
   const n = parseFloat(cleaned);
   return isFinite(n) ? n : NaN;
 }
@@ -330,25 +330,28 @@ export function parseRSFCsv(csvText, fallbackYear) {
   return records;
 }
 
-// ─── Score Normalization ───────────────────────────────────────────
+// ─── Score direction alignment and methodology eras ───────────────
 
 /**
- * RSF changed scoring methodology in 2013:
- *   2002–2012: Lower score = more free (0 = best, ~105 = worst)
- *   2013–2025: Higher score = more free (100 = best, 0 = worst)
+ * Align score direction for display:
+ *   2002–2012: lower raw score = more free
+ *   2013–2025: higher bundled score = more free
  *
- * This function aligns all years to a single direction.
+ * Subtracting the earlier scores from 100 makes their direction consistent
+ * with the later files. It is not a statistical normalization or proof that
+ * score magnitudes are comparable across methodology eras. Values outside
+ * 0–100 are deliberately preserved rather than clamped.
  *
  * @param {'higherIsBetter'|'lowerIsBetter'} direction
  */
-export function normalizeScores(records, direction = "higherIsBetter") {
+export function alignScoreDirection(records, direction = "higherIsBetter") {
   return records.map((r) => {
     if (r.score === null) return r;
 
     let normalized;
     if (r.year <= 2012) {
       if (direction === "higherIsBetter") {
-        normalized = Math.max(0, 100 - r.score);
+        normalized = 100 - r.score;
       } else {
         normalized = r.score;
       }
@@ -356,12 +359,43 @@ export function normalizeScores(records, direction = "higherIsBetter") {
       if (direction === "higherIsBetter") {
         normalized = r.score;
       } else {
-        normalized = Math.max(0, 100 - r.score);
+        normalized = 100 - r.score;
       }
     }
 
     return { ...r, score: +normalized.toFixed(2) };
   });
+}
+
+export const METHODOLOGY_ERAS = [
+  { id: "2002-2010", start: 2002, end: 2010, label: "2002–2010" },
+  {
+    id: "2011-2012",
+    start: 2012,
+    end: 2012,
+    label: "2011–2012 combined edition",
+  },
+  { id: "2013-2021", start: 2013, end: 2021, label: "2013–2021" },
+  { id: "2022-2025", start: 2022, end: 2025, label: "2022–2025" },
+];
+
+export function getMethodologyEra(year) {
+  return (
+    METHODOLOGY_ERAS.find((era) => year >= era.start && year <= era.end) ??
+    null
+  );
+}
+
+/**
+ * Split annual aggregates into methodology-aware segments. Line charts must
+ * draw each returned segment separately so they cannot imply continuity
+ * across the unobserved 2011 edition or the 2013 and 2022 methodology changes.
+ */
+export function segmentByMethodologyEra(rows) {
+  return METHODOLOGY_ERAS.map((era) => ({
+    ...era,
+    data: rows.filter((row) => row.year >= era.start && row.year <= era.end),
+  })).filter((segment) => segment.data.length > 0);
 }
 
 // ─── Aggregation ───────────────────────────────────────────────────

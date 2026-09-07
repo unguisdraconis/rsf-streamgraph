@@ -2,7 +2,6 @@ import assert from "assert";
 import fs from "fs";
 import {
   parseRSFCsv,
-  normalizeScores,
   aggregateByZoneYear,
   applyCrossYearZoneOverrides,
 } from "../src/utils/parseCSV.js";
